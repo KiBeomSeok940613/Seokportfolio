@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Passion+One&display=swap');
+@font-face {
+	font-family: "Happiness-Sans-Title";
+	src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2")
+		format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
