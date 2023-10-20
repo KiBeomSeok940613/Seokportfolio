@@ -7,8 +7,20 @@ import styled from 'styled-components';
 import Nav from './component/Nav';
 import Mnav from './component/Mnav';
 import Main from './component/Main';
-import Left from './component/Left';
-import Right from './component/Right';
+
+import { Route, Routes } from 'react-router-dom';
+
+
+
+import Left from './component/left/Left';
+import Right from './component/right/Right';
+import Hellovanilla from './component/right/Hellovanilla';
+import Daegubank from './component/right/Daegubank';
+import Home from './component/left/Home';
+import About from './component/left/About';
+import Skills from './component/left/Skills';
+import Content from './component/left/Contents';
+import Contact from './component/left/Contact';
 
 
 const MainWrap = styled.div`
@@ -31,8 +43,18 @@ function App() {
    {/* <Nav />
    <Main /> */}
    <MainWrap>
-      <Left />
-      <Right />  
+    <Left />
+    <Right />
+    <Routes>
+      <Route path="/home" element= {<Home />} />     
+      <Route path="/about" element= {<About />} />     
+      <Route path="/skills" element= {<Skills />} />     
+      <Route path="/contents" element= {<Content />} />     
+      <Route path="/contact" element= {<Contact />} />     
+      <Route path="/hellovanilla" element= {<Hellovanilla />} />     
+      <Route path="/daegubank" element= {<Daegubank />} />
+
+    </Routes> 
   </MainWrap>
    </>
   );
