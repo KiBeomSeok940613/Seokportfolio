@@ -4,16 +4,17 @@ import styled, { createGlobalStyle } from 'styled-components'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import Content from './Contents'
 import Home from './Home'
-import Right from '../right/Right'
+
 
 
 
 
 
 const LeftWrap = styled.nav`
-        width: 50%;     
+        width: 50%;
+        height: 100vh;
         display: flex;             
-        background-color: pink;                 
+        background-color: pink;            
         p{
           font-weight: bold;
           font-size: 30px;
@@ -40,7 +41,7 @@ const ContentWrap = styled.li`
 
 
 function Left({setContents}) {
-  const [currentContent, setCurrentContent] = useState("home")
+  const [currentContent, setCurrentContent] = useState("")
   const navigate = useNavigate();
   const [clickEvent, setClickEvent] = useState(null);
 
@@ -51,10 +52,12 @@ function Left({setContents}) {
   return (
     <>
     <LeftWrap>
+      
       <TextWrap>
         <ul>
           <li>        
-            <p onClick={()=> navigate('/') }>HOME</p> 
+            <p onClick={()=> navigate('/home') }>HOME</p> 
+            <Home />
           </li>
           <li>              
             <p onClick={()=> navigate('/Contents') }>CONTENTS</p>
@@ -68,10 +71,8 @@ function Left({setContents}) {
             </li>  
         </ul>     
       </TextWrap> 
-      <Content />
-       
-
-              
+      {/* <Content /> */}
+             
     </LeftWrap>
     
 

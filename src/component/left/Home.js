@@ -4,7 +4,11 @@ import styled from 'styled-components'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 
-const LeftWrap = styled.div`
+const HomeWrap = styled.div`
+        
+        display: flex;
+        align-items: end;
+        
         p{
           font-weight: bold;
           font-size: 30px;
@@ -28,14 +32,10 @@ function Home() {
   
   return (
     <>
-    <LeftWrap>
-      <p>배고파요</p>
+    <HomeWrap>
+      <p>안녕하세요 FrontEnd Developer BEOM SEOK 입니다.</p>
       
-      
-      
-         
-     
-    </LeftWrap>
+    </HomeWrap>
     
 
 

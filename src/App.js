@@ -11,17 +11,23 @@ import Right from './component/right/Right';
 import Hellovanilla from './component/right/Hellovanilla';
 import Daegubank from './component/right/Daegubank';
 import Home from './component/left/Home';
-import About from './component/left/About';
-import Skills from './component/left/Skills';
-import Content from './component/left/Contents';
-import Contact from './component/left/Contact';
+import Main from './component/real/Main';
+import Nav from './component/real/Nav';
+import { Container } from 'postcss';
+import RealLeft from './component/real/RealLeft';
+import RealRight from './component/real/RealRight';
+import Footer from './component/real/Footer';
 
 
 
-
-const MainWrap = styled.div`
-  display: flex; 
+const MainWrap =styled.body`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 `
+
+
 
 function App() {
   const location = useLocation ();
@@ -38,23 +44,33 @@ function App() {
   
    <>   
    <Globalstyle />
+   <MainWrap>
   
-  <MainWrap>
-    <Left setContents = {setContents} />
-    <Right contents={contents} />
-  </MainWrap>
+  
+    <Nav />
+   
+    <Main />
     
+    <Footer/>
+
+   </MainWrap> 
+
+
+
+    {/* <Left  />
+   <Right /> */}
+  
     
-    
+  {/* setContents = {setContents} */}
+  {/* contents={contents} */}
   
     <Routes>
-      <Route path="/home" element= {<Home />} />     
-      <Route path="/about" element= {<About />} />     
+      <Route path="/Main" element= {<Main />} />     
+      {/* <Route path="/about" element= {<About />} />     
       <Route path="/skills" element= {<Skills />} />     
       <Route path="/contents" element= {<Content />} />     
-      <Route path="/contact" element= {<Contact />} />     
-      <Route path="/hellovanilla" element= {<Hellovanilla />} />     
-      <Route path="/daegubank" element= {<Daegubank />} />
+      <Route path="/contact" element= {<Contact />} />         
+      <Route path="/hellovanilla" element= {<Hellovanilla />} />    */}
     </Routes> 
   
  
