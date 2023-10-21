@@ -2,18 +2,13 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import { NavLink, useNavigate } from 'react-router-dom'
-import Right from '../right/Right'
 import Left from './Left'
+import Right from '../right/Right'
 
 
 
 
-const LeftWrap = styled.div`
-        max-width: 50%;       
-        display: flex;
-        flex: 1;
-        box-sizing: border-box;
-        background-color: pink;
+const LeftContent = styled.div`     
         p{         
           font-weight: bold;
           font-size: 30px;
@@ -24,18 +19,9 @@ const LeftWrap = styled.div`
         }
         
 `
-const ContentWrap = styled.div`
-        flex-basis: 50%;
-        display: flex;        
-        flex-direction: column;
-        justify-content: end;
-        align-items: end;
-        box-sizing: border-box;
-        flex-wrap: wrap;
- `
 
 function Content() {
-  const [currentContent, setCurrentContent] = useState("Contents")
+  const [currentContent, setCurrentContent] = useState("Content")
   const navigate = useNavigate();
   const [clickEvent, setClickEvent] = useState(null);
 
@@ -45,29 +31,15 @@ function Content() {
   
   return (
     <>
-    <LeftWrap>
-        {/* <p>CONTENTS</p>      */}
+   
+    <LeftContent>
+         
         <p onClick={() => ContentClick("/daegubank")}>DAEGU BANK</p>
-        <p onClick={() => ContentClick("/hellovanilla")}>HELLO VANILLA</p>  
-      <ContentWrap>
+        <p onClick={() => ContentClick("/hellovanilla")}>HELLO VANILLA</p> 
+      </LeftContent> 
         
-      </ContentWrap>
-        <Right Content={clickEvent} />
-      
-      
-          {/* {
-            setClickEvent && <Right Content={clickEvent} />
-          }
-          {
-            setClickEvent && <Hellovanilla Content={clickEvent} />
-          } */}
-      
-    </LeftWrap>
-    
-
-
-  
-    
+         
+     
     </>
   )
 }

@@ -1,33 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
+import Right from './Right'
 
 
-const RightWrap = styled.div`
-    width: 50%;
-    height: 100vh;
-    background-color: skyblue;
-`
-const ImgBg = styled.div`
-        width: 100%;
-        height: 50vh;
-        display: flex;
-        justify-content: center;
+
+const ImgBg = styled.div`    
         img{
-          width: 100%;
-          height: 100vh;
-          object-fit : cover;
-         
+      
+          object-fit : cover;        
         }
        
 `
 function Daegubank() {
   return (
-    <>
-    <RightWrap>
+    <>   
       <ImgBg>
         <img src="img/DGB.JPG" alt="*" />
-      </ImgBg>
-    </RightWrap>
+      </ImgBg>  
     
     </>
   )

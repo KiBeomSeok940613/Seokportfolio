@@ -4,13 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Globalstyle from './styles/Globalstyle';
 
 import styled from 'styled-components';
-import Nav from './component/Nav';
-import Mnav from './component/Mnav';
-import Main from './component/Main';
-
-import { Route, Routes } from 'react-router-dom';
-
-
+import { BrowserRouter, Route, Router, Routes, useLocation } from 'react-router-dom';
 
 import Left from './component/left/Left';
 import Right from './component/right/Right';
@@ -23,15 +17,19 @@ import Content from './component/left/Contents';
 import Contact from './component/left/Contact';
 
 
+
+
 const MainWrap = styled.div`
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        flex: 1;
-        box-sizing: border-box;
+  display: flex; 
 `
 
 function App() {
+  const location = useLocation ();
+  const [contents, setContents] = useState (null);
+
+  const handleContentClick = (content) => {
+    setContents(content);
+  };
 
   return (
     // 나머지 스크롤 관련 로직을 이곳에 추가
@@ -40,11 +38,15 @@ function App() {
   
    <>   
    <Globalstyle />
-   {/* <Nav />
-   <Main /> */}
-   <MainWrap>
-    <Left />
-    <Right />
+  
+  <MainWrap>
+    <Left setContents = {setContents} />
+    <Right contents={contents} />
+  </MainWrap>
+    
+    
+    
+  
     <Routes>
       <Route path="/home" element= {<Home />} />     
       <Route path="/about" element= {<About />} />     
@@ -53,9 +55,9 @@ function App() {
       <Route path="/contact" element= {<Contact />} />     
       <Route path="/hellovanilla" element= {<Hellovanilla />} />     
       <Route path="/daegubank" element= {<Daegubank />} />
-
     </Routes> 
-  </MainWrap>
+  
+ 
    </>
   );
 }

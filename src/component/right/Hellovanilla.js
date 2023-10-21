@@ -1,24 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+import Right from './Right'
 
-const RightWrap = styled.div`
-    width: 50%;
-    height: 100vh;
-    background-color: skyblue;
-`
-const ImgBg = styled.div`
-        width: 100%;
-        height: 50vh;
-        display: flex;
-        justify-content: center;
+
+
+const ImgBg = styled.div`   
         img{
-          width: 100%;
+          max-width: 1280px;
           height: 70vh;
           box-shadow: 1px 1px 1px 1px ;
-          border-radius: 10px;
-          @media screen and {
-            
-          }
+          border-radius: 10px;      
         }
         
        
@@ -27,12 +18,11 @@ const ImgBg = styled.div`
 function Hellovanilla() {
   return (
    <>
-     <RightWrap>
-      <ImgBg>
+     
+      
         <img src="img/hello.JPG" alt="*" />
-      </ImgBg>
-    </RightWrap>
-   
+      
+    
    </>
   )
 }

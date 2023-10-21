@@ -1,21 +1,20 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import Content from './Contents'
 import Home from './Home'
 import Right from '../right/Right'
 
 
+
+
+
 const LeftWrap = styled.nav`
-        width: 50vw; 
-        height : 100vh;
-        display: flex;        
-        flex: 1;
-        box-sizing: border-box;
+        width: 50%;     
+        display: flex;             
         background-color: pink;                 
         p{
-          align-items: center;
           font-weight: bold;
           font-size: 30px;
           cursor: pointer;
@@ -24,42 +23,23 @@ const LeftWrap = styled.nav`
         }
         }
         
+` 
+const TextWrap = styled.div`
+      flex-basis: 100%;
+      ul{
+        display: flex;
+        justify-content: space-around;
+      }
+      
+                           
 `
-const ContentWrap = styled.div`
-        height: 100vh;
-        display: flex;        
-        flex-direction: column;
-        justify-content: end;
+const ContentWrap = styled.li`      
         align-items: end;
-        box-sizing: border-box;
-        flex-wrap: wrap;
- `
-const TextWrap = styled.div`             
-            display: flex;             
-            align-items: center;
-        ul{
-
-        }         
-          
-        
-  
-  li{
-    display: flex;
-    justify-content: space-around;
-  }
-`
-const Middlecontent = styled.div`          
-        height: 100vh;
-       
-        ul{
-          display: flex;
-          align-items: end;
-          
-        }
 
 `
 
-function Left() {
+
+function Left({setContents}) {
   const [currentContent, setCurrentContent] = useState("home")
   const navigate = useNavigate();
   const [clickEvent, setClickEvent] = useState(null);
@@ -72,30 +52,26 @@ function Left() {
     <>
     <LeftWrap>
       <TextWrap>
-      <ul>
-        <li> 
-          <p onClick={()=> ContentClick ('home') }>HOME</p>                
-          <p onClick={()=> ContentClick ('Contents') }>CONTENTS</p>     
-          <p onClick={()=> ContentClick ('about') }>ABOUT</p>     
-          <p onClick={()=> ContentClick ('skills') }>SKILLS</p> 
-          <p onClick={()=> ContentClick ('contact') }>CONTACT</p>
-        </li>     
-      </ul>    
-      </TextWrap> 
-      <Middlecontent>
         <ul>
-        
-        </ul>
-      </Middlecontent>
-      {/* <button onClick={()=> setCurrentContent('home')}>집으로..</button>
-      <button onClick={()=> setCurrentContent('about')}>나자신..</button>
-      <button onClick={()=> setCurrentContent('skills')}>스킬..</button>
-      <button onClick={()=> setCurrentContent('contents')}>컨텐츠</button> */}
-      
-      
-      
-      {/* {currentContent === "home" && <Home />}
-      {currentContent === "contents" && <Content />} */}
+          <li>        
+            <p onClick={()=> navigate('/') }>HOME</p> 
+          </li>
+          <li>              
+            <p onClick={()=> navigate('/Contents') }>CONTENTS</p>
+          </li>      
+              <p onClick={()=> navigate('/about') }>ABOUT</p>
+            <li>    
+              <p onClick={()=> navigate('/skills') }>SKILLS</p>
+            </li> 
+            <li>
+              <p onClick={()=> navigate('/contact') }>CONTACT</p>
+            </li>  
+        </ul>     
+      </TextWrap> 
+      <Content />
+       
+
+              
     </LeftWrap>
     
 
