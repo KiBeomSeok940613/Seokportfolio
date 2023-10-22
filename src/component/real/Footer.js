@@ -3,8 +3,10 @@ import styled from 'styled-components'
 
 const FooterWrap = styled.div`
     width: 100%;
-    height: 100px;
-    background-color: blue;
+    bottom: 0;
+    position: fixed;
+    height: 30px;
+    border-top: 1px solid black;
     /* 하단 고정 해야함. */
 `
 const TextWrap = styled.div`
@@ -13,7 +15,7 @@ const TextWrap = styled.div`
         justify-content: center;
         align-items: center;
         p{
-            color: whitesmoke;
+            color: black;
             font-size: 30px;
         }
 `

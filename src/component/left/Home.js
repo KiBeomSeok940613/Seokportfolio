@@ -33,7 +33,7 @@ function Home() {
   return (
     <>
     <HomeWrap>
-      <p>안녕하세요 FrontEnd Developer BEOM SEOK 입니다.</p>
+      <p></p>
       
     </HomeWrap>
     

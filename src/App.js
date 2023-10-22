@@ -12,11 +12,15 @@ import Daegubank from './component/right/Daegubank';
 import Main from './component/real/Main';
 import Nav from './component/real/Nav';
 
-import RealLeft from './component/real/RealLeft';
 import Footer from './component/real/Footer';
 import About from './component/contents/About';
 import Skills from './component/contents/Skills';
 import Content from './component/contents/Content';
+
+const Navtoppadding = styled.div`
+    padding-top: 80px;
+
+`
 
 
 
@@ -30,6 +34,7 @@ function App() {
   const handleContentClick = (content) => {
     setContents(content);
   };
+  
 
   return (
     // 나머지 스크롤 관련 로직을 이곳에 추가
@@ -39,10 +44,11 @@ function App() {
    <>   
    <Globalstyle />
   
-  
+ 
   
     <Nav />
-   
+      <Navtoppadding />   
+    
     <Main />
     
     <Footer/>
@@ -59,7 +65,7 @@ function App() {
   {/* contents={contents} */}
   
     <Routes>
-      <Route path="/Main" element= {<Main />} />     
+      <Route path="/" element= {<Main />} />     
        <Route path="/about" element= {<About />} />     
       <Route path="/skills" element= {<Skills />} />     
       <Route path="/contents" element= {<Content />} />           
