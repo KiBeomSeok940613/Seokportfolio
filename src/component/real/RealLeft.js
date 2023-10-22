@@ -1,31 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
+import About from '../contents/About'
 
 
-const LeftWrap = styled.div`
-    flex-basis: 95%;
+
+
+const MainWrap = styled.div`
+    margin: 0 auto;
+    padding-top: 100px;
+    flex-basis: 100%;
     height: 100vh;
-    background-color: hotpink;
+    background-color: #E6DC73;
     p{
         display: flex;
-        justify-content: center;
-        align-items: center;
     }
 `
-const TextWrap = styled.div`
-        height: 100% ;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-`
+
 function RealLeft() {
   return (
     <>
-    <LeftWrap>
-        <TextWrap>
-            <p>RealLeft</p>
-        </TextWrap>
-    </LeftWrap>
+    <MainWrap>
+                   
+       
+    </MainWrap>
     </>
   )
 }

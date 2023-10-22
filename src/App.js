@@ -5,27 +5,21 @@ import Globalstyle from './styles/Globalstyle';
 
 import styled from 'styled-components';
 import { BrowserRouter, Route, Router, Routes, useLocation } from 'react-router-dom';
+import { Container } from 'postcss';
 
-import Left from './component/left/Left';
-import Right from './component/right/Right';
 import Hellovanilla from './component/right/Hellovanilla';
 import Daegubank from './component/right/Daegubank';
-import Home from './component/left/Home';
 import Main from './component/real/Main';
 import Nav from './component/real/Nav';
-import { Container } from 'postcss';
+
 import RealLeft from './component/real/RealLeft';
-import RealRight from './component/real/RealRight';
 import Footer from './component/real/Footer';
+import About from './component/contents/About';
+import Skills from './component/contents/Skills';
+import Content from './component/contents/Content';
 
 
 
-const MainWrap =styled.body`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-`
 
 
 
@@ -44,7 +38,7 @@ function App() {
   
    <>   
    <Globalstyle />
-   <MainWrap>
+  
   
   
     <Nav />
@@ -53,7 +47,7 @@ function App() {
     
     <Footer/>
 
-   </MainWrap> 
+
 
 
 
@@ -66,11 +60,10 @@ function App() {
   
     <Routes>
       <Route path="/Main" element= {<Main />} />     
-      {/* <Route path="/about" element= {<About />} />     
+       <Route path="/about" element= {<About />} />     
       <Route path="/skills" element= {<Skills />} />     
-      <Route path="/contents" element= {<Content />} />     
-      <Route path="/contact" element= {<Contact />} />         
-      <Route path="/hellovanilla" element= {<Hellovanilla />} />    */}
+      <Route path="/contents" element= {<Content />} />           
+      <Route path="/hellovanilla" element= {<Hellovanilla />} />    
     </Routes> 
   
  
