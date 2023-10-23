@@ -14,7 +14,7 @@ import Globalstyle from './styles/Globalstyle';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-  <Globalstyle />
+  {/* <Globalstyle /> */}
     <App />
   </BrowserRouter>
 );
