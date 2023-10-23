@@ -42,14 +42,12 @@ function App() {
   // 나머지 스크롤 위치와 스타일 관련 코드를 React 스타일로 변경
   
    <>   
-   <Globalstyle />
-  
- 
+   
   
     <Nav />
       <Navtoppadding />   
     
-    <Main />
+    
     
     <Footer/>
 
@@ -65,7 +63,7 @@ function App() {
   {/* contents={contents} */}
   
     <Routes>
-      <Route path="/" element= {<Main />} />     
+      <Route path="/main" element= {<Main />} />     
        <Route path="/about" element= {<About />} />     
       <Route path="/skills" element= {<Skills />} />     
       <Route path="/contents" element= {<Content />} />           
