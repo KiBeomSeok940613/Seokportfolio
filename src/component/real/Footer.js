@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const FooterWrap = styled.div`
+z-index: 50 ;
     width: 100%;
     bottom: 0;
     position: fixed;

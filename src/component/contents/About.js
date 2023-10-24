@@ -7,17 +7,18 @@ import styled from 'styled-components'
 
 
 const BgImg =styled.body`
-    width: 100%;
-    height: 100vh;   
-    background-image: url("https://placeholder.com/1920x800/dog");
+margin: 0 auto;
+    width: 60%;
+    height: 500px;   
     position: relative;
-    background-size: cover;
+    background-color: gray;
+    
 `
 
 const AboutWrap = styled.div`
 
       width: 100%;
-      height: 100vh;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -29,11 +30,11 @@ const AboutWrap = styled.div`
       line-height: 10px;
       
       h1{
-        font-size: 80px;
+        font-size:  3rem ;
        
       }
       p{
-        font-size: 40px;      
+        font-size: 2rem;      
       }
      
     @media screen and (max-width: 768px) {
@@ -46,7 +47,7 @@ const Iconwrap = styled.div`
       width: 10%;
       display: flex;
       justify-content :space-around ;
-      font-size: 40px;
+      font-size: 2rem;
 
 `
 

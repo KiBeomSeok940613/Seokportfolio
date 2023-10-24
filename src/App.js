@@ -17,24 +17,12 @@ import About from './component/contents/About';
 import Skills from './component/contents/Skills';
 import Content from './component/contents/Content';
 
-const Navtoppadding = styled.div`
-    padding-top: 80px;
-
-`
-
 
 
 
 
 
 function App() {
-  const location = useLocation ();
-  const [contents, setContents] = useState (null);
-
-  const handleContentClick = (content) => {
-    setContents(content);
-  };
-  
 
   return (
     // 나머지 스크롤 관련 로직을 이곳에 추가
@@ -43,25 +31,22 @@ function App() {
   
    <>   
    
-  
+ 
     <Nav />
-      <Navtoppadding />   
     
+    
+      
+      <Main />
+      
+      <About />
+      
+      <Content />
+   
     
     
     <Footer/>
 
 
-
-
-
-    {/* <Left  />
-   <Right /> */}
-  
-    
-  {/* setContents = {setContents} */}
-  {/* contents={contents} */}
-  
     <Routes>
       <Route path="/main" element= {<Main />} />     
        <Route path="/about" element= {<About />} />     
