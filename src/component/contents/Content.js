@@ -2,30 +2,41 @@ import React from 'react'
 import styled from 'styled-components'
 
 const ContentWrap = styled.div`
-      width: 80%;
+      width: 100%;
       margin: 0 auto;
       display: flex;
-      justify-content: center;     
+      justify-content: center;  
+      
       
 `
+const Content_Wrap = styled.div`
+      width: 100%;
+      height: calc(100vh - 50px);
+        display: flex;    
+        justify-content: center;
+      background-color:  #101419;  
+
+`
 const ContentContainer = styled.div`
+      
       text-align: center;
-      width: 50%;
-      height: 300px;
+      width: 100%;    
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin: 0 auto;
-      border: 1px solid black;
+      border: 1px solid white;
       
       .content-img{
-        width: 100%;
-        height: 100%;
+        display: flex;
+        width: 600px;
+        height: 300px;
         cursor: pointer; 
         position: relative;
+        
       }
       .description {
-        width: 50%;
+        width: 600px;
         height: 300px;
          opacity: 0;
           background-color: rgba(0, 0, 0, 0.8);
@@ -81,6 +92,8 @@ function Content() {
       <ContentWrap>
       <h1>Contents</h1>
       </ContentWrap>
+      
+    <Content_Wrap>
       {
         ContentSkills.map((e,i)=>{
           return(
@@ -90,13 +103,11 @@ function Content() {
               <div className='description'>{e.title}{e.desc}</div>
               <div className='description'></div>
                      
-            </ContentContainer>
-           
+            </ContentContainer>        
           )
-        })
-        
-
+        })      
       }
+      </Content_Wrap>
     
 
       

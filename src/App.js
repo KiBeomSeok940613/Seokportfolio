@@ -5,10 +5,10 @@ import Globalstyle from './styles/Globalstyle';
 
 import styled from 'styled-components';
 import { BrowserRouter, Route, Router, Routes, useLocation } from 'react-router-dom';
-import { Container } from 'postcss';
+
 
 import Hellovanilla from './component/right/Hellovanilla';
-import Daegubank from './component/right/Daegubank';
+
 import Main from './component/real/Main';
 import Nav from './component/real/Nav';
 
@@ -33,20 +33,13 @@ function App() {
    
  
     <Nav />
+  
     
-    
-      
-      <Main />
-      
-      <About />
-      
-      <Content />
-   
-    
+
+     
     
     <Footer/>
-
-
+      
     <Routes>
       <Route path="/main" element= {<Main />} />     
        <Route path="/about" element= {<About />} />     
@@ -54,6 +47,16 @@ function App() {
       <Route path="/contents" element= {<Content />} />           
       <Route path="/hellovanilla" element= {<Hellovanilla />} />    
     </Routes> 
+
+
+      {/* <Main /> */}
+      
+      {/* <About />
+      
+      <Content />
+   
+      <Skills />
+     */}
   
  
    </>

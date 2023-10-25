@@ -8,7 +8,7 @@ import styled from 'styled-components'
 
 const BgImg =styled.body`
 margin: 0 auto;
-    width: 60%;
+    width: 100%;
     height: 500px;   
     position: relative;
     background-color: gray;

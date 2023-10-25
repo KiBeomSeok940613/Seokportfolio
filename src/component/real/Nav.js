@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 
-// Nav 라인 시작
+// Nav 애니메이션 
 
 const Navbar = keyframes`
   0%{
@@ -15,14 +15,15 @@ const Navbar = keyframes`
   }
 
 `
+// Nav Wrap 네비 랩 시작
 const NavWrap = styled.header`
 z-index: 50 ;
       width: 100% ;
       display: flex; 
       align-items: center;
       justify-content: space-between;    
-      background-color: pink;
-      border-bottom: 1px solid black;
+      background-color: #101419;
+      border-bottom: 2px solid whitesmoke;
       position: fixed;
                /* background-image: linear-gradient(to right, #a274f7, #83b8f1); */
     /* 상단 고정 해야함. */
@@ -30,14 +31,15 @@ z-index: 50 ;
      
       border-radius: 10px;      
         font-size: 2.5rem;
-        color: white;
+        color: whitesmoke;       
         font-weight: bold;
-        cursor: pointer;            
+        cursor: pointer;   
+        background-color: #fff;         
         }  
 
     .menutoggleBtn{
       display: none; 
-      color: black;
+      color: whitesmoke;
       font-size: 1.5rem;
       position: absolute;
       right: 20px;
@@ -59,7 +61,7 @@ z-index: 50 ;
         }
     }
 `
-// Nav 끝 
+// header.끝 
   
 
 
@@ -146,13 +148,13 @@ function Nav() {
         
         <Navigation isToggleOpen={isToggleOpen}>           
               <li>
-               {/* <Link to={'/about'} className='Nav-menu-list'> ABOUT</Link>  */}
+               <Link to={'/about'} className='Nav-menu-list'> ABOUT</Link>  
               </li>
               <li>
-               {/* <Link to={'/contents'} className='Nav-menu-list'>CONTENTS</Link>  */}
+               <Link to={'/contents'} className='Nav-menu-list'>CONTENTS</Link>  
               </li>
               <li>
-               {/* <Link to={'/skills'} className='Nav-menu-list'> SKILLS</Link>  */}
+              <Link to={'/skills'} className='Nav-menu-list'> SKILLS</Link> 
               </li>
               
       
