@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import Skills from '../contents/Skills';
 import Content from '../contents/Content';
+import About from '../contents/About';
 
 
 
@@ -18,16 +19,12 @@ const fadeIn = keyframes`
 
 
 const MainWrap = styled.div`
-background-color: #F8F0E5;
+background-color: #FFF2D8;
   padding-top: 50px;
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  position: relative;
+
   display: inline-block;
   h1{
     color: #102C57;
@@ -45,13 +42,24 @@ background-color: #F8F0E5;
     color: #102C57;
     animation: ${fadeIn} 2.5s ease-in-out forwards 0.5s;
   }
+  /* 모바일 버전 먼저. */
+  @media screen and (max-width: 767px) {
+    
+      
+   
+  }
 `
-const MainWrapText = styled.p`
+const MainWrapText = styled.div`
+        
+        width: 80%;
+        margin: 0 auto;
+        justify-content: center;
+        display: flex;
+      
 
 `
-
 const Paddings = styled.div`
-          padding-top: 500px;
+          margin-top: 100px;
 `
 
 
@@ -60,15 +68,23 @@ function Main() {
    <>
    
    <MainWrap>
-    <MainWrapText />
+    
+    <MainWrapText>
        <h2>안녕하세요.<h3>Front-End Developer</h3> <h1>기범석</h1> 
      입니다.</h2>
-     <Paddings />
-     <Skills />
-     <Paddings />
-      <Content />
+    </MainWrapText>
   
-   </MainWrap> 
+  </MainWrap> 
+  
+  <Paddings/>
+    <About />
+
+  <Paddings/>
+  <Skills />
+    
+  
+    
+  
   
    
 

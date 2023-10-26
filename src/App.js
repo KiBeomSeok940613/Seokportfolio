@@ -16,10 +16,14 @@ import Footer from './component/real/Footer';
 import About from './component/contents/About';
 import Skills from './component/contents/Skills';
 import Content from './component/contents/Content';
+import Loading from './component/contents/Loading';
 
 
-
-
+const BgColor = styled.body`
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+`
 
 
 function App() {
@@ -33,6 +37,9 @@ function App() {
    
  
     <Nav />
+    <BgColor >
+
+    </BgColor>
   
     
 
@@ -41,6 +48,7 @@ function App() {
     <Footer/>
       
     <Routes>
+      <Route path="/" element = {<Loading />} />
       <Route path="/main" element= {<Main />} />     
        <Route path="/about" element= {<About />} />     
       <Route path="/skills" element= {<Skills />} />     

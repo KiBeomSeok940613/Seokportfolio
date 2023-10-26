@@ -20,7 +20,8 @@ const Content_Wrap = styled.div`
 const ContentContainer = styled.div`
       
       text-align: center;
-      width: 100%;    
+      width: 100%;
+      height: 500px;
       display: flex;
       justify-content: space-between;
       align-items: center;

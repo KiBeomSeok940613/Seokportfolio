@@ -6,15 +6,21 @@ import styled from 'styled-components'
 
 
 
-const BgImg =styled.body`
-margin: 0 auto;
-    width: 100%;
-    height: 500px;   
-    position: relative;
-    background-color: gray;
+// const BgImg =styled.body`
+//   margin: 0 auto;
+//     width: 100%;
+//     height: 700px;   
+//     position: relative;
+//     background-color: gray;
     
-`
+// `
 
+const Aboutme_Wrap = styled.div`
+      width: 100%;
+        display: flex;
+        justify-content: center;
+        font-size: 4rem;
+`
 const AboutWrap = styled.div`
 
       width: 100%;
@@ -22,10 +28,9 @@ const AboutWrap = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0 auto;
-      position: absolute;
-      background-color: rgba(0,0,0,0.6);
-      color: #fff;
+      margin: 0 auto;    
+      background-color: #EAD7BB;
+      color: #101419;
       flex-direction: column;
       line-height: 10px;
       
@@ -55,9 +60,14 @@ function About() {
   return (
     <>
       
-    <BgImg>
+    
+     
     <AboutWrap> 
-      <h1>안녕하세요.</h1>
+    
+      <Aboutme_Wrap>
+        <h1>안녕하세요.</h1>
+      </Aboutme_Wrap>
+      
       <p>저는 코딩 하는것을 너무나도 좋아하는</p>
       <p>기범석 입니다!</p>
       <Iconwrap>
@@ -69,7 +79,7 @@ function About() {
       
       
     </AboutWrap>
-    </BgImg>
+   
    
     
     </>

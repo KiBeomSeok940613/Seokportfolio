@@ -7,55 +7,72 @@ import styled from 'styled-components'
 const SkillsWrap = styled.div`
      
       width: 100%;
-      height: calc(100vh - 50px);
+      height: 100%;
      display: flex;
       justify-content: space-between;
       align-items: center;
       margin: 0 auto;
-      background-color:  #101419;
+      background-color:  #BCA37F;
       flex-wrap: wrap;
       .SkillS_Wrap{
         color: whitesmoke;
       }
       
        @media screen and (max-width: 768px) {
-        justify-content: center;
+        justify-content: space-around;
       align-items: center;   
   } 
-  `
 
+  `
 const SkillS_Wrap = styled.div`
       width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         font-size: 4rem;
+       
 `
 const SkillContainer = styled.div`
-      text-align: center;
-      width: 25%; 
+      width: 20%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     
       border: 1px solid white;
+      margin-bottom: 30px;
+    
+      
 
       .skill-img{
-        width: 150px;
+        width: 100%;
         height: 150px;
         cursor: pointer; 
         position: relative;
+        margin-bottom: 40px;
       }
-      .description {     
-        width: auto;
-        height: auto;
-         opacity: 0;
-          background-color: rgba(0, 0, 0, 0.8);
-            color: white;                 
-              
-            display: flex;
+        .description {     
+         width: 20%;
+          height: 150px;
+           opacity: 0;
+           background-color: rgba(0, 0, 0, 0.8);
+              color: white;                              
+              display: flex;
                justify-content: center;
                align-items: center;
                 transition: opacity 0.5s;
-                position: absolute;             
+                position: absolute;
+                @media screen and (max-width: 768px) {
+              width: 35%;
+              
+              
+             } 
+             @media screen and (max-width: 500px) {
+              width: 50%;
+             }     
+                
              }
               .desc2{
-                color: pink;
+                color: whitesmoke;
+                margin-bottom: 20px;
               }
                 &:hover {           
                   .description {
@@ -63,7 +80,9 @@ const SkillContainer = styled.div`
                       }
              }
              @media screen and (max-width: 768px) {
-              width: 33.33%
+              width: 35%;
+              
+              
              } 
              @media screen and (max-width: 500px) {
               width: 50%;
@@ -132,8 +151,9 @@ function Skills() {
               return(
               <SkillContainer key={i}>
               <img  className='skill-img'src={e.imgsrc} alt={e.title} /> 
-              <div className='description'>{e.desc}</div>
-              <div className='desc2'>{e.desc2}</div>
+              <div className='description'>{e.title}{e.desc}{e.desc2}
+              </div>
+             
               </SkillContainer>
             )})
              
