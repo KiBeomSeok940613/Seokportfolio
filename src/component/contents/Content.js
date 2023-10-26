@@ -3,19 +3,36 @@ import styled from 'styled-components'
 
 const ContentWrap = styled.div`
       width: 100%;
+      height: 100%;
       margin: 0 auto;
       display: flex;
       justify-content: center;  
       
+      @media screen and (max-width: 768px) {
+       width: 50%;
+         
+         
+      } 
+      @media screen and (max-width: 500px) {
+       width: 35%;
+      } 
       
 `
 const Content_Wrap = styled.div`
       width: 100%;
-      height: calc(100vh - 50px);
+      height: 800px;  
         display: flex;    
         justify-content: center;
       background-color:  #101419;  
 
+      @media screen and (max-width: 768px) {
+         
+         
+         
+      } 
+      @media screen and (max-width: 500px) {
+         
+} 
 `
 const ContentContainer = styled.div`
       
@@ -27,7 +44,7 @@ const ContentContainer = styled.div`
       align-items: center;
       margin: 0 auto;
       border: 1px solid white;
-      
+     
       .content-img{
         display: flex;
         width: 600px;
@@ -58,6 +75,21 @@ const ContentContainer = styled.div`
                     opacity: 1;
                       }
              }
+             @media screen and (max-width: 768px) {
+                width: 50%;
+                display: flex;
+            justify-content: center;
+            align-items: center;
+           flex-direction: column;
+      
+         
+         
+           } 
+              @media screen and (max-width: 500px) {
+                  width: 35%;
+           
+
+             } 
 `
 
 function Content() {

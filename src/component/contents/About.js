@@ -12,19 +12,14 @@ import styled from 'styled-components'
 //     height: 700px;   
 //     position: relative;
 //     background-color: gray;
-    
+
 // `
 
-const Aboutme_Wrap = styled.div`
-      width: 100%;
-        display: flex;
-        justify-content: center;
-        font-size: 4rem;
-`
+
 const AboutWrap = styled.div`
 
       width: 100%;
-      height: 100%;
+      height: 1080px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -32,58 +27,86 @@ const AboutWrap = styled.div`
       background-color: #EAD7BB;
       color: #101419;
       flex-direction: column;
-      line-height: 10px;
+    
+      padding-top: 100px;
       
       h1{
-        font-size:  3rem ;
-       
+        font-size:  6rem ;     
+      }
+      h2{
+        font-size:  3rem ;     
       }
       p{
         font-size: 2rem;      
-      }
-     
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-      align-items: flex-start;   
-  }
-    
+      }    
+      @media screen and (max-width: 768px) {
+              padding-top: 100px;                                  
+             } 
+             @media screen and (max-width: 500px) {
+                  padding-top: 100px;             
+             } 
  `
+const About_me_Wrap = styled.div`
+ width: 100%;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+  
+   @media screen and (max-width: 768px) {
+       
+         
+         
+        } 
+        @media screen and (max-width: 500px) {
+         
+        } 
+`
 const Iconwrap = styled.div`
-      width: 10%;
+      width: 50%;
       display: flex;
       justify-content :space-around ;
       font-size: 2rem;
-
+      @media screen and (max-width: 768px) {
+              
+              
+              
+            } 
+            @media screen and (max-width: 500px) {
+            
+            } 
 `
 
 function About() {
   return (
     <>
-      
-    
-     
-    <AboutWrap> 
-    
-      <Aboutme_Wrap>
-        <h1>안녕하세요.</h1>
-      </Aboutme_Wrap>
-      
-      <p>저는 코딩 하는것을 너무나도 좋아하는</p>
-      <p>기범석 입니다!</p>
-      <Iconwrap>
-        <FontAwesomeIcon className ="BoxIcon" icon={faBox}></FontAwesomeIcon>
-        <FontAwesomeIcon className ="BoxIcon" icon={faBox}></FontAwesomeIcon>
-        <FontAwesomeIcon  className ="BoxIcon"icon={faBox}></FontAwesomeIcon>
-      </Iconwrap>
-      
-      
-      
-    </AboutWrap>
-   
-   
-    
+
+
+
+      <AboutWrap>
+
+        <About_me_Wrap>
+            <h1>ABOUT ME</h1>
+            <h2>안녕하세요.</h2>
+        </About_me_Wrap>
+        <img className='Img_' src='img/jpg.1.jpg' />
+
+        <p>저는 코딩 하는것을 너무나도 좋아하는</p>
+        <p>기범석 입니다!</p>
+        <Iconwrap>
+          <FontAwesomeIcon className="BoxIcon" icon={faBox}></FontAwesomeIcon>
+          <FontAwesomeIcon className="BoxIcon" icon={faBox}></FontAwesomeIcon>
+          <FontAwesomeIcon className="BoxIcon" icon={faBox}></FontAwesomeIcon>
+        </Iconwrap>
+
+
+
+      </AboutWrap>
+
+
+
     </>
-    
+
   )
 }
 

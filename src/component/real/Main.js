@@ -81,7 +81,9 @@ function Main() {
 
   <Paddings/>
   <Skills />
-    
+  
+  <Paddings/>
+  <Content />
   
     
   

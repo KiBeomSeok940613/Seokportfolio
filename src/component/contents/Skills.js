@@ -32,7 +32,7 @@ const SkillS_Wrap = styled.div`
        
 `
 const SkillContainer = styled.div`
-      width: 20%;
+      width: 200px;
       display: flex;
       justify-content: center;
       align-items: center;
