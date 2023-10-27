@@ -23,7 +23,6 @@ const fadeIn = keyframes`
 
 const MainWrap = styled.div`
 background-color: #FFF2D8;
-  padding-top: 50px;
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -61,9 +60,7 @@ const MainWrapText = styled.div`
       
 
 `
-const Paddings = styled.div`
-          margin-top: 100px;
-`
+
 
 
 function Main() {

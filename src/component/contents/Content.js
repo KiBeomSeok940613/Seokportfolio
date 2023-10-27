@@ -2,63 +2,73 @@ import React from "react";
 import styled from "styled-components";
 
 const ContentWrap = styled.div`
+  padding-top: 80px;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
+  background-color: #bca37f;
+
+  h1 {
+    
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    color: black;
+    
+  }
 
   @media screen and (max-width: 1024px) {
-    width: 50%;
+    justify-content: space-around;
+    align-items: center;
   }
   @media screen and (max-width: 500px) {
-    width: 35%;
+    width: 100%;
   }
 `;
-const Content_Wrap = styled.div`
+const ContentItem = styled.div`
   width: 100%;
-  height: 800px;
   display: flex;
   justify-content: center;
-  background-color: #101419;
-
-  @media screen and (max-width: 1024px) {
-  }
-  @media screen and (max-width: 500px) {
-  }
+  font-size: 3.5rem;
+  color: whitesmoke;
 `;
 const ContentContainer = styled.div`
-  text-align: center;
-  width: 100%;
-  height: 500px;
+  width: 20%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin: 0 auto;
+
   border: 1px solid white;
+  margin-bottom: 30px;
 
   .content-img {
-    display: flex;
     width: 100%;
-    height: 100%;
+    height: 150px;
     cursor: pointer;
     position: relative;
+    margin-bottom: 40px;
   }
   .description {
-    width: 100%;
-    height: auto;
+    width: 20%;
+    height: 150px;
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
-
     display: flex;
     justify-content: center;
     align-items: center;
     transition: opacity 0.5s;
     position: absolute;
+    @media screen and (max-width: 1024px) {
+      width: 35%;
+    }
+    @media screen and (max-width: 500px) {
+      width: 50%;
+    }
   }
   .desc2 {
-    color: pink;
+    color: whitesmoke;
+    margin-bottom: 20px;
   }
   &:hover {
     .description {
@@ -66,17 +76,10 @@ const ContentContainer = styled.div`
     }
   }
   @media screen and (max-width: 1024px) {
-    width: 50%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    width: 35%;
   }
   @media screen and (max-width: 500px) {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    width: 50%;
   }
 `;
 
@@ -111,23 +114,23 @@ function Content() {
   return (
     <>
       <ContentWrap>
-        <h1>Contents</h1>
-      </ContentWrap>
+        <h1>CONTENTS</h1>
 
-      <Content_Wrap>
-        {ContentSkills.map((e, i) => {
-          return (
-            <ContentContainer key={i}>
-              <img className="content-img" src={e.imgsrc} alt="x" />
-              <div className="description">
-                {e.title}
-                {e.desc}
-              </div>
-              <div className="description"></div>
-            </ContentContainer>
-          );
-        })}
-      </Content_Wrap>
+        <ContentItem>
+          {ContentSkills.map((e, i) => {
+            return (
+              <ContentContainer key={i}>
+                <img className="content-img" src={e.imgsrc} alt="x" />
+                <div className="description">
+                  {e.title}
+                  {e.desc}
+                </div>
+                <div className="description"></div>
+              </ContentContainer>
+            );
+          })}
+        </ContentItem>
+      </ContentWrap>
     </>
   );
 }

@@ -7,16 +7,6 @@ import Globalstyle from '../../styles/Globalstyle'
 
 
 
-// const BgImg =styled.body`
-//   margin: 0 auto;
-//     width: 100%;
-//     height: 700px;   
-//     position: relative;
-//     background-color: gray;
-
-// `
-
-
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -31,17 +21,13 @@ const fadeIn = keyframes`
 const AboutWrap = styled.div`
   animation: ${fadeIn} 1s ease-in-out forwards;
       width: 100%;
-      height: 1080px;
+     height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       margin: 0 auto;    
       background-color: #EAD7BB;
-      color: #101419;
-      
-      margin-bottom: 30px;
-      padding-top: 100px;
-      
+      color: #101419;            
         
       h1{
         font-size:  4rem ;
@@ -74,6 +60,7 @@ const AboutWrap = styled.div`
  `
 const About_me_Wrap = styled.div`
  width: 100%;
+ height: 100vh;
    display: flex;
    justify-content: center;
    flex-direction: column;
