@@ -35,7 +35,7 @@ function App() {
   
    <>   
    
- 
+    <Globalstyle />
     <Nav />
     <BgColor >
 

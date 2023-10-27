@@ -14,9 +14,7 @@ const SkillsWrap = styled.div`
       margin: 0 auto;
       background-color:  #BCA37F;
       flex-wrap: wrap;
-      .SkillS_Wrap{
-        color: whitesmoke;
-      }
+     
       
        @media screen and (max-width: 768px) {
         justify-content: space-around;
@@ -28,11 +26,12 @@ const SkillS_Wrap = styled.div`
       width: 100%;
         display: flex;
         justify-content: center;
-        font-size: 4rem;
+        font-size: 3.5rem;
+        color: whitesmoke;
        
 `
 const SkillContainer = styled.div`
-      width: 200px;
+      width: 20%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -143,8 +142,9 @@ function Skills() {
   return (
     <>
     <SkillsWrap>
+      
       <SkillS_Wrap>
-     <h1 className='SkillS_Wrap'>SkillS</h1> 
+     <h1 className=''>SkillS</h1> 
      </SkillS_Wrap>
           {
             imgData.map((e,i) => {

@@ -3,9 +3,6 @@ import styled, { keyframes } from 'styled-components'
 import Skills from '../contents/Skills';
 import Content from '../contents/Content';
 import About from '../contents/About';
-import Submain from './Submain';
-
-
 
 
 
@@ -21,7 +18,7 @@ const fadeIn = keyframes`
 `;
 
 
-const MainWrap = styled.div`
+const SubMainWrap = styled.div`
 background-color: #FFF2D8;
   padding-top: 50px;
   width: 100%;
@@ -52,12 +49,15 @@ background-color: #FFF2D8;
    
   }
 `
-const MainWrapText = styled.div`
+const SubMainWrapText = styled.div`
         
         width: 80%;
         margin: 0 auto;
         justify-content: center;
         display: flex;
+        .Title_{
+            font-size: 4.22rem;
+        }
       
 
 `
@@ -66,27 +66,27 @@ const Paddings = styled.div`
 `
 
 
-function Main() {
-  const Autotitle = []
-  const [landingTitle ,setLandingTitle] = useState("");
-  const [count, setCount] = useState(0);
+function Submain() {
+//   const Autotitle = " 기범석 입니다. ";
+//   const [landingTitle ,setLandingTitle] = useState("");
+//   const [count, setCount] = useState(0);
 
 
-  useEffect(()=>{
-    const Txttyping = setInterval(() => {
-      if (count >= Autotitle.length) {
-        clearInterval(Txttyping);
-        return
-      }
-      setLandingTitle((Txt)=>{
-        let result = Txt ? Txt + Autotitle[count] : Autotitle;
-        setCount((Txt) => Txt + 1);
-        return result;
-      })
-    }, 400);
-    return () => clearInterval(Txttyping);
+//   useEffect(()=>{
+//     const Txttyping = setInterval(() => {
+//       if (count >= Autotitle.length) {
+//         clearInterval(Txttyping);
+//         return
+//       }
+//       setLandingTitle((Txt)=>{
+//         let result = Txt ? Txt + Autotitle[count] : Autotitle[0];
+//         setCount((Txt) => Txt + 1);
+//         return result;
+//       })
+//     }, 200);
+//     return () => clearInterval(Txttyping);
 
-  }, [count])
+//   }, [count])
  
 
  
@@ -95,24 +95,17 @@ function Main() {
   return (
    <>
    
-  {/* <Submain /> */}
-  <About />
-  {/* <Paddings/>
-
-
-  <Paddings/>
-  <Skills />
-  
-  <Paddings/>
-  <Content /> */}
-  
+   <SubMainWrap>
     
+    <SubMainWrapText>
+       {/* <h1 className='Title_'>안녕하세요! Front-end Developer </h1> */}
+    </SubMainWrapText>
   
+  </SubMainWrap> 
   
-   
 
    </>
   )
 }
 
-export default Main
+export default Submain
