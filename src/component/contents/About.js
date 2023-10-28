@@ -26,7 +26,7 @@ const AboutWrap = styled.div`
       flex-direction: column;
       align-items: center;
       margin: 0 auto;    
-      background-color: #EAD7BB;
+      background-color: #fff;
       color: #101419;            
         
       h1{

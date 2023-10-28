@@ -6,7 +6,7 @@ const ContentWrap = styled.div`
   width: 100%;
   height: 100vh;
   margin: 0 auto;
-  background-color: #bca37f;
+  background-color: #fff;
 
   h1 {
     

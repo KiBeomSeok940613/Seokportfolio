@@ -11,7 +11,7 @@ const SkillsWrap = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  background-color: #bca37f;
+  background-color:  #fff;
   flex-wrap: wrap;
 
   @media screen and (max-width: 1024px) {

@@ -17,132 +17,64 @@ const Navbar = keyframes`
 `;
 // Nav Wrap 네비 랩 시작
 
-const NavWrap = styled.header`
-   z-index: 50;
+const Header = styled.header`
+  background-color: #113946;
   width: 100%;
+  padding: 10px 12px 0px 12px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: #113946;
-  border-bottom: 2px solid pink;
-  position: fixed;
-  transition: 1s;
-
-  .nav_logo {
-    cursor: pointer;
-
-    img {
-      width: 100px;
-    }
-
-    h1 {
-      font-size: 2rem;
-      color: whitesmoke;
-    }
-
-    @media screen and (max-width: 1024px) {
-      font-size: 1.5rem;
-
-      h1 {
-        margin-left: 10px;
-        transition: 1s;
-      }
-    }
-
-    @media screen and (max-width: 480px) {
-      h1 {
-        font-size: 2.5rem;
-      }
-    }
+  justify-content: space-around;
+  position: relative;
+  .Nav_logo {
+    padding: 0 3%;  
   }
-
-  .menutoggleBtn {
+  .MenutoggleBtn {
     display: none;
-    color: whitesmoke;
+    color: white;
     font-size: 2rem;
     position: absolute;
     right: 20px;
     top: 15px;
     cursor: pointer;
+  }
 
-    @media screen and (max-width: 768px) {
-      display: block;
-      top: 10px;
-      transition: 1s;
-    }
-     
-    @media screen and (max-width: 500px) {
-    animation: ${Navbar} 1s;
+  @media screen and (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
-
-
-  
+    .MenutoggleBtn {
+      display: block;
     }
   }
-
-  
 `;
-// header.끝
-
-const Navigation = styled.ul`
+const NavContainer = styled.ul`
+  width: 40%;
   display: flex;
-  margin-left: 30px;
-  font-weight: bold;
-  animation: ${Navbar} 3s;
+  justify-content: space-between;
+ 
 
   li {
-    display: flex;
-    justify-content: center;
-    border-radius: 5px;
-
-    @media screen and (max-width: 768px) {
-      margin-top: 15px;
-    }
-
-    li:not(:last-child) {
-      margin-right: 30px;
-    }
-    @media screen and (max-width: 500px) {
-    }
-
     &:hover {
-      color: whitesmoke;
       cursor: pointer;
       background: #44a8f4;
-      border-radius: 5px;
-      transition: 0.5s;
+      border-radius: 4px;
+        
+      
     }
   }
-  .Nav-menu-list {
-    color: whitesmoke;
+  .Nav-Menu-list {
     display: block;
     padding: 10px 10px;
-    font-size: 2rem;
-
-    &:hover {
-      color: whitesmoke;
-      transition: 0.5s;
-    }
+    color: whitesmoke;
+    font-size: 1.1rem;
+    
+    
   }
   @media screen and (max-width: 768px) {
-    padding-bottom: 20px;
-    flex-direction: column;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-    @media screen and (max-width: 500px) {
-      animation: ${Navbar} 3s;
-    }
-
     display: ${(props) => (props.isToggleOpen ? "block" : "none")};
     flex-direction: column;
-    align-items: center;
-
-    width: 30%;
-    height: 200px;
-    animation: ${Navbar} 3s;
-    transition: 2s;
+    align-items: center;   
+    width: 100%;
+    margin-top: 5px;
   }
 `;
 
@@ -157,39 +89,40 @@ function Nav() {
 
   return (
     <>
-      <NavWrap>
-        <div className="nav_logo">
+      <Header>
+        <div className="Nav_logo">
           <Link to={"main"}>
             <img src="img/logo2.png" alt="BEOM SEOK" />
           </Link>
         </div>
 
-        <Navigation isToggleOpen={isToggleOpen}>
+        <NavContainer isToggleOpen={isToggleOpen}>
           <li>
-            <Link to={"/about"} className="Nav-menu-list">
-              {" "}
+            <Link to={"/about"} className="Nav-Menu-list">
               ABOUT
             </Link>
           </li>
           <li>
-            <Link to={"/contents"} className="Nav-menu-list">
-              CONTENTS
+            <Link to={"/contents"} className="Nav-Menu-list">
+            CONTENTS 
             </Link>
           </li>
           <li>
-            <Link to={"/skills"} className="Nav-menu-list">
-              {" "}
-              SKILLS
+            <Link to={"/skills"} className="Nav-Menu-list">
+            <p>SKILLS</p>
             </Link>
           </li>
-        </Navigation>
+        
+        </NavContainer>
 
         <FontAwesomeIcon
-          className="menutoggleBtn"
+          className="MenutoggleBtn"
           onClick={handleToggleOpen}
           icon={isClick ? faBars : faBurger}
         ></FontAwesomeIcon>
-      </NavWrap>
+
+       
+      </Header>
     </>
   );
 }
