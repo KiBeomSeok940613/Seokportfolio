@@ -3,7 +3,8 @@ import styled, { keyframes } from 'styled-components'
 import Skills from '../contents/Skills';
 import Content from '../contents/Content';
 import About from '../contents/About';
-import Submain from './Submain';
+import Contact from '../contents/Contact';
+
 
 
 
@@ -19,6 +20,14 @@ const fadeIn = keyframes`
     transform: translateY(0);
   }
 `;
+
+const BorderBox = styled.div`
+      margin: 30px 0 30px 0;
+      width: 100%;     
+      border: 10px solid black;
+      
+     
+     `
 
 
 const MainWrap = styled.div`
@@ -94,6 +103,8 @@ function Main() {
    
   {/* <Submain /> */}
   <About />
+
+  <BorderBox />
   
   <Content />
 

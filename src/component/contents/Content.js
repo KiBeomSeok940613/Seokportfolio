@@ -1,13 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 
-const ContentWrap = styled.div`
-  padding-top: 80px;
-  width: 100%;
-  height: 100vh;
-  margin: 0 auto;
-  background-color: #fff;
 
+const ContentWrap = styled.div`
+  padding-top: 100px;
+  max-width: 1200px;
+  height: 1080px;
+  margin: 0 auto;
+  background-color: pink;
+  display: flex;
+  justify-content: space-around;
   h1 {
     
     font-size: 3rem;
@@ -18,35 +20,37 @@ const ContentWrap = styled.div`
   }
 
   @media screen and (max-width: 1024px) {
-    justify-content: space-around;
-    align-items: center;
+   
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (min-width: 520px) {
+    flex-direction: column;
+    display: flex;
+    height: 80%;
     width: 100%;
   }
 `;
 const ContentItem = styled.div`
   width: 100%;
+  height: 500px;
   display: flex;
   justify-content: center;
-  font-size: 3.5rem;
+  font-size: 1.5rem;
   color: whitesmoke;
 `;
 const ContentContainer = styled.div`
-  width: 20%;
+  width: 1200px;
+  height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   border: 1px solid white;
-  margin-bottom: 30px;
-
+  
   .content-img {
-    width: 100%;
-    height: 150px;
+    width: 500px;
+    height: 500px;
     cursor: pointer;
     position: relative;
-    margin-bottom: 40px;
   }
   .description {
     width: 20%;
@@ -109,12 +113,21 @@ function Content() {
       desc3: "기여도 100%",
       skills: "html, css, swiper",
     },
+    {
+      title: "대구은행 메인",
+      imgsrc: "img/DGB.JPG",
+      desc: "클론 코딩",
+      desc2: "개발 기간 15일, ",
+      desc3: "기여도 100%",
+      skills: "html, css, swiper",
+    },
   ];
 
   return (
     <>
+     <h1>CONTENTS</h1>
       <ContentWrap>
-        <h1>CONTENTS</h1>
+       
 
         <ContentItem>
           {ContentSkills.map((e, i) => {

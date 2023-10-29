@@ -17,6 +17,7 @@ import About from './component/contents/About';
 import Skills from './component/contents/Skills';
 import Content from './component/contents/Content';
 import Loading from './component/contents/Loading';
+import Contact from './component/contents/Contact';
 
 
 const BgColor = styled.body`
@@ -53,6 +54,7 @@ function App() {
        <Route path="/about" element= {<About />} />     
       <Route path="/skills" element= {<Skills />} />     
       <Route path="/contents" element= {<Content />} />           
+      <Route path="/contact" element= {<Contact />} />           
       <Route path="/hellovanilla" element= {<Hellovanilla />} />    
     </Routes> 
 

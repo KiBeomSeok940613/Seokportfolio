@@ -126,6 +126,11 @@ function Nav() {
             <p>SKILLS</p>
             </Link>
           </li>
+          <li>
+            <Link to={"/contact"} className="Nav-Menu-list">
+            <p>CONTACT</p>
+            </Link>
+          </li>
         
         </NavContainer>
 
