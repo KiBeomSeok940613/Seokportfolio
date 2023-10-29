@@ -27,16 +27,16 @@ const SkillS_Wrap = styled.div`
   display: flex;
   justify-content: center;
   font-size: 3.5rem;
-  color: whitesmoke;
+  color: black;
 `;
 const SkillContainer = styled.div`
   width: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  border: 1px solid white;
+  border: 1px solid black;
   margin-bottom: 30px;
+  
 
   .skill-img {
     width: 100%;

@@ -25,17 +25,25 @@ const Header = styled.header`
   align-items: center;
   justify-content: space-around;
   position: relative;
+  transition: 1s;
   .Nav_logo {
-    padding: 0 3%;  
+    padding: 0 3%; 
+    transition: 1s;
+    animation: ${Navbar} 3s;
+    .Img_{
+      height: 100px;
+    }
+    
   }
   .MenutoggleBtn {
     display: none;
     color: white;
     font-size: 2rem;
     position: absolute;
-    right: 20px;
-    top: 15px;
+    right: 50px;
+    top: 40px;
     cursor: pointer;
+    animation: ${Navbar} 1s;
   }
 
   @media screen and (max-width: 768px) {
@@ -43,6 +51,8 @@ const Header = styled.header`
     align-items: flex-start;
     .MenutoggleBtn {
       display: block;
+      animation: ${Navbar} 3s;
+      
     }
   }
 `;
@@ -50,6 +60,7 @@ const NavContainer = styled.ul`
   width: 40%;
   display: flex;
   justify-content: space-between;
+  transition: 1s;
  
 
   li {
@@ -66,6 +77,7 @@ const NavContainer = styled.ul`
     padding: 10px 10px;
     color: whitesmoke;
     font-size: 1.1rem;
+    transition: 1s;
     
     
   }
@@ -75,6 +87,8 @@ const NavContainer = styled.ul`
     align-items: center;   
     width: 100%;
     margin-top: 5px;
+    transition: 1s;
+    animation: ${Navbar} 1s;
   }
 `;
 
@@ -92,7 +106,7 @@ function Nav() {
       <Header>
         <div className="Nav_logo">
           <Link to={"main"}>
-            <img src="img/logo2.png" alt="BEOM SEOK" />
+            <img className="Img_" src="img/skills/캡처-removebg-preview.png" alt="BEOM SEOK" />
           </Link>
         </div>
 

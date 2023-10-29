@@ -94,11 +94,16 @@ function Main() {
    
   {/* <Submain /> */}
   <About />
+  
+  <Content />
+
+  <Skills />
   {/* <Paddings/>
 
+    
 
   <Paddings/>
-  <Skills />
+  
   
   <Paddings/>
   <Content /> */}
