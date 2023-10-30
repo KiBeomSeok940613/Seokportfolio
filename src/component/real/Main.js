@@ -21,6 +21,18 @@ const fadeIn = keyframes`
   }
 `;
 
+const Container = styled.div`
+    width: 100%;
+    height: 1080px;
+    padding-bottom: 48px;
+    text-align: center;
+    color: #fff;
+    background: url("images/img/nino-yang-DOIgz9_qmFI-unsplash.jpg") fixed center center;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* animation: ${fadeIn} 1s ease-in-out forwards; */
+    
+`
 const BorderBox = styled.div`
       margin: 30px 0 30px 0;
       width: 100%;     
@@ -31,16 +43,17 @@ const BorderBox = styled.div`
 
 
 const MainWrap = styled.div`
-background-color: #FFF2D8;
+
   width: 100%;
   height: 100%;
   margin: 0 auto;
   display: inline-block;
   
+  
   h1{
-    color: #102C57;
+    color: #fff;
     font-weight: bold;
-    font-size: 4rem;
+    font-size: 4vw;
     /* animation: ${fadeIn} 3s ease-in-out forwards;  */
   }
   h2{
@@ -63,17 +76,19 @@ background-color: #FFF2D8;
 const MainWrapText = styled.div`
         
         width: 80%;
+        height: 100%;
         margin: 0 auto;
         justify-content: center;
+        align-items: center;
         display: flex;
-      
+        animation: ${fadeIn} 2s ease-in-out forwards;
 
 `
 
 
 
 function Main() {
-  const Autotitle = []
+  const Autotitle = ["안녕하세요. front-end 기범석 입니다."]
   const [landingTitle ,setLandingTitle] = useState("");
   const [count, setCount] = useState(0);
 
@@ -102,6 +117,21 @@ function Main() {
    <>
    
   {/* <Submain /> */}
+
+<Container>
+  <MainWrap>
+    
+    <MainWrapText>
+      <h1>{Autotitle}</h1>
+    </MainWrapText>
+   
+
+  
+  
+  
+  </MainWrap>
+</Container>
+
   <About />
 
   <BorderBox />

@@ -18,20 +18,21 @@ const Navbar = keyframes`
 // Nav Wrap 네비 랩 시작
 
 const Header = styled.header`
+ z-index: 50;
   background-color: #113946;
   width: 100%;
   padding: 10px 12px 0px 12px;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  position: relative;
+  position: fixed;
   transition: 1s;
   .Nav_logo {
     padding: 0 3%; 
     transition: 1s;
     animation: ${Navbar} 3s;
     .Img_{
-      height: 100px;
+      height: 80px;      
     }
     
   }
@@ -41,7 +42,7 @@ const Header = styled.header`
     font-size: 2rem;
     position: absolute;
     right: 50px;
-    top: 40px;
+    top: 30px;
     cursor: pointer;
     animation: ${Navbar} 1s;
   }
@@ -106,7 +107,7 @@ function Nav() {
       <Header>
         <div className="Nav_logo">
           <Link to={"main"}>
-            <img className="Img_" src="img/skills/캡처-removebg-preview.png" alt="BEOM SEOK" />
+            <img className="Img_" src="images/img/logo/logo.png" alt="BEOM SEOK" />
           </Link>
         </div>
 

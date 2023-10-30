@@ -1,56 +1,49 @@
 import React from "react";
 import styled from "styled-components";
 
+// skills 시작
 
-const ContentWrap = styled.div`
-  padding-top: 100px;
-  max-width: 1200px;
-  height: 1080px;
-  margin: 0 auto;
-  background-color: pink;
+const SkillsWrap = styled.div`
+  padding-top: 80px;
+  width: 100%;
+  height: 100vh;
   display: flex;
-  justify-content: space-around;
-  h1 {
-    
-    font-size: 3rem;
-    display: flex;
-    justify-content: center;
-    color: black;
-    
-  }
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  background-color:  #fff;
+  flex-wrap: wrap;
 
   @media screen and (max-width: 1024px) {
-   
+    justify-content: space-around;
+    align-items: center;
   }
-  @media screen and (min-width: 520px) {
-    flex-direction: column;
-    display: flex;
-    height: 80%;
+  @media screen and (max-width: 500px) {
     width: 100%;
   }
 `;
-const ContentItem = styled.div`
+const SkillS_Wrap = styled.div`
   width: 100%;
-  height: 500px;
   display: flex;
   justify-content: center;
-  font-size: 1.5rem;
-  color: whitesmoke;
+  font-size: 3.5rem;
+  color: black;
 `;
-const ContentContainer = styled.div`
-  width: 1200px;
-  height: 100%;
+const SkillContainer = styled.div`
+  width: 20%;
   display: flex;
+  justify-content: center;
   align-items: center;
-  flex-direction: column;
-
-  border: 1px solid white;
+  border: 1px solid black;
+  margin-bottom: 30px;
   
-  .content-img {
-    width: 500px;
-    height: 500px;
+
+  .skill-img {
+    width: 100%;
+    height: 150px;
     cursor: pointer;
     position: relative;
+    margin-bottom: 40px;
   }
   .description {
     width: 20%;
@@ -87,7 +80,7 @@ const ContentContainer = styled.div`
   }
 `;
 
-function Content() {
+function Skills() {
   const ContentSkills = [
     {
       title: "Hello-vanilla",
@@ -122,30 +115,27 @@ function Content() {
       skills: "html, css, swiper",
     },
   ];
-
   return (
     <>
-     <h1>CONTENTS</h1>
-      <ContentWrap>
-       
-
-        <ContentItem>
-          {ContentSkills.map((e, i) => {
-            return (
-              <ContentContainer key={i}>
-                <img className="content-img" src={e.imgsrc} alt="x" />
-                <div className="description">
-                  {e.title}
-                  {e.desc}
-                </div>
-                <div className="description"></div>
-              </ContentContainer>
-            );
-          })}
-        </ContentItem>
-      </ContentWrap>
+      <SkillsWrap>
+        <SkillS_Wrap>
+          <h1 className="">SkillS</h1>
+        </SkillS_Wrap>
+        {ContentSkills.map((e, i) => {
+          return (
+            <SkillContainer key={i}>
+              <img className="skill-img" src={e.imgsrc} alt={e.title} />
+              <div className="description">
+                {e.title}
+                {e.desc}
+                {e.desc2}
+              </div>
+            </SkillContainer>
+          );
+        })}
+      </SkillsWrap>
     </>
   );
 }
 
-export default Content;
+export default Skills;

@@ -13,7 +13,6 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 
 
-
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -28,6 +27,12 @@ const fadeIn = keyframes`
 const ImgWrap = styled.div`
   animation: ${fadeIn} 1s ease-in-out forwards;
   width: 100%; // 이미지가 가득 차도록
+  border-radius: 50%;
+    background: url("images/img/KakaoTalk_20231029_155123087.jpg") ;
+    background-position: center;
+    width: 400px;
+    height: 400px;
+  
   `
 const AboutWrap = styled.div`
   animation: ${fadeIn} 1s ease-in-out forwards;
@@ -40,6 +45,7 @@ const AboutWrap = styled.div`
   background-color: #fff;
   color: #101419;
   text-align: center;
+  
 
   
   h1 {
@@ -59,11 +65,7 @@ const AboutWrap = styled.div`
     animation: ${fadeIn} 2s ease-in-out forwards;
     line-height: 4rem;
   }
-  .Img_ {
-    animation: ${fadeIn} 1s ease-in-out forwards;
-    width: 500px;
-    height: 500px;
-  }
+
   @media screen and (max-width: 768px) {
    
   }
@@ -90,7 +92,7 @@ const AboutWrap = styled.div`
 `;
 const About_me_Wrap = styled.div`
   width: 500px;
-  height: 100%;
+  height: 60%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -159,16 +161,18 @@ const Iconwrap = styled.div`
 function About() {
   return (
     <>
+    
       <Globalstyle />
+      <h1>ABOUT ME</h1>
       <AboutWrap>
+      
 
         <ImgWrap>
-          <img className="Img_" src="img/KakaoTalk_20231029_155123087.jpg" />
-          <FontAwesomeIcon className="BoxIcon" icon={faTriangleExclamation}></FontAwesomeIcon>
+          <div className="Img_" src="images/img/KakaoTalk_20231029_155123087.jpg" />
         </ImgWrap>
         
         <About_me_Wrap>
-          <h1>😁안녕하세요.</h1>
+         
 
           <h2>❌오류 해결 과 새로운 것 을 좋아하는</h2>
           <p>
@@ -187,6 +191,7 @@ function About() {
             <FontAwesomeIcon className="BoxIcon" icon={faGithub}></FontAwesomeIcon>
             <FontAwesomeIcon className="BoxIcon" icon={faGithub}></FontAwesomeIcon>
           </Iconwrap>
+        
         </About_me_Wrap>
       </AboutWrap>
     </>
