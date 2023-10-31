@@ -18,8 +18,8 @@ const Navbar = keyframes`
 // Nav Wrap 네비 랩 시작
 
 const Header = styled.header`
- z-index: 50;
-  background-color: #113946;
+  z-index: 50;
+  background-color: #888888;
   width: 100%;
   padding: 10px 12px 0px 12px;
   display: flex;
@@ -27,14 +27,14 @@ const Header = styled.header`
   justify-content: space-around;
   position: fixed;
   transition: 1s;
+
   .Nav_logo {
-    padding: 0 3%; 
+    padding: 0 3%;
     transition: 1s;
     animation: ${Navbar} 3s;
-    .Img_{
-      height: 80px;      
+    .Img_ {
+      height: 80px;
     }
-    
   }
   .MenutoggleBtn {
     display: none;
@@ -53,7 +53,6 @@ const Header = styled.header`
     .MenutoggleBtn {
       display: block;
       animation: ${Navbar} 3s;
-      
     }
   }
 `;
@@ -62,33 +61,31 @@ const NavContainer = styled.ul`
   display: flex;
   justify-content: space-between;
   transition: 1s;
- 
 
   li {
     &:hover {
       cursor: pointer;
       background: #44a8f4;
       border-radius: 4px;
-        
-      
+      font-size: 2rem;
     }
   }
   .Nav-Menu-list {
     display: block;
     padding: 10px 10px;
-    color: whitesmoke;
-    font-size: 1.1rem;
+    color: #ffffff;
+    font-size: 1.5vw;
     transition: 1s;
-    
-    
+    font-weight: bold;
   }
   @media screen and (max-width: 768px) {
     display: ${(props) => (props.isToggleOpen ? "block" : "none")};
     flex-direction: column;
-    align-items: center;   
+    align-items: center;
     width: 100%;
     margin-top: 5px;
     transition: 1s;
+
     animation: ${Navbar} 1s;
   }
 `;
@@ -107,7 +104,11 @@ function Nav() {
       <Header>
         <div className="Nav_logo">
           <Link to={"main"}>
-            <img className="Img_" src="images/img/logo/logo.png" alt="BEOM SEOK" />
+            <img
+              className="Img_"
+              src="images/img/logo/logo.png"
+              alt="BEOM SEOK"
+            />
           </Link>
         </div>
 
@@ -119,20 +120,19 @@ function Nav() {
           </li>
           <li>
             <Link to={"/contents"} className="Nav-Menu-list">
-            CONTENTS 
+              CONTENTS
             </Link>
           </li>
           <li>
             <Link to={"/skills"} className="Nav-Menu-list">
-            <p>SKILLS</p>
+              <p>SKILLS</p>
             </Link>
           </li>
           <li>
             <Link to={"/contact"} className="Nav-Menu-list">
-            <p>CONTACT</p>
+              <p>CONTACT</p>
             </Link>
           </li>
-        
         </NavContainer>
 
         <FontAwesomeIcon
@@ -140,8 +140,6 @@ function Nav() {
           onClick={handleToggleOpen}
           icon={isClick ? faBars : faBurger}
         ></FontAwesomeIcon>
-
-       
       </Header>
     </>
   );

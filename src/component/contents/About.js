@@ -1,17 +1,9 @@
-import {
-  faArrowRight,
-  faBox,
-  faMagnet,
-  faTriangleCircleSquare,
-  faTriangleExclamation,
-} from "@fortawesome/free-solid-svg-icons";
+import {} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import Globalstyle from "../../styles/Globalstyle";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-
-
 
 const fadeIn = keyframes`
   from {
@@ -23,6 +15,14 @@ const fadeIn = keyframes`
     transform: translateY(0);
   }
 `;
+const TextWrap = styled.div`
+    margin: 100px 0 100px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    animation: ${fadeIn} 0.5s ease-in-out forwards;
+`
+
 
 const ImgWrap = styled.div`
   animation: ${fadeIn} 1s ease-in-out forwards;
@@ -30,8 +30,10 @@ const ImgWrap = styled.div`
   border-radius: 50%;
     background: url("images/img/KakaoTalk_20231029_155123087.jpg") ;
     background-position: center;
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 350px;
+    margin-top: 50px;
+    
   
   `
 const AboutWrap = styled.div`
@@ -43,6 +45,9 @@ const AboutWrap = styled.div`
   align-items: center;
   margin: 0 auto;
   background-color: #fff;
+ box-shadow: 5px 5px 5px 5px gray;
+ border-radius: 5% 5% 5% 5%;
+  
   color: #101419;
   text-align: center;
   
@@ -71,8 +76,11 @@ const AboutWrap = styled.div`
   }
   @media screen and (max-width: 1199px){
     flex-direction: column;
-    width: 100%;
-    height: 80%;
+    width: 80%;
+    height: 90%;
+    
+   
+    
  
     margin: 0 auto;
    
@@ -97,8 +105,11 @@ const About_me_Wrap = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  line-height: 4rem;
-  background-color: #FCABAB;
+  line-height: 3vw;
+  padding-top: 10px;
+  border: 3px solid black;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+  
   border-radius: 5% 5% 5% 5%;
   
 
@@ -161,9 +172,12 @@ const Iconwrap = styled.div`
 function About() {
   return (
     <>
-    
+      
       <Globalstyle />
-      <h1>ABOUT ME</h1>
+      <TextWrap>
+        <h1>ABOUT ME</h1>
+      </TextWrap>
+      
       <AboutWrap>
       
 
@@ -194,6 +208,8 @@ function About() {
         
         </About_me_Wrap>
       </AboutWrap>
+      
+     
     </>
   );
 }

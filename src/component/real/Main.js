@@ -34,9 +34,9 @@ const Container = styled.div`
     
 `
 const BorderBox = styled.div`
-      margin: 30px 0 30px 0;
+      margin: 100px 0 100px 0;
       width: 100%;     
-      border: 10px solid black;
+      border: 3px solid gray;
       
      
      `
