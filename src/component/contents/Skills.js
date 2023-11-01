@@ -5,8 +5,8 @@ import styled from "styled-components";
 
 const SkillsWrap = styled.div`
   padding-top: 80px;
-  width: 100%;
-  height: 100vh;
+  max-width: 1200px;
+  height: 1080px;
   display: flex;
   justify-content: space-between;
   align-items: center;

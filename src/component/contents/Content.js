@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-
 // content 시작
 const fadeIn = keyframes`
   from {
@@ -14,36 +13,36 @@ const fadeIn = keyframes`
   }
 `;
 
+const Content_Wrap = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  animation: ${fadeIn} 0.5s ease-in-out forwards;
+`;
+
 const ContentSkills = styled.div`
- 
-  padding-top: 80px;
-  max-width: 1200px;
+  max-width: 1600px;
   height: 1080px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  background-color:  #fff;
+  background-color: #fff;
   flex-wrap: wrap;
   box-shadow: 5px 5px 5px 5px gray;
-  
+
   border-radius: 5% 5% 5% 5%;
-  
 
   @media screen and (max-width: 1024px) {
     justify-content: space-around;
     align-items: center;
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (min-width: 600px) {
     width: 90%;
   }
 `;
-const Content_Wrap = styled.div`
-  margin: 100px 0 100px 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    animation: ${fadeIn} 0.5s ease-in-out forwards;
+const ContainerWrap = styled.div`
+  width: 1400px;
 `;
 const ContentContainer = styled.div`
   width: 20%;
@@ -53,14 +52,13 @@ const ContentContainer = styled.div`
   border: 1px solid black;
   margin-bottom: 30px;
 
-  
-
-  .skill-img {
+  .content-div {
     width: 100%;
-    height: 150px;
+    height: 30%;
     cursor: pointer;
     position: relative;
     margin-bottom: 40px;
+    display: flex;
   }
   .description {
     width: 20%;
@@ -97,7 +95,7 @@ const ContentContainer = styled.div`
   }
 `;
 
-function Skills() {
+function Content() {
   const Contents = [
     {
       title: "Hello-vanilla",
@@ -109,7 +107,8 @@ function Skills() {
     },
     {
       title: "Hello-vanilla",
-      imgsrc: "images/img/contents/screencapture-localhost-3000-2023-10-30-15_18_51.png",
+      imgsrc:
+        "images/img/contents/screencapture-localhost-3000-2023-10-30-15_18_51.png",
       desc: "팀 프로젝트",
       desc2: "개발 기간 30일, ",
       desc3: "기여도 20%",
@@ -119,15 +118,16 @@ function Skills() {
       title: "서브웨이 클론코딩",
       imgsrc: "images/img/contents/subway-2023-10-30-14_54_06.png",
       desc: "클론코딩",
-      desc2: "개발 기간 15일, ",
+      desc2: "개발 기간 10일, ",
       desc3: "기여도 100%",
       skills: "html, css",
     },
     {
       title: "html,css, JS 퀴즈.",
-      imgsrc: "images/img/contents/screencapture-localhost-3000-2023-10-30-15_24_33.png",
+      imgsrc:
+        "images/img/contents/screencapture-localhost-3000-2023-10-30-15_24_33.png",
       desc: "클론 코딩",
-      desc2: "개발 기간 15일, ",
+      desc2: "개발 기간 6일, ",
       desc3: "기여도 100%",
       skills: "html, css, swiper",
     },
@@ -142,28 +142,29 @@ function Skills() {
   ];
   return (
     <>
-       <Content_Wrap>
-          <h1 className="">Contents</h1>
-        </Content_Wrap>
-      <ContentSkills>
-        
-        
-        {Contents.map((e, i) => {
-          return (
-            <ContentContainer key={i}>
-              <img className="skill-img" src={e.imgsrc} alt={e.title} />
-              <div className="description">
-                {e.title}
-                
-                {e.desc}
-                {e.desc2}
-              </div>
-            </ContentContainer>
-          );
-        })}
-      </ContentSkills>
+      <Content_Wrap>
+        <h1 className="">Contents</h1>
+      </Content_Wrap>
+
+      <ContainerWrap>
+        <ContentSkills>
+          {Contents.map((e, i) => {
+            return (
+              <ContentContainer key={i}>
+                <img className="content-div" src={e.imgsrc} alt={e.title} />
+                <div className="description">
+                  {e.title}
+
+                  {e.desc}
+                  {e.desc2}
+                </div>
+              </ContentContainer>
+            );
+          })}
+        </ContentSkills>
+      </ContainerWrap>
     </>
   );
 }
 
-export default Skills;
+export default Content;

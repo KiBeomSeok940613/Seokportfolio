@@ -103,7 +103,7 @@ function Nav() {
     <>
       <Header>
         <div className="Nav_logo">
-          <Link to={"main"}>
+          <Link to={"/"}>
             <img
               className="Img_"
               src="images/img/logo/logo.png"

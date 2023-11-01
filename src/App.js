@@ -39,6 +39,7 @@ function App() {
     <Globalstyle />
     <Nav />
    
+   
     <BgColor >
 
     </BgColor>
@@ -50,8 +51,8 @@ function App() {
     <Footer/>
       
     <Routes>
-      <Route path="/" element = {<Loading />} />
-      <Route path="/main" element= {<Main />} />     
+      {/* <Route path="/" element = {<Loading />} /> */}
+      <Route path="/" element= {<Main />} />     
        <Route path="/about" element= {<About />} />     
       <Route path="/skills" element= {<Skills />} />     
       <Route path="/contents" element= {<Content />} />           

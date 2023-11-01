@@ -16,26 +16,24 @@ const fadeIn = keyframes`
   }
 `;
 const TextWrap = styled.div`
-    margin: 100px 0 100px 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    animation: ${fadeIn} 0.5s ease-in-out forwards;
-`
-
+  margin: 100px 0 100px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  animation: ${fadeIn} 0.5s ease-in-out forwards;
+`;
 
 const ImgWrap = styled.div`
   animation: ${fadeIn} 1s ease-in-out forwards;
   width: 100%; // 이미지가 가득 차도록
   border-radius: 50%;
-    background: url("images/img/KakaoTalk_20231029_155123087.jpg") ;
-    background-position: center;
-    width: 350px;
-    height: 350px;
-    margin-top: 50px;
-    
   
-  `
+  background: url("images/img/KakaoTalk_20231029_155123087.jpg");
+  background-position: center;
+  width: 350px;
+  height: 350px;
+  margin-top: 50px;
+`;
 const AboutWrap = styled.div`
   animation: ${fadeIn} 1s ease-in-out forwards;
   max-width: 1200px;
@@ -45,14 +43,12 @@ const AboutWrap = styled.div`
   align-items: center;
   margin: 0 auto;
   background-color: #fff;
- box-shadow: 5px 5px 5px 5px gray;
- border-radius: 5% 5% 5% 5%;
-  
+  box-shadow: 5px 5px 5px 5px gray;
+  border-radius: 5% 5% 5% 5%;
+
   color: #101419;
   text-align: center;
-  
 
-  
   h1 {
     font-size: 3rem;
     animation: ${fadeIn} 0.5s ease-in-out forwards;
@@ -72,21 +68,14 @@ const AboutWrap = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-   
   }
-  @media screen and (max-width: 1199px){
+  @media screen and (max-width: 1199px) {
     flex-direction: column;
     width: 80%;
     height: 90%;
-    
-   
-    
- 
-    margin: 0 auto;
-   
-    
 
-  
+    margin: 0 auto;
+
     h1 {
       font-size: 2rem;
     }
@@ -108,24 +97,19 @@ const About_me_Wrap = styled.div`
   line-height: 3vw;
   padding-top: 10px;
   border: 3px solid black;
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
-  
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+
   border-radius: 5% 5% 5% 5%;
-  
 
   @media screen and (max-width: 768px) {
     width: 100%;
-    
   }
-  @media screen and (max-width: 500px)  {
+  @media screen and (max-width: 500px) {
     width: 100%;
     height: auto;
-    
-
 
     h1 {
       font-size: 1rem;
-     
     }
     h2 {
       font-size: 1.5rem;
@@ -134,10 +118,9 @@ const About_me_Wrap = styled.div`
       font-size: 1rem;
     }
   }
- 
+
   h1 {
     font-size: 1.5rem;
-    
   }
   h2 {
     font-size: 1.26rem;
@@ -145,11 +128,9 @@ const About_me_Wrap = styled.div`
   p {
     font-size: 2rem;
   }
-  span{
-    font-size: 0.850rem;
+  span {
+    font-size: 0.85rem;
   }
-  
-  
 `;
 const Iconwrap = styled.div`
   width: 50%;
@@ -162,32 +143,29 @@ const Iconwrap = styled.div`
   @media screen and (max-width: 500px) {
   }
 `;
-// px 찌그러지기 시작하는지점 때부터 columm 찌그러질때 바깥div 가 고정값 안에 콘텐츠 div들이 
+// px 찌그러지기 시작하는지점 때부터 columm 찌그러질때 바깥div 가 고정값 안에 콘텐츠 div들이
 // 100% 로 알아서 맞춰지게 만들어야 반응형이 편하다.
 // 이미지는 div로 주고 bgimg 로 주고 그다음 이미지 cover bgposition center.
 
 // img 태그를 사용하는경우는 사진을 통해 홈페이지 이동을 할때!
 
-
 function About() {
   return (
     <>
-      
       <Globalstyle />
       <TextWrap>
         <h1>ABOUT ME</h1>
       </TextWrap>
-      
+
       <AboutWrap>
-      
-
         <ImgWrap>
-          <div className="Img_" src="images/img/KakaoTalk_20231029_155123087.jpg" />
+          <div
+            className="Img_"
+            src="images/img/KakaoTalk_20231029_155123087.jpg"
+          />
         </ImgWrap>
-        
-        <About_me_Wrap>
-         
 
+        <About_me_Wrap>
           <h2>❌오류 해결 과 새로운 것 을 좋아하는</h2>
           <p>
             기범석 <span>입니다.</span>
@@ -201,15 +179,21 @@ function About() {
           </span>
 
           <Iconwrap>
-            <FontAwesomeIcon className="BoxIcon" icon={faGithub}></FontAwesomeIcon>
-            <FontAwesomeIcon className="BoxIcon" icon={faGithub}></FontAwesomeIcon>
-            <FontAwesomeIcon className="BoxIcon" icon={faGithub}></FontAwesomeIcon>
+            <FontAwesomeIcon
+              className="BoxIcon"
+              icon={faGithub}
+            ></FontAwesomeIcon>
+            <FontAwesomeIcon
+              className="BoxIcon"
+              icon={faGithub}
+            ></FontAwesomeIcon>
+            <FontAwesomeIcon
+              className="BoxIcon"
+              icon={faGithub}
+            ></FontAwesomeIcon>
           </Iconwrap>
-        
         </About_me_Wrap>
       </AboutWrap>
-      
-     
     </>
   );
 }
