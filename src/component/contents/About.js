@@ -33,17 +33,22 @@ const ImgWrap = styled.div`
   width: 350px;
   height: 350px;
   margin-top: 50px;
+  @media screen and (max-width:1199px) {
+    margin-bottom: 20px;
+    
+  }
+
 `;
 const AboutWrap = styled.div`
   animation: ${fadeIn} 1s ease-in-out forwards;
-  max-width: 1200px;
-  height: 1080px;
+  max-width: 1600px;
+  height: 600px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 0 auto;
   background-color: #fff;
-  box-shadow: 5px 5px 5px 5px gray;
+ 
   border-radius: 5% 5% 5% 5%;
 
   color: #101419;
@@ -64,7 +69,7 @@ const AboutWrap = styled.div`
   span {
     font-size: 2rem;
     animation: ${fadeIn} 2s ease-in-out forwards;
-    line-height: 4rem;
+    line-height: 1.5rem;
   }
 
   @media screen and (max-width: 768px) {
@@ -73,8 +78,8 @@ const AboutWrap = styled.div`
     flex-direction: column;
     width: 80%;
     height: 90%;
-
     margin: 0 auto;
+    
 
     h1 {
       font-size: 2rem;
@@ -85,10 +90,13 @@ const AboutWrap = styled.div`
     p {
       font-size: 2rem;
     }
+    span{
+      line-height: 3rem;
+    }
   }
-`;
+`
 const About_me_Wrap = styled.div`
-  width: 500px;
+  width: 600px;
   height: 60%;
   display: flex;
   justify-content: center;
@@ -104,9 +112,11 @@ const About_me_Wrap = styled.div`
   @media screen and (max-width: 768px) {
     width: 100%;
   }
-  @media screen and (max-width: 500px) {
-    width: 100%;
+  @media screen and (max-width: 1199px) {
+    width: 90%;
     height: auto;
+  
+    
 
     h1 {
       font-size: 1rem;

@@ -74,7 +74,7 @@ const NavContainer = styled.ul`
     display: block;
     padding: 10px 10px;
     color: #ffffff;
-    font-size: 1.5vw;
+    font-size: 1.25rem;
     transition: 1s;
     font-weight: bold;
   }

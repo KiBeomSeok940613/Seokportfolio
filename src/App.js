@@ -16,7 +16,6 @@ import Footer from './component/real/Footer';
 import About from './component/contents/About';
 import Skills from './component/contents/Skills';
 import Content from './component/contents/Content';
-import Loading from './component/contents/Loading';
 import Contact from './component/contents/Contact';
 
 
@@ -61,14 +60,6 @@ function App() {
     </Routes> 
 
 
-      {/* <Main /> */}
-      
-      {/* <About />
-      
-      <Content />
-   
-      <Skills />
-     */}
   
  
    </>

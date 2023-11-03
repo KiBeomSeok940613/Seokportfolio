@@ -134,9 +134,11 @@ function Main() {
 
   <About />
 
-  <BorderBox />
+    <BorderBox />
   
   <Content />
+
+    <BorderBox />
 
   <Skills />
   {/* <Paddings/>

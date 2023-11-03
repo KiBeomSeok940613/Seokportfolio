@@ -25,7 +25,7 @@ function Footer() {
   return (
     <FooterWrap>
         <TextWrap>
-         <p>Footer</p>
+         <p></p>
         </TextWrap>
     </FooterWrap>
   )

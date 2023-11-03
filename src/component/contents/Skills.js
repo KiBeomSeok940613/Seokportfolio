@@ -4,15 +4,17 @@ import styled from "styled-components";
 // skills 시작
 
 const SkillsWrap = styled.div`
-  padding-top: 80px;
+  
   max-width: 1200px;
-  height: 1080px;
+  height: 900px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
   background-color:  #fff;
   flex-wrap: wrap;
+ 
+    
 
   @media screen and (max-width: 1024px) {
     justify-content: space-around;
@@ -23,11 +25,13 @@ const SkillsWrap = styled.div`
   }
 `;
 const SkillS_Wrap = styled.div`
+  margin: 50px 0 100px 0;
   width: 100%;
   display: flex;
   justify-content: center;
   font-size: 3.5rem;
   color: black;
+
 `;
 const SkillContainer = styled.div`
   width: 20%;
@@ -134,6 +138,7 @@ function Skills() {
   return (
     <>
       <SkillsWrap>
+
         <SkillS_Wrap>
           <h1 className="">SkillS</h1>
         </SkillS_Wrap>
