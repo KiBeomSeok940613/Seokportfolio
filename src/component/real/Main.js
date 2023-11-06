@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 import Skills from '../contents/Skills';
 import Content from '../contents/Content';
@@ -92,6 +92,8 @@ function Main() {
   const [landingTitle ,setLandingTitle] = useState("");
   const [count, setCount] = useState(0);
 
+  const scrollRef = useRef([]); 
+
 
   useEffect(()=>{
     const Txttyping = setInterval(() => {
@@ -119,7 +121,7 @@ function Main() {
   {/* <Submain /> */}
 
 <Container>
-  <MainWrap>
+  <MainWrap ref={scrollRef}>
     
     <MainWrapText>
       <h1>{Autotitle}</h1>
@@ -132,15 +134,15 @@ function Main() {
   </MainWrap>
 </Container>
 
-  <About />
+  <About ref={scrollRef} />
 
     <BorderBox />
   
-  <Content />
+  <Content ref={scrollRef} />
 
     <BorderBox />
 
-  <Skills />
+  <Skills ref={scrollRef} />
   {/* <Paddings/>
 
     

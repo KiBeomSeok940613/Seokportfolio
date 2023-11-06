@@ -1,8 +1,11 @@
 import { faBars, faBurger } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+
 import styled, { keyframes } from "styled-components";
+import About from "../contents/About";
+import { Link, Element } from "react-scroll";
+
 
 // Nav 애니메이션
 
@@ -93,12 +96,13 @@ const NavContainer = styled.ul`
 function Nav() {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [isClick, setIsClick] = useState(true);
-
+ 
   const handleToggleOpen = () => {
     setIsToggleOpen(!isToggleOpen);
     setIsClick(!isClick);
   };
-
+  
+  
   return (
     <>
       <Header>
@@ -113,8 +117,15 @@ function Nav() {
         </div>
 
         <NavContainer isToggleOpen={isToggleOpen}>
+          {" "}
           <li>
-            <Link to={"/about"} className="Nav-Menu-list">
+            <Link
+            to="aboutSection" 
+            spy={true}
+            smooth={true}
+            offset={0}
+            duration={500}
+            className="Nav-Menu-list">
               ABOUT
             </Link>
           </li>
@@ -140,6 +151,7 @@ function Nav() {
           onClick={handleToggleOpen}
           icon={isClick ? faBars : faBurger}
         ></FontAwesomeIcon>
+
       </Header>
     </>
   );

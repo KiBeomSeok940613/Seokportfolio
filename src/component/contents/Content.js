@@ -54,7 +54,7 @@ const ContentSkills = styled.div`
     
   }
   @media screen and (max-width: 1150px) {
-    display: flex;
+    
     flex-direction: column;  
     align-items: center;
     justify-content: space-around;
@@ -72,8 +72,7 @@ const ContentContainer = styled.div`
   margin-bottom: 30px;
 
   .description {
-    width: 30%;
-    height: 28%;
+    width: 30%;  
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
@@ -102,11 +101,12 @@ const ContentContainer = styled.div`
     }
   }
   @media screen and (max-width: 1024px) {
+    flex-direction: column;
     width: 50%;
   }
-  @media screen and (max-width: 600px) {
+  /* @media screen and (max-width: 600px) {
     width: 100%;
-  }
+  } */
 `;
 
 const ImgWrap = styled.div`

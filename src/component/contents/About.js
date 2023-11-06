@@ -1,9 +1,10 @@
 import {} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { forwardRef } from "react";
 import styled, { keyframes } from "styled-components";
 import Globalstyle from "../../styles/Globalstyle";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { Element } from "react-scroll";
 
 const fadeIn = keyframes`
   from {
@@ -27,17 +28,15 @@ const ImgWrap = styled.div`
   animation: ${fadeIn} 1s ease-in-out forwards;
   width: 100%; // 이미지가 가득 차도록
   border-radius: 50%;
-  
+
   background: url("images/img/KakaoTalk_20231029_155123087.jpg");
   background-position: center;
   width: 350px;
   height: 350px;
   margin-top: 50px;
-  @media screen and (max-width:1199px) {
+  @media screen and (max-width: 1199px) {
     margin-bottom: 20px;
-    
   }
-
 `;
 const AboutWrap = styled.div`
   animation: ${fadeIn} 1s ease-in-out forwards;
@@ -48,7 +47,7 @@ const AboutWrap = styled.div`
   align-items: center;
   margin: 0 auto;
   background-color: #fff;
- 
+
   border-radius: 5% 5% 5% 5%;
 
   color: #101419;
@@ -79,7 +78,6 @@ const AboutWrap = styled.div`
     width: 80%;
     height: 90%;
     margin: 0 auto;
-    
 
     h1 {
       font-size: 2rem;
@@ -90,11 +88,11 @@ const AboutWrap = styled.div`
     p {
       font-size: 2rem;
     }
-    span{
+    span {
       line-height: 3rem;
     }
   }
-`
+`;
 const About_me_Wrap = styled.div`
   width: 600px;
   height: 60%;
@@ -115,8 +113,6 @@ const About_me_Wrap = styled.div`
   @media screen and (max-width: 1199px) {
     width: 90%;
     height: auto;
-  
-    
 
     h1 {
       font-size: 1rem;
@@ -163,47 +159,51 @@ function About() {
   return (
     <>
       <Globalstyle />
-      <TextWrap>
-        <h1>ABOUT ME</h1>
-      </TextWrap>
 
-      <AboutWrap>
-        <ImgWrap>
-          <div
-            className="Img_"
-            src="images/img/KakaoTalk_20231029_155123087.jpg"
-          />
-        </ImgWrap>
+      <Element name="aboutSection">
+       
+        <TextWrap>
+          <h1>ABOUT ME</h1>
+        </TextWrap>
 
-        <About_me_Wrap>
-          <h2>❌오류 해결 과 새로운 것 을 좋아하는</h2>
-          <p>
-            기범석 <span>입니다.</span>
-          </p>
+        <AboutWrap>
+          <ImgWrap>
+            <div
+              className="Img_"
+              src="images/img/KakaoTalk_20231029_155123087.jpg"
+            />
+          </ImgWrap>
 
-          <span>저는 코딩을 하면서 새로운 기술을 접목해서 사용 해볼때</span>
+          <About_me_Wrap>
+            <h2>❌오류 해결 과 새로운 것 을 좋아하는</h2>
+            <p>
+              기범석 <span>입니다.</span>
+            </p>
 
-          <span>
-            그리고, 오류가 발생 하였을때 그것을 해결해냈을 때, <br />
-            이러한 순간들에서 큰 기쁨을 느끼고 있습니다.
-          </span>
+            <span>저는 코딩을 하면서 새로운 기술을 접목해서 사용 해볼때</span>
 
-          <Iconwrap>
-            <FontAwesomeIcon
-              className="BoxIcon"
-              icon={faGithub}
-            ></FontAwesomeIcon>
-            <FontAwesomeIcon
-              className="BoxIcon"
-              icon={faGithub}
-            ></FontAwesomeIcon>
-            <FontAwesomeIcon
-              className="BoxIcon"
-              icon={faGithub}
-            ></FontAwesomeIcon>
-          </Iconwrap>
-        </About_me_Wrap>
-      </AboutWrap>
+            <span>
+              그리고, 오류가 발생 하였을때 그것을 해결해냈을 때, <br />
+              이러한 순간들에서 큰 기쁨을 느끼고 있습니다.
+            </span>
+
+            <Iconwrap>
+              <FontAwesomeIcon
+                className="BoxIcon"
+                icon={faGithub}
+              ></FontAwesomeIcon>
+              <FontAwesomeIcon
+                className="BoxIcon"
+                icon={faGithub}
+              ></FontAwesomeIcon>
+              <FontAwesomeIcon
+                className="BoxIcon"
+                icon={faGithub}
+              ></FontAwesomeIcon>
+            </Iconwrap>
+          </About_me_Wrap>
+        </AboutWrap>
+      </Element>
     </>
   );
 }
