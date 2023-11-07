@@ -89,28 +89,7 @@ const MainWrapText = styled.div`
 
 
 function Main() {
-  const Autotitle = ["안녕하세요. front-end 기범석 입니다."]
-  const [landingTitle ,setLandingTitle] = useState("");
-  const [count, setCount] = useState(0);
-
   const scrollRef = useRef([]); 
-
-
-  useEffect(()=>{
-    const Txttyping = setInterval(() => {
-      if (count >= Autotitle.length) {
-        clearInterval(Txttyping);
-        return
-      }
-      setLandingTitle((Txt)=>{
-        let result = Txt ? Txt + Autotitle[count] : Autotitle;
-        setCount((Txt) => Txt + 1);
-        return result;
-      })
-    }, 400);
-    return () => clearInterval(Txttyping);
-
-  }, [count])
  
 
  
@@ -125,7 +104,7 @@ function Main() {
   <MainWrap ref={scrollRef}>
     
     <MainWrapText>
-      <h1>{Autotitle}</h1>
+      <h1>안녕하세요. front-end 기범석 입니다.</h1>
     </MainWrapText>
    
 

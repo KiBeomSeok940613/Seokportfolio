@@ -1,10 +1,12 @@
 import {} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import Globalstyle from "../../styles/Globalstyle";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { Element } from "react-scroll";
+import { Element, ScrollElement, scroller } from "react-scroll";
+import { Link } from "react-router-dom";
+
 
 const fadeIn = keyframes`
   from {
@@ -44,7 +46,7 @@ const AboutWrap = styled.div`
   height: 600px;
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  
   margin: 0 auto;
   background-color: #fff;
 
@@ -59,7 +61,7 @@ const AboutWrap = styled.div`
   }
   h2 {
     font-size: 3rem;
-    animation: ${fadeIn} 1s ease-in-out forwards;
+    /* animation: ${fadeIn} 1s ease-in-out forwards; */
   }
   p {
     font-size: 3rem;
@@ -87,6 +89,7 @@ const AboutWrap = styled.div`
     }
     p {
       font-size: 2rem;
+      padding-top: 20px;
     }
     span {
       line-height: 3rem;
@@ -97,9 +100,9 @@ const About_me_Wrap = styled.div`
   width: 600px;
   height: 60%;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   line-height: 3vw;
   padding-top: 10px;
   border: 3px solid black;
@@ -144,6 +147,7 @@ const Iconwrap = styled.div`
   justify-content: space-around;
   font-size: 2rem;
   margin-top: 50px;
+  cursor: pointer;
   @media screen and (min-width: 1024px) {
   }
   @media screen and (max-width: 500px) {
@@ -156,6 +160,32 @@ const Iconwrap = styled.div`
 // img 태그를 사용하는경우는 사진을 통해 홈페이지 이동을 할때!
 
 function About() {
+  const autotitle = ["안녕하세요"]
+  const [landingTitle ,setLandingTitle] = useState("");
+  const [count, setCount] = useState(0);
+
+  useEffect(()=>{
+    const Txttyping = setInterval(() => {
+      if (count >= autotitle.length) {
+        clearInterval(Txttyping);
+        return
+      }
+      setLandingTitle((Txt)=>{
+        let result = Txt ? Txt + autotitle[count] : autotitle[count];
+        setCount((count) => count + 1);
+        return result;
+      })
+    }, 400);
+    return () => clearInterval(Txttyping);
+
+  }, [count])
+ 
+
+  const [scrollevent, setScrollevent] = useState(false);
+  
+  const scrollactive = (e) => {
+    
+  }
   return (
     <>
       <Globalstyle />
@@ -167,15 +197,17 @@ function About() {
         </TextWrap>
 
         <AboutWrap>
-          <ImgWrap>
+          {/* <ImgWrap>
             <div
               className="Img_"
               src="images/img/KakaoTalk_20231029_155123087.jpg"
             />
-          </ImgWrap>
+          </ImgWrap> */}
 
           <About_me_Wrap>
-            <h2>❌오류 해결 과 새로운 것 을 좋아하는</h2>
+           
+            <h2>{autotitle}</h2>
+           
             <p>
               기범석 <span>입니다.</span>
             </p>
@@ -191,7 +223,8 @@ function About() {
               <FontAwesomeIcon
                 className="BoxIcon"
                 icon={faGithub}
-              ></FontAwesomeIcon>
+                
+              ><a href="https://github.com/KiBeomSeok940613" target="_blank"></a></FontAwesomeIcon>
               <FontAwesomeIcon
                 className="BoxIcon"
                 icon={faGithub}
