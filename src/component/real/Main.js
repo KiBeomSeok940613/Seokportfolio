@@ -4,6 +4,7 @@ import Skills from '../contents/Skills';
 import Content from '../contents/Content';
 import About from '../contents/About';
 import Contact from '../contents/Contact';
+import { Element } from 'react-scroll';
 
 
 
@@ -119,7 +120,7 @@ function Main() {
    <>
    
   {/* <Submain /> */}
-
+<Element className='mainTop' />
 <Container>
   <MainWrap ref={scrollRef}>
     

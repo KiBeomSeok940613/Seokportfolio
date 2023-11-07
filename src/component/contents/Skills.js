@@ -1,20 +1,20 @@
 import React from "react";
+import { Element } from "react-scroll";
 import styled from "styled-components";
+
+
 
 // skills 시작
 
 const SkillsWrap = styled.div`
-  
   max-width: 1200px;
   height: 900px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  background-color:  #fff;
+  background-color: #fff;
   flex-wrap: wrap;
- 
-    
 
   @media screen and (max-width: 1024px) {
     justify-content: space-around;
@@ -31,7 +31,6 @@ const SkillS_Wrap = styled.div`
   justify-content: center;
   font-size: 3.5rem;
   color: black;
-
 `;
 const SkillContainer = styled.div`
   width: 20%;
@@ -40,7 +39,6 @@ const SkillContainer = styled.div`
   align-items: center;
   border: 1px solid black;
   margin-bottom: 30px;
-  
 
   .skill-img {
     width: 100%;
@@ -137,11 +135,12 @@ function Skills() {
   ];
   return (
     <>
+    <Element className="skillTop" />
       <SkillsWrap>
-
         <SkillS_Wrap>
           <h1 className="">SkillS</h1>
         </SkillS_Wrap>
+
         {imgData.map((e, i) => {
           return (
             <SkillContainer key={i}>

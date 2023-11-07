@@ -35,6 +35,7 @@ const Header = styled.header`
     padding: 0 3%;
     transition: 1s;
     animation: ${Navbar} 3s;
+    cursor: pointer;
     .Img_ {
       height: 80px;
     }
@@ -107,7 +108,11 @@ function Nav() {
     <>
       <Header>
         <div className="Nav_logo">
-          <Link to={"/"}>
+          <Link to="mainTop" 
+            spy={true}
+            smooth={true}
+            offset={0}
+            duration={500} >
             <img
               className="Img_"
               src="images/img/logo/logo.png"
@@ -123,19 +128,30 @@ function Nav() {
             to="aboutSection" 
             spy={true}
             smooth={true}
-            offset={0}
+            offset={-100}
             duration={500}
             className="Nav-Menu-list">
               ABOUT
             </Link>
           </li>
           <li>
-            <Link to={"/contents"} className="Nav-Menu-list">
+            <Link to="ContentTop" 
+            spy={true}
+            smooth={true}
+            offset={-100}
+            duration={500}
+            
+            className="Nav-Menu-list">
               CONTENTS
             </Link>
           </li>
           <li>
-            <Link to={"/skills"} className="Nav-Menu-list">
+            <Link to="skillTop" 
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500} 
+            className="Nav-Menu-list">
               <p>SKILLS</p>
             </Link>
           </li>
