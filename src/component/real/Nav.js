@@ -6,7 +6,6 @@ import styled, { keyframes } from "styled-components";
 import About from "../contents/About";
 import { Link, Element } from "react-scroll";
 
-
 // Nav 애니메이션
 
 const Navbar = keyframes`
@@ -20,21 +19,27 @@ const Navbar = keyframes`
 `;
 // Nav Wrap 네비 랩 시작
 
+const Container = styled.div`
+position: relative;
+padding: 10px 12px 0px 12px;
+
+`
 const Header = styled.header`
   z-index: 50;
   background-color: #888888;
   width: 100%;
   padding: 10px 12px 0px 12px;
-  display: flex;
+  display: flex; 
   align-items: center;
   justify-content: space-around;
   position: fixed;
   transition: 1s;
+  top: 0;
 
   .Nav_logo {
     padding: 0 3%;
     transition: 1s;
-    animation: ${Navbar} 3s;
+    /* animation: ${Navbar} 3s; */
     cursor: pointer;
     .Img_ {
       height: 80px;
@@ -48,7 +53,7 @@ const Header = styled.header`
     right: 50px;
     top: 30px;
     cursor: pointer;
-    animation: ${Navbar} 1s;
+    /* animation: ${Navbar} 1s; */
   }
 
   @media screen and (max-width: 768px) {
@@ -56,10 +61,11 @@ const Header = styled.header`
     align-items: flex-start;
     .MenutoggleBtn {
       display: block;
-      animation: ${Navbar} 3s;
+      /* animation: ${Navbar} 3s; */
     }
   }
-`;
+`
+
 const NavContainer = styled.ul`
   width: 40%;
   display: flex;
@@ -90,29 +96,36 @@ const NavContainer = styled.ul`
     margin-top: 5px;
     transition: 1s;
 
-    animation: ${Navbar} 1s;
+    /* animation: ${Navbar} 1s; */
   }
 `;
 
 function Nav() {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [isClick, setIsClick] = useState(true);
- 
+
   const handleToggleOpen = () => {
     setIsToggleOpen(!isToggleOpen);
     setIsClick(!isClick);
   };
   
   
+  const [scrolled, setScrolled] = useState(true);
+  
+  
+  
+
+  useEffect(() => {
+   
+
+  }, []);
+
   return (
     <>
+    <Container />
       <Header>
         <div className="Nav_logo">
-          <Link to="mainTop" 
-            spy={true}
-            smooth={true}
-            offset={0}
-            duration={500} >
+          <Link to="mainTop" spy={true} smooth={true} offset={0} duration={500}>
             <img
               className="Img_"
               src="images/img/logo/logo.png"
@@ -125,33 +138,37 @@ function Nav() {
           {" "}
           <li>
             <Link
-            to="aboutSection" 
-            spy={true}
-            smooth={true}
-            offset={-100}
-            duration={500}
-            className="Nav-Menu-list">
+              to="aboutSection"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="Nav-Menu-list"
+            >
               ABOUT
             </Link>
           </li>
           <li>
-            <Link to="ContentTop" 
-            spy={true}
-            smooth={true}
-            offset={-100}
-            duration={500}
-            
-            className="Nav-Menu-list">
+            <Link
+              to="ContentTop"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={500}
+              className="Nav-Menu-list"
+            >
               CONTENTS
             </Link>
           </li>
           <li>
-            <Link to="skillTop" 
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500} 
-            className="Nav-Menu-list">
+            <Link
+              to="skillTop"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              className="Nav-Menu-list"
+            >
               <p>SKILLS</p>
             </Link>
           </li>
@@ -167,7 +184,6 @@ function Nav() {
           onClick={handleToggleOpen}
           icon={isClick ? faBars : faBurger}
         ></FontAwesomeIcon>
-
       </Header>
     </>
   );

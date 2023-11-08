@@ -1,3 +1,5 @@
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Element } from "react-scroll";
 import styled, { keyframes } from "styled-components";
@@ -18,6 +20,7 @@ const fadeIn = keyframes`
 const Content_Wrap = styled.div`
   margin: 100px 0 100px 0;
   width: 100%;
+  font-size: 1.5rem;
   display: flex;
   justify-content: center;
   animation: ${fadeIn} 0.5s ease-in-out forwards;
@@ -39,7 +42,7 @@ const Content_type_wrap = styled.div`
 
 const ContentSkills = styled.div`
   max-width: 1600px;
-  height: 1400px;
+  height: 800px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,8 +55,10 @@ const ContentSkills = styled.div`
   @media screen and (max-width: 1210px) {
     width: 90%
   }
-  @media screen and (max-width: 520px) {
-    width: 80%;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 `;
 
@@ -80,11 +85,13 @@ const ContentContainer = styled.div`
     position: absolute;
     top: 0;
     left: 0;
+    line-height: 1.5rem;
+    text-align: center;
 
     @media screen and (max-width: 1210px) {
       width: 100%;
     }
-    @media screen and (max-width: 520px) {
+    @media screen and (max-width: 500px) {
       width: 100%;
     }
   }
@@ -101,16 +108,16 @@ const ContentContainer = styled.div`
   }
 
   @media screen and (max-width: 1210px) {
-    width: 100%;
+    width: 45%;
   }
-  @media screen and (max-width: 520px) {
+  @media screen and (max-width: 500px) {
     width: 100%;
   }
 `;
 
 const ImgWrap = styled.div`
   width: 100%;
-  max-height: 1400px;
+  max-height: 700px;
   display: flex;
   align-items: center;
   
@@ -118,14 +125,14 @@ const ImgWrap = styled.div`
   img {
     width: 100%;
     max-height: 100%;
-    overflow: hidden;
+    object-fit: contain;
     cursor: pointer;
 
   }
   @media screen and (max-width: 1210px) {
     width: 100%;
   }
-  @media screen and (max-width: 520px) {
+  @media screen and (max-width: 500px) {
     width: 100%;
   }
 `;
@@ -141,11 +148,12 @@ function Content() {
   
   const Contents = [
     {
-      title: "Hello-vanilla",
+      title: "프로젝트 명 : Hello-vanilla",
       imgsrc: "images/img/contents/hello.png",
       desc: "팀 프로젝트",
       desc2: "개발 기간 30일, ",
       desc3: "기여도 20%",
+      part: "회원가입 정보수정 로그인 ",
       skills: "React, javascript, Redux, firebase",
       type: "Team project",
       git: "",
@@ -157,6 +165,7 @@ function Content() {
       desc: "포트폴리오",
       desc2: "개발 기간 15일, ",
       desc3: "기여도 100%",
+      part: "회원가입 정보수정 로그인 ",
       skills: "React, javascript, Redux",
       type: "mini project",
       git: "",
@@ -168,6 +177,7 @@ function Content() {
       desc: "클론 코딩",
       desc2: "개발 기간 10일, ",
       desc3: "기여도 100%",
+      part: "회원가입 정보수정 로그인 ",
       skills: "html, css",
       type: "clone",
       git: "",
@@ -179,6 +189,7 @@ function Content() {
       desc: "프로젝트",
       desc2: "개발 기간 6일, ",
       desc3: "기여도 100%",
+      part: "회원가입 정보수정 로그인 ",
       skills: "html, css, swiper",
       type: "mini project",
       git: "",
@@ -190,6 +201,7 @@ function Content() {
       desc: "클론 코딩",
       desc2: "개발 기간 15일, ",
       desc3: "기여도 100%",
+      part: "회원가입 정보수정 로그인 ",
       skills: "html, css, swiper",
       type: "clone",
       git: "",
@@ -201,6 +213,7 @@ function Content() {
       desc: "클론 코딩",
       desc2: "개발 기간 15일, ",
       desc3: "기여도 100%",
+      part: "회원가입 정보수정 로그인 ",
       skills: "html, css, swiper",
       type: "clone",
       git: "",
@@ -253,11 +266,13 @@ function Content() {
                   <img src={e.imgsrc} alt={e.title} />
                 </ImgWrap>
                 <div className={`description ${clickImg === i ? "description-visible" : ""}`}>
-                  {e.title}
-                  {e.desc}
-                  {e.desc2}
-                  {e.desc3}
-                  {e.skills}
+                  {e.title} <br/>
+                  {e.desc}<br/>
+                  {e.desc2}<br/>
+                  {e.desc3}<br/>
+                  {e.part}<br/>
+                  {e.skills}<br/>
+                  
                 </div>
               </ContentContainer>
             );

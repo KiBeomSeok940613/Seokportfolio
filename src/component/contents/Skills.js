@@ -25,11 +25,11 @@ const SkillsWrap = styled.div`
   }
 `;
 const SkillS_Wrap = styled.div`
-  margin: 50px 0 100px 0;
+  margin: 50px 0;
   width: 100%;
   display: flex;
   justify-content: center;
-  font-size: 3.5rem;
+  font-size: 1.5rem;
   color: black;
 `;
 const SkillContainer = styled.div`

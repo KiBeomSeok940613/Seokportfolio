@@ -114,7 +114,7 @@ const About_me_Wrap = styled.div`
     width: 100%;
   }
   @media screen and (max-width: 1199px) {
-    width: 90%;
+    width: 100%;
     height: auto;
 
     h1 {
