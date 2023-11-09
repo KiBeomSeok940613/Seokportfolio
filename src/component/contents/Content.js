@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { Element } from "react-scroll";
 import styled, { keyframes } from "styled-components";
 
-
 // content 시작
 const fadeIn = keyframes`
   from {
@@ -42,7 +41,7 @@ const Content_type_wrap = styled.div`
 
 const ContentSkills = styled.div`
   max-width: 1600px;
-  height: 800px;
+  height: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -53,12 +52,12 @@ const ContentSkills = styled.div`
   border-radius: 5% 5% 5% 5%;
 
   @media screen and (max-width: 1210px) {
-    width: 90%
+    width: 100%;
   }
   @media screen and (max-width: 500px) {
+    width: 80%;
     flex-direction: column;
     align-items: center;
-    width: 100%;
   }
 `;
 
@@ -104,7 +103,6 @@ const ContentContainer = styled.div`
   }
   &:hover {
     opacity: 1;
-   
   }
 
   @media screen and (max-width: 1210px) {
@@ -120,14 +118,12 @@ const ImgWrap = styled.div`
   max-height: 700px;
   display: flex;
   align-items: center;
-  
 
   img {
     width: 100%;
     max-height: 100%;
     object-fit: contain;
     cursor: pointer;
-
   }
   @media screen and (max-width: 1210px) {
     width: 100%;
@@ -143,9 +139,7 @@ function Content() {
   const menuType = ["전체", "clone", "Team project", "mini project"];
 
   const [clickImg, setClickimg] = useState(null);
-  
 
-  
   const Contents = [
     {
       title: "프로젝트 명 : Hello-vanilla",
@@ -227,17 +221,16 @@ function Content() {
       return category === "전체" || category === e.type;
     });
 
-    const ActiveClick = (i) => {
-      if(clickImg === i) {
-        setClickimg(null);
-      }else{
-        setClickimg(i)
-
-      }
+  const ActiveClick = (i) => {
+    if (clickImg === i) {
+      setClickimg(null);
+    } else {
+      setClickimg(i);
     }
+  };
   return (
     <>
-    <Element className="ContentTop" />
+      <Element className="ContentSection" />
       <Content_Wrap>
         <h1 className="">Contents</h1>
       </Content_Wrap>
@@ -261,18 +254,31 @@ function Content() {
         {Contents.filter((e) => category === "전체" || category === e.type).map(
           (e, i) => {
             return (
-              <ContentContainer key={i} onClick={()=>{ActiveClick(i)}}>
+              <ContentContainer
+                key={i}
+                onClick={() => {
+                  ActiveClick(i);
+                }}
+              >
                 <ImgWrap>
                   <img src={e.imgsrc} alt={e.title} />
                 </ImgWrap>
-                <div className={`description ${clickImg === i ? "description-visible" : ""}`}>
-                  {e.title} <br/>
-                  {e.desc}<br/>
-                  {e.desc2}<br/>
-                  {e.desc3}<br/>
-                  {e.part}<br/>
-                  {e.skills}<br/>
-                  
+                <div
+                  className={`description ${
+                    clickImg === i ? "description-visible" : ""
+                  }`}
+                >
+                  {e.title} <br />
+                  {e.desc}
+                  <br />
+                  {e.desc2}
+                  <br />
+                  {e.desc3}
+                  <br />
+                  {e.part}
+                  <br />
+                  {e.skills}
+                  <br />
                 </div>
               </ContentContainer>
             );

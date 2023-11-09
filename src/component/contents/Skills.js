@@ -2,8 +2,6 @@ import React from "react";
 import { Element } from "react-scroll";
 import styled from "styled-components";
 
-
-
 // skills 시작
 
 const SkillsWrap = styled.div`
@@ -135,7 +133,7 @@ function Skills() {
   ];
   return (
     <>
-    <Element className="skillTop" />
+      <Element className="skillSection" />
       <SkillsWrap>
         <SkillS_Wrap>
           <h1 className="">SkillS</h1>

@@ -20,16 +20,15 @@ const Navbar = keyframes`
 // Nav Wrap 네비 랩 시작
 
 const Container = styled.div`
-position: relative;
-padding: 10px 12px 0px 12px;
-
-`
+  position: relative;
+  padding: 10px 12px 0px 12px;
+`;
 const Header = styled.header`
   z-index: 50;
   background-color: #888888;
   width: 100%;
   padding: 10px 12px 0px 12px;
-  display: flex; 
+  display: flex;
   align-items: center;
   justify-content: space-around;
   position: fixed;
@@ -64,7 +63,7 @@ const Header = styled.header`
       /* animation: ${Navbar} 3s; */
     }
   }
-`
+`;
 
 const NavContainer = styled.ul`
   width: 40%;
@@ -75,7 +74,8 @@ const NavContainer = styled.ul`
   li {
     &:hover {
       cursor: pointer;
-      background: #44a8f4;
+      background: pink;
+      transition: 1s;
       border-radius: 4px;
       font-size: 2rem;
     }
@@ -87,7 +87,12 @@ const NavContainer = styled.ul`
     font-size: 1.25rem;
     transition: 1s;
     font-weight: bold;
+    &.active {
+      color: gray;
+      background: pink;
+    }
   }
+
   @media screen and (max-width: 768px) {
     display: ${(props) => (props.isToggleOpen ? "block" : "none")};
     flex-direction: column;
@@ -108,21 +113,14 @@ function Nav() {
     setIsToggleOpen(!isToggleOpen);
     setIsClick(!isClick);
   };
-  
-  
+
   const [scrolled, setScrolled] = useState(true);
-  
-  
-  
 
-  useEffect(() => {
-   
-
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <>
-    <Container />
+      <Container />
       <Header>
         <div className="Nav_logo">
           <Link to="mainTop" spy={true} smooth={true} offset={0} duration={500}>
@@ -142,32 +140,35 @@ function Nav() {
               spy={true}
               smooth={true}
               offset={-100}
-              duration={500}
+              duration={200}
               className="Nav-Menu-list"
+              activeClass="active"
             >
               ABOUT
             </Link>
           </li>
           <li>
             <Link
-              to="ContentTop"
+              to="ContentSection"
               spy={true}
               smooth={true}
               offset={-100}
-              duration={500}
+              duration={200}
               className="Nav-Menu-list"
+              activeClass="active"
             >
               CONTENTS
             </Link>
           </li>
           <li>
             <Link
-              to="skillTop"
+              to="skillSection"
               spy={true}
               smooth={true}
               offset={-70}
-              duration={500}
+              duration={200}
               className="Nav-Menu-list"
+              activeClass="active"
             >
               <p>SKILLS</p>
             </Link>

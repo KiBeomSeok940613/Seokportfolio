@@ -1,33 +1,23 @@
 import {} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import Globalstyle from "../../styles/Globalstyle";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { Element, ScrollElement, scroller } from "react-scroll";
+import { Element } from "react-scroll";
 import { Link } from "react-router-dom";
 
 
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
 const TextWrap = styled.div`
   margin: 100px 0 100px 0;
   width: 100%;
   display: flex;
   justify-content: center;
-  animation: ${fadeIn} 0.5s ease-in-out forwards;
+ 
 `;
 
 const ImgWrap = styled.div`
-  animation: ${fadeIn} 1s ease-in-out forwards;
+  
   width: 100%; // 이미지가 가득 차도록
   border-radius: 50%;
 
@@ -41,12 +31,12 @@ const ImgWrap = styled.div`
   }
 `;
 const AboutWrap = styled.div`
-  animation: ${fadeIn} 1s ease-in-out forwards;
+  
   max-width: 1600px;
   height: 600px;
   display: flex;
   justify-content: space-around;
-  
+
   margin: 0 auto;
   background-color: #fff;
 
@@ -57,19 +47,20 @@ const AboutWrap = styled.div`
 
   h1 {
     font-size: 3rem;
-    animation: ${fadeIn} 0.5s ease-in-out forwards;
+    
   }
   h2 {
     font-size: 3rem;
-    /* animation: ${fadeIn} 1s ease-in-out forwards; */
+    line-height: 50px;
+    
   }
   p {
     font-size: 3rem;
-    animation: ${fadeIn} 1.5s ease-in-out forwards;
+    
   }
   span {
     font-size: 2rem;
-    animation: ${fadeIn} 2s ease-in-out forwards;
+    
     line-height: 1.5rem;
   }
 
@@ -160,38 +151,34 @@ const Iconwrap = styled.div`
 // img 태그를 사용하는경우는 사진을 통해 홈페이지 이동을 할때!
 
 function About() {
-  const autotitle = ["안녕하세요"]
-  const [landingTitle ,setLandingTitle] = useState("");
+  const autotitle = [
+  '안녕하세요', 
+  '기범석', 
+
+  '입니다.저는 코딩을 하면서 새로운 기술을 접목해서 사용 해볼때 그리고, 오류가 발생 하였을때 그것을 해결해냈을 때,이러한 순간들에서 큰 기쁨을 느끼고 있습니다.']
+  const [landingTitle, setLandingTitle] = useState(autotitle.join(''));
   const [count, setCount] = useState(0);
 
-  useEffect(()=>{
+  useEffect(() => {
     const Txttyping = setInterval(() => {
       if (count >= autotitle.length) {
         clearInterval(Txttyping);
-        return
+        return;
       }
-      setLandingTitle((Txt)=>{
+      setLandingTitle((Txt) => {
         let result = Txt ? Txt + autotitle[count] : autotitle[count];
         setCount((count) => count + 1);
         return result;
-      })
-    }, 400);
+      });
+    }, 300);
     return () => clearInterval(Txttyping);
+  }, [count]);
 
-  }, [count])
- 
-
-  const [scrollevent, setScrollevent] = useState(false);
-  
-  const scrollactive = (e) => {
-    
-  }
   return (
     <>
       <Globalstyle />
 
       <Element name="aboutSection">
-       
         <TextWrap>
           <h1>ABOUT ME</h1>
         </TextWrap>
@@ -205,26 +192,21 @@ function About() {
           </ImgWrap> */}
 
           <About_me_Wrap>
-           
-            <h2>{autotitle}</h2>
-           
-            <p>
-              기범석 <span>입니다.</span>
-            </p>
+            <h2>{landingTitle[0]}</h2>
+            <h3>{landingTitle[1]}</h3>
+            <span>{landingTitle[2]}</span>
 
-            <span>저는 코딩을 하면서 새로운 기술을 접목해서 사용 해볼때</span>
 
-            <span>
-              그리고, 오류가 발생 하였을때 그것을 해결해냈을 때, <br />
-              이러한 순간들에서 큰 기쁨을 느끼고 있습니다.
-            </span>
+            
 
             <Iconwrap>
-              <FontAwesomeIcon
-                className="BoxIcon"
-                icon={faGithub}
-                
-              ><a href="https://github.com/KiBeomSeok940613" target="_blank"></a></FontAwesomeIcon>
+              <Link href="https://github.com/KiBeomSeok940613/react-portpolio">
+                {" "}
+                <FontAwesomeIcon
+                  className="BoxIcon"
+                  icon={faGithub}
+                ></FontAwesomeIcon>
+              </Link>
               <FontAwesomeIcon
                 className="BoxIcon"
                 icon={faGithub}
