@@ -2,7 +2,7 @@ import {} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import Globalstyle from "../../styles/Globalstyle";
+
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Element } from "react-scroll";
 import { Link } from "react-router-dom";
@@ -99,10 +99,12 @@ const About_me_Wrap = styled.div`
   border: 3px solid black;
   box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
 
+  
   border-radius: 5% 5% 5% 5%;
 
   @media screen and (max-width: 768px) {
     width: 100%;
+    padding: 2%;
   }
   @media screen and (max-width: 1199px) {
     width: 100%;
@@ -151,32 +153,28 @@ const Iconwrap = styled.div`
 // img 태그를 사용하는경우는 사진을 통해 홈페이지 이동을 할때!
 
 function About() {
-  const autotitle = [
-  '안녕하세요', 
-  '기범석', 
-
-  '입니다.저는 코딩을 하면서 새로운 기술을 접목해서 사용 해볼때 그리고, 오류가 발생 하였을때 그것을 해결해냈을 때,이러한 순간들에서 큰 기쁨을 느끼고 있습니다.']
-  const [landingTitle, setLandingTitle] = useState(autotitle.join(''));
+  const autotitle = 
+    '안녕하세요 기범석, 입니다.저는 코딩을 하면서 새로운 기술을 접목해서 사용 해볼때 그리고, 오류가 발생 하였을때 그것을 해결해냈을 때,이러한 순간들에서 큰 기쁨을 느끼고 있습니다.'
+  ;
+  
+  const [landingTitle, setLandingTitle] = useState('');
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     const Txttyping = setInterval(() => {
-      if (count >= autotitle.length) {
-        clearInterval(Txttyping);
-        return;
-      }
-      setLandingTitle((Txt) => {
-        let result = Txt ? Txt + autotitle[count] : autotitle[count];
-        setCount((count) => count + 1);
-        return result;
-      });
-    }, 300);
+      if (count < autotitle.length) {
+        setLandingTitle((Txt) => Txt + autotitle.charAt(count));
+        setCount((count) => count + 1);      
+  }else{
+    clearInterval(Txttyping)
+  }
+}, 50)
+     
     return () => clearInterval(Txttyping);
-  }, [count]);
+  }, [count,autotitle]);
 
   return (
     <>
-      <Globalstyle />
 
       <Element name="aboutSection">
         <TextWrap>
@@ -192,9 +190,9 @@ function About() {
           </ImgWrap> */}
 
           <About_me_Wrap>
-            <h2>{landingTitle[0]}</h2>
-            <h3>{landingTitle[1]}</h3>
-            <span>{landingTitle[2]}</span>
+            <h2>{landingTitle}</h2>
+            {/* <h3>{landingTitle[1]}</h3> */}
+            {/* <span>{landingTitle[2]}</span> */}
 
 
             

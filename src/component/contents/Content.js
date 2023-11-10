@@ -65,9 +65,8 @@ const ContentContainer = styled.div`
   width: 30%;
   display: flex;
   flex-direction: column;
-
   border: 1px solid black;
-  margin-bottom: 30px;
+  margin-bottom: 200px;
   position: relative;
 
   .description {
@@ -116,20 +115,22 @@ const ContentContainer = styled.div`
 const ImgWrap = styled.div`
   width: 100%;
   max-height: 700px;
-  display: flex;
-  align-items: center;
+ 
+
 
   img {
     width: 100%;
     max-height: 100%;
     object-fit: contain;
     cursor: pointer;
+    
   }
   @media screen and (max-width: 1210px) {
     width: 100%;
   }
   @media screen and (max-width: 500px) {
     width: 100%;
+
   }
 `;
 function Content() {
@@ -138,6 +139,11 @@ function Content() {
   const menuList = ["전체", "클론코딩", "팀프로젝트", "미니 프로젝트"];
   const menuType = ["전체", "clone", "Team project", "mini project"];
 
+
+
+
+
+  
   const [clickImg, setClickimg] = useState(null);
 
   const Contents = [
@@ -230,7 +236,7 @@ function Content() {
   };
   return (
     <>
-      <Element className="ContentSection" />
+      <Element className="ContentSection">
       <Content_Wrap>
         <h1 className="">Contents</h1>
       </Content_Wrap>
@@ -285,6 +291,7 @@ function Content() {
           }
         )}
       </ContentSkills>
+      </Element>
     </>
   );
 }

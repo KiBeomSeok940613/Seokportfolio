@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {} from "react";
 import styled, { keyframes } from "styled-components";
 import Skills from "../contents/Skills";
 import Content from "../contents/Content";
@@ -72,38 +72,35 @@ const MainWrapText = styled.div`
 `;
 
 function Main() {
-  const scrollRef = useRef([]);
+
 
   return (
     <>
-      {/* <Submain /> */}
-      <Element className="mainTop" />
+    
+      <Element className="mainTop">
       <Container>
-        <MainWrap ref={scrollRef}>
+        <MainWrap >
           <MainWrapText>
             <h1>안녕하세요. front-end 기범석 입니다.</h1>
           </MainWrapText>
         </MainWrap>
       </Container>
 
-      <About ref={scrollRef} />
+      <About />
 
       <BorderBox />
 
-      <Content ref={scrollRef} />
+      <Content />
 
       <BorderBox />
 
-      <Skills ref={scrollRef} />
-      {/* <Paddings/>
+      <Skills />
 
-    
+      <BorderBox />
 
-  <Paddings/>
+      <Contact />
+      </Element> 
   
-  
-  <Paddings/>
-  <Content /> */}
     </>
   );
 }

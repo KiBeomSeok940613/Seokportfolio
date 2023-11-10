@@ -1,10 +1,9 @@
 import { faBars, faBurger } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useRef, useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import About from "../contents/About";
-import { Link, Element } from "react-scroll";
+import { Link, Element, Events } from "react-scroll";
 
 // Nav 애니메이션
 
@@ -25,7 +24,7 @@ const Container = styled.div`
 `;
 const Header = styled.header`
   z-index: 50;
-  background-color: #888888;
+  background-color: #083459;
   width: 100%;
   padding: 10px 12px 0px 12px;
   display: flex;
@@ -74,7 +73,7 @@ const NavContainer = styled.ul`
   li {
     &:hover {
       cursor: pointer;
-      background: pink;
+      background: #93c6d3;
       transition: 1s;
       border-radius: 4px;
       font-size: 2rem;
@@ -88,8 +87,9 @@ const NavContainer = styled.ul`
     transition: 1s;
     font-weight: bold;
     &.active {
-      color: gray;
-      background: pink;
+      color: #083459;
+      background: #f5ddb0;
+      border-radius: 5px;
     }
   }
 
@@ -114,9 +114,15 @@ function Nav() {
     setIsClick(!isClick);
   };
 
-  const [scrolled, setScrolled] = useState(true);
-
-  useEffect(() => {}, []);
+  useEffect(() => {
+    Events.scrollEvent.register("end", function (to, element) {
+      if (to === "aboutSection") {
+      }
+    });
+    return () => {
+      Events.scrollEvent.remove("end");
+    };
+  }, []);
 
   return (
     <>
@@ -174,7 +180,13 @@ function Nav() {
             </Link>
           </li>
           <li>
-            <Link to={"/contact"} className="Nav-Menu-list">
+            <Link to="contactSection "className="Nav-Menu-list"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={200}
+              activeClass="active"
+                                 >
               <p>CONTACT</p>
             </Link>
           </li>

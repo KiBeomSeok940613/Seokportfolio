@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Element } from "react-scroll";
 import styled from "styled-components";
+
 
 // skills 시작
 
@@ -37,17 +38,20 @@ const SkillContainer = styled.div`
   align-items: center;
   border: 1px solid black;
   margin-bottom: 30px;
+  position: relative;
 
   .skill-img {
     width: 100%;
     height: 150px;
     cursor: pointer;
-    position: relative;
+
     margin-bottom: 40px;
   }
   .description {
-    width: 20%;
-    height: 150px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
@@ -57,30 +61,41 @@ const SkillContainer = styled.div`
     transition: opacity 0.5s;
     position: absolute;
     @media screen and (max-width: 1024px) {
-      width: 35%;
+      width: 100%;
     }
     @media screen and (max-width: 500px) {
-      width: 50%;
+      width: 100%;
     }
+
   }
   .desc2 {
     color: whitesmoke;
     margin-bottom: 20px;
   }
-  &:hover {
-    .description {
-      opacity: 1;
-    }
-  }
+
   @media screen and (max-width: 1024px) {
-    width: 35%;
+    width: 45%;
   }
   @media screen and (max-width: 500px) {
     width: 50%;
   }
+  
+  .description-visible {
+      opacity: 1;
+    }
 `;
 
 function Skills() {
+  const [clickImg, setClickimg] = useState(null);
+  
+  const ActiveClick = (i) => {
+    if (clickImg === i) {
+      setClickimg(null);
+    } else {
+      setClickimg(i);
+    }
+  };
+
   const imgData = [
     {
       title: "html",
@@ -133,25 +148,26 @@ function Skills() {
   ];
   return (
     <>
-      <Element className="skillSection" />
-      <SkillsWrap>
-        <SkillS_Wrap>
-          <h1 className="">SkillS</h1>
-        </SkillS_Wrap>
+      <Element className="skillSection">
+        <SkillsWrap>
+          <SkillS_Wrap>
+            <h1 className="">SkillS</h1>
+          </SkillS_Wrap>
 
-        {imgData.map((e, i) => {
-          return (
-            <SkillContainer key={i}>
-              <img className="skill-img" src={e.imgsrc} alt={e.title} />
-              <div className="description">
-                {e.title}
-                {e.desc}
-                {e.desc2}
-              </div>
-            </SkillContainer>
-          );
-        })}
-      </SkillsWrap>
+          {imgData.map((e, i) => {
+            return (
+              <SkillContainer key={i} onClick={()=>{ActiveClick(i)}}>
+                <img className="skill-img" src={e.imgsrc} alt={e.title} />
+                <div className={`description ${clickImg === i ? "description-visible" : "" }`}>
+                  {e.title}
+                  {e.desc}
+                  {e.desc2}
+                </div>
+              </SkillContainer>
+            );
+          })}
+        </SkillsWrap>
+      </Element>
     </>
   );
 }
