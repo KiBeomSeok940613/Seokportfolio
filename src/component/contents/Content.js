@@ -22,20 +22,32 @@ const Content_Wrap = styled.div`
   font-size: 1.5rem;
   display: flex;
   justify-content: center;
-  animation: ${fadeIn} 0.5s ease-in-out forwards;
+  animation: ${fadeIn} 0.5s ease-in-out 
+  forwards;
+  color: #FFFCEB;
 `;
 const Content_type_wrap = styled.div`
   margin: 0 auto;
   width: 100%;
   height: 50px;
   align-items: center;
-  background-color: pink;
+  background-color: #1B1B1E;
   display: flex;
   justify-content: space-around;
   cursor: pointer;
   margin-bottom: 100px;
   li {
     font-size: 1.25rem;
+    cursor: pointer;
+    padding: 10px;
+    transition: 0.5s;
+    background-color: #1B1B1E;
+    border-radius: 10px;
+    color: #FFFCEB;
+    &:hover{
+      background-color: #FFFCEB;
+      color: #1B1B1E;
+    }
   }
 `;
 
@@ -46,7 +58,7 @@ const ContentSkills = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  background-color: #fff;
+  
   flex-wrap: wrap;
 
   border-radius: 5% 5% 5% 5%;
@@ -68,6 +80,7 @@ const ContentContainer = styled.div`
   border: 1px solid black;
   margin-bottom: 200px;
   position: relative;
+  
 
   .description {
     width: 100%;
@@ -236,7 +249,7 @@ function Content() {
   };
   return (
     <>
-      <Element className="ContentSection">
+      <Element style={{backgroundColor:"#1B1B1E"}} className="ContentSection">
       <Content_Wrap>
         <h1 className="">Contents</h1>
       </Content_Wrap>

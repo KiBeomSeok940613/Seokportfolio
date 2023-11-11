@@ -8,16 +8,16 @@ import { Element } from "react-scroll";
 import { Link } from "react-router-dom";
 
 const TextWrap = styled.div`
-  margin: 100px 0 100px 0;
   width: 100%;
+  height: 500px;
   display: flex;
   justify-content: center;
+  color: #FFFCEB;
 `;
 
 const ImgWrap = styled.div`
   width: 100%; // 이미지가 가득 차도록
   border-radius: 50%;
-
   background: url("images/img/KakaoTalk_20231029_155123087.jpg");
   background-position: center;
   width: 350px;
@@ -27,18 +27,15 @@ const ImgWrap = styled.div`
     margin-bottom: 20px;
   }
 `;
-const AboutWrap = styled.div`
+const Contactswrap = styled.div`
   max-width: 1600px;
   height: 600px;
   display: flex;
   justify-content: space-around;
 
   margin: 0 auto;
-  background-color: #fff;
-
-  border-radius: 5% 5% 5% 5%;
-
-  color: #101419;
+  background-color: #1b1b1e;
+  color: #fffceb;
   text-align: center;
 
   h1 {
@@ -80,7 +77,7 @@ const AboutWrap = styled.div`
     }
   }
 `;
-const About_me_Wrap = styled.div`
+const Contact_wrap = styled.div`
   width: 600px;
   height: 60%;
   display: flex;
@@ -89,10 +86,6 @@ const About_me_Wrap = styled.div`
   justify-content: center;
   line-height: 3vw;
   padding-top: 10px;
-  border: 3px solid black;
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
-
-  border-radius: 5% 5% 5% 5%;
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -145,23 +138,18 @@ const Iconwrap = styled.div`
 // img 태그를 사용하는경우는 사진을 통해 홈페이지 이동을 할때!
 
 function Contact() {
-  
-  
-  
-
   return (
     <>
-      <Element name="contactSection">
+      <Element style={{ backgroundColor: "#1B1B1E" }} name="contactSection">
         <TextWrap>
           <h1>Contact Me!</h1>
         </TextWrap>
 
-        <AboutWrap>
-          <About_me_Wrap>
+        <Contactswrap>
+          <Contact_wrap>
             <h2>안녕하세요~</h2>
 
             <Iconwrap>
-                  
               <FontAwesomeIcon
                 className="BoxIcon"
                 icon={faGithub}
@@ -171,8 +159,8 @@ function Contact() {
                 icon={faGithub}
               ></FontAwesomeIcon>
             </Iconwrap>
-          </About_me_Wrap>
-        </AboutWrap>
+          </Contact_wrap>
+        </Contactswrap>
       </Element>
     </>
   );

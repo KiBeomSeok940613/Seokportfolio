@@ -1,6 +1,4 @@
-import logo from "./logo.svg";
 import "./App.css";
-import React, { useEffect, useState } from "react";
 import Globalstyle from "./styles/Globalstyle";
 
 import styled from "styled-components";
@@ -18,7 +16,7 @@ import Contact from "./component/contents/Contact";
 const BgColor = styled.body`
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: #1b1b1e;
 `;
 
 function App() {
@@ -42,7 +40,6 @@ function App() {
         <Route path="/skills" element={<Skills />} />
         <Route path="/contents" element={<Content />} />
         <Route path="/contact" element={<Contact />} />
-  
       </Routes>
     </>
   );

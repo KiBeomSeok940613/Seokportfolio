@@ -7,60 +7,43 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Element } from "react-scroll";
 import { Link } from "react-router-dom";
 
-
-const TextWrap = styled.div`
-  margin: 100px 0 100px 0;
+const Aboutbody = styled.div`
   width: 100%;
+  height: 100%;
+  background-color: #1b1b1e;
+`;
+const TextWrap = styled.div`
+  width: 100%;
+  height: 100px;
   display: flex;
   justify-content: center;
- 
+  color: #fffceb;
 `;
 
-const ImgWrap = styled.div`
-  
-  width: 100%; // 이미지가 가득 차도록
-  border-radius: 50%;
-
-  background: url("images/img/KakaoTalk_20231029_155123087.jpg");
-  background-position: center;
-  width: 350px;
-  height: 350px;
-  margin-top: 50px;
-  @media screen and (max-width: 1199px) {
-    margin-bottom: 20px;
-  }
-`;
 const AboutWrap = styled.div`
-  
   max-width: 1600px;
   height: 600px;
   display: flex;
   justify-content: space-around;
 
   margin: 0 auto;
-  background-color: #fff;
 
-  border-radius: 5% 5% 5% 5%;
-
-  color: #101419;
+  color: #fffceb;
   text-align: center;
 
   h1 {
     font-size: 3rem;
-    
   }
   h2 {
     font-size: 3rem;
     line-height: 50px;
-    
   }
   p {
     font-size: 3rem;
-    
   }
   span {
     font-size: 2rem;
-    
+
     line-height: 1.5rem;
   }
 
@@ -96,11 +79,6 @@ const About_me_Wrap = styled.div`
   justify-content: center;
   line-height: 3vw;
   padding-top: 10px;
-  border: 3px solid black;
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
-
-  
-  border-radius: 5% 5% 5% 5%;
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -153,69 +131,65 @@ const Iconwrap = styled.div`
 // img 태그를 사용하는경우는 사진을 통해 홈페이지 이동을 할때!
 
 function About() {
-  const autotitle = 
-    '안녕하세요 기범석, 입니다.저는 코딩을 하면서 새로운 기술을 접목해서 사용 해볼때 그리고, 오류가 발생 하였을때 그것을 해결해냈을 때,이러한 순간들에서 큰 기쁨을 느끼고 있습니다.'
-  ;
-  
-  const [landingTitle, setLandingTitle] = useState('');
+  const autotitle =
+    "안녕하세요 기범석, 입니다.저는 코딩을 하면서 새로운 기술을 접목해서 사용 해볼때 그리고, 오류가 발생 하였을때 그것을 해결해냈을 때,이러한 순간들에서 큰 기쁨을 느끼고 있습니다.";
+  const [landingTitle, setLandingTitle] = useState("");
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     const Txttyping = setInterval(() => {
       if (count < autotitle.length) {
         setLandingTitle((Txt) => Txt + autotitle.charAt(count));
-        setCount((count) => count + 1);      
-  }else{
-    clearInterval(Txttyping)
-  }
-}, 50)
-     
+        setCount((count) => count + 1);
+      } else {
+        clearInterval(Txttyping);
+      }
+    }, 50);
+
     return () => clearInterval(Txttyping);
-  }, [count,autotitle]);
+  }, [count, autotitle]);
 
   return (
     <>
-
       <Element name="aboutSection">
-        <TextWrap>
-          <h1>ABOUT ME</h1>
-        </TextWrap>
+        <Aboutbody>
+          <TextWrap>
+            <h1>ABOUT ME</h1>
+          </TextWrap>
 
-        <AboutWrap>
-          {/* <ImgWrap>
+          <AboutWrap>
+            {/* <ImgWrap>
             <div
               className="Img_"
               src="images/img/KakaoTalk_20231029_155123087.jpg"
             />
           </ImgWrap> */}
 
-          <About_me_Wrap>
-            <h2>{landingTitle}</h2>
-            {/* <h3>{landingTitle[1]}</h3> */}
-            {/* <span>{landingTitle[2]}</span> */}
+            <About_me_Wrap>
+              <h2>{landingTitle}</h2>
+              {/* <h3>{landingTitle[1]}</h3> */}
+              {/* <span>{landingTitle[2]}</span> */}
 
-
-            
-
-            <Iconwrap>
-              <Link href="https://github.com/KiBeomSeok940613/react-portpolio">
-                {" "}
+              <Iconwrap>
+                <Link href="https://github.com/KiBeomSeok940613/react-portpolio">
+                  {" "}
+                  <FontAwesomeIcon
+                    className="BoxIcon"
+                    icon={faGithub}
+                  ></FontAwesomeIcon>
+                </Link>
                 <FontAwesomeIcon
                   className="BoxIcon"
                   icon={faGithub}
                 ></FontAwesomeIcon>
-              </Link>
-              <FontAwesomeIcon
-                className="BoxIcon"
-                icon={faGithub}
-              ></FontAwesomeIcon>
-              <FontAwesomeIcon
-                className="BoxIcon"
-                icon={faGithub}
-              ></FontAwesomeIcon>
-            </Iconwrap>
-          </About_me_Wrap>
-        </AboutWrap>
+                <FontAwesomeIcon
+                  className="BoxIcon"
+                  icon={faGithub}
+                ></FontAwesomeIcon>
+              </Iconwrap>
+            </About_me_Wrap>
+          </AboutWrap>
+        </Aboutbody>
       </Element>
     </>
   );

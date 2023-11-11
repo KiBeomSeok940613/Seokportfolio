@@ -19,28 +19,25 @@ const fadeIn = keyframes`
 
 const Container = styled.div`
   width: 100%;
-  height: 1080px;
+  height: 500px;
   padding-bottom: 48px;
   text-align: center;
-  color: #fff;
-  background: url("images/img/nino-yang-DOIgz9_qmFI-unsplash.jpg") fixed center
-    center;
-  background-position: center;
-  background-repeat: no-repeat;
+  color: #FFFCEB;
+  background-color: #1B1B1E;
   /* animation: ${fadeIn} 1s ease-in-out forwards; */
 `;
 const BorderBox = styled.div`
-  margin: 100px 0 100px 0;
+ 
   width: 100%;
-  border: 3px solid gray;
-`;
+ background-color: #1B1B1E;
+`
 
 const MainWrap = styled.div`
   width: 100%;
   height: 100%;
   margin: 0 auto;
   display: inline-block;
-
+ 
   h1 {
     color: #fff;
     font-weight: bold;
@@ -70,7 +67,11 @@ const MainWrapText = styled.div`
   display: flex;
   animation: ${fadeIn} 2s ease-in-out forwards;
 `;
+const Mainbgc = styled.div`
+width: 100%;height: 100vh;
+background-color: #1B1B1E;
 
+`
 function Main() {
 
 
@@ -81,24 +82,28 @@ function Main() {
       <Container>
         <MainWrap >
           <MainWrapText>
-            <h1>안녕하세요. front-end 기범석 입니다.</h1>
+            <h1>FrontEnd_Developer</h1>
+            
+            <h2>BeomSeok</h2><br /> 
           </MainWrapText>
         </MainWrap>
       </Container>
+      <Mainbgc>
 
       <About />
 
-      <BorderBox />
+      
 
       <Content />
 
-      <BorderBox />
+     
 
       <Skills />
 
       <BorderBox />
 
       <Contact />
+      </Mainbgc>
       </Element> 
   
     </>

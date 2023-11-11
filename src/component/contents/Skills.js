@@ -7,12 +7,12 @@ import styled from "styled-components";
 
 const SkillsWrap = styled.div`
   max-width: 1200px;
-  height: 900px;
+  height: 800px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  background-color: #fff;
+  background-color: #1B1B1E;
   flex-wrap: wrap;
 
   @media screen and (max-width: 1024px) {
@@ -29,7 +29,7 @@ const SkillS_Wrap = styled.div`
   display: flex;
   justify-content: center;
   font-size: 1.5rem;
-  color: black;
+  color: #FFFCEB;
 `;
 const SkillContainer = styled.div`
   width: 20%;
@@ -54,7 +54,7 @@ const SkillContainer = styled.div`
     height: 100%;
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.8);
-    color: white;
+    color: #FFFCEB;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -148,7 +148,7 @@ function Skills() {
   ];
   return (
     <>
-      <Element className="skillSection">
+      <Element style={{backgroundColor: '#1B1B1E'}} className="skillSection">
         <SkillsWrap>
           <SkillS_Wrap>
             <h1 className="">SkillS</h1>

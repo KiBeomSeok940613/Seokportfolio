@@ -24,7 +24,7 @@ const Container = styled.div`
 `;
 const Header = styled.header`
   z-index: 50;
-  background-color: #083459;
+  background-color: #1B1B1E;
   width: 100%;
   padding: 10px 12px 0px 12px;
   display: flex;
