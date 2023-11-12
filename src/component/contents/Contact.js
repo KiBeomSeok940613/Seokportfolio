@@ -1,17 +1,26 @@
 import {} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
-
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Element } from "react-scroll";
 import { Link } from "react-router-dom";
 
+
+const Contactbody = styled.div`
+
+  width: 100%;
+  height: 100%;
+  background-color: #1b1b1e;
+  padding-top: 100px;
+ 
+  
+`;
+
 const TextWrap = styled.div`
   width: 100%;
-  height: 500px;
   display: flex;
-  justify-content: center;
+  justify-content: start;
+  padding-left: 5%;
   color: #FFFCEB;
 `;
 
@@ -29,7 +38,7 @@ const ImgWrap = styled.div`
 `;
 const Contactswrap = styled.div`
   max-width: 1600px;
-  height: 600px;
+  height: 800px;
   display: flex;
   justify-content: space-around;
 
@@ -59,7 +68,7 @@ const Contactswrap = styled.div`
   @media screen and (max-width: 1199px) {
     flex-direction: column;
     width: 80%;
-    height: 90%;
+ 
     margin: 0 auto;
 
     h1 {
@@ -119,6 +128,12 @@ const Contact_wrap = styled.div`
     font-size: 0.85rem;
   }
 `;
+const Contactinput = styled.input`
+      width: 300px;
+      height: 300px;
+
+
+`
 const Iconwrap = styled.div`
   width: 50%;
   display: flex;
@@ -140,20 +155,27 @@ const Iconwrap = styled.div`
 function Contact() {
   return (
     <>
-      <Element style={{ backgroundColor: "#1B1B1E" }} name="contactSection">
+      <Element style={{ backgroundColor: "#1B1B1E" }} className="contactSection">
+       
+       <Contactbody>
         <TextWrap>
           <h1>Contact Me!</h1>
         </TextWrap>
 
         <Contactswrap>
+          
           <Contact_wrap>
-            <h2>안녕하세요~</h2>
+            <Contactinput />
+            
 
             <Iconwrap>
+             <a href="https://github.com/KiBeomSeok940613" target="_blank" rel="noopener noreferrer" >
               <FontAwesomeIcon
                 className="BoxIcon"
                 icon={faGithub}
               ></FontAwesomeIcon>
+             </a>
+              
               <FontAwesomeIcon
                 className="BoxIcon"
                 icon={faGithub}
@@ -161,6 +183,8 @@ function Contact() {
             </Iconwrap>
           </Contact_wrap>
         </Contactswrap>
+        </Contactbody>
+      
       </Element>
     </>
   );

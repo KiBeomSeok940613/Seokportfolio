@@ -1,22 +1,26 @@
-import {} from "@fortawesome/free-solid-svg-icons";
+import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
-
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Element } from "react-scroll";
 import { Link } from "react-router-dom";
+
 
 const Aboutbody = styled.div`
   width: 100%;
   height: 100%;
   background-color: #1b1b1e;
+  
+  
 `;
 const TextWrap = styled.div`
+  padding-top: 100px;
   width: 100%;
   height: 100px;
   display: flex;
-  justify-content: center;
+  justify-content: start;
+  padding-left: 5%;
   color: #fffceb;
 `;
 
@@ -79,6 +83,10 @@ const About_me_Wrap = styled.div`
   justify-content: center;
   line-height: 3vw;
   padding-top: 10px;
+  svg{
+    padding-top: 100px;
+    font-size: 30px;
+  }
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -170,7 +178,7 @@ function About() {
               {/* <h3>{landingTitle[1]}</h3> */}
               {/* <span>{landingTitle[2]}</span> */}
 
-              <Iconwrap>
+              {/* <Iconwrap>
                 <Link href="https://github.com/KiBeomSeok940613/react-portpolio">
                   {" "}
                   <FontAwesomeIcon
@@ -186,7 +194,9 @@ function About() {
                   className="BoxIcon"
                   icon={faGithub}
                 ></FontAwesomeIcon>
-              </Iconwrap>
+              </Iconwrap> */}
+            
+            <FontAwesomeIcon icon={faAnglesDown} />
             </About_me_Wrap>
           </AboutWrap>
         </Aboutbody>

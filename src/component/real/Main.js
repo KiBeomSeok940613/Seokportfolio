@@ -5,6 +5,10 @@ import Content from "../contents/Content";
 import About from "../contents/About";
 import Contact from "../contents/Contact";
 import { Element } from "react-scroll";
+import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+
 
 const fadeIn = keyframes`
   from {
@@ -19,7 +23,7 @@ const fadeIn = keyframes`
 
 const Container = styled.div`
   width: 100%;
-  height: 500px;
+  height: 800px;
   padding-bottom: 48px;
   text-align: center;
   color: #FFFCEB;
@@ -29,7 +33,9 @@ const Container = styled.div`
 const BorderBox = styled.div`
  
   width: 100%;
- background-color: #1B1B1E;
+  height: 5px;
+ background-color: #f5ddb0;
+
 `
 
 const MainWrap = styled.div`
@@ -37,6 +43,11 @@ const MainWrap = styled.div`
   height: 100%;
   margin: 0 auto;
   display: inline-block;
+  svg
+  {
+    font-size: 40px;
+    padding-bottom: 300px;
+  }
  
   h1 {
     color: #fff;
@@ -65,12 +76,15 @@ const MainWrapText = styled.div`
   justify-content: center;
   align-items: center;
   display: flex;
+  
   animation: ${fadeIn} 2s ease-in-out forwards;
 `;
 const Mainbgc = styled.div`
 width: 100%;height: 100vh;
 background-color: #1B1B1E;
 
+`
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
 `
 function Main() {
 
@@ -81,26 +95,37 @@ function Main() {
       <Element className="mainTop">
       <Container>
         <MainWrap >
+        
           <MainWrapText>
+          <h2>BeomSeok</h2>
             <h1>FrontEnd_Developer</h1>
             
-            <h2>BeomSeok</h2><br /> 
+            
+            <FontAwesomeIcon icon={faAnglesDown} />
           </MainWrapText>
+          
         </MainWrap>
+       
       </Container>
+      <BorderBox />
+     
       <Mainbgc>
+      
 
       <About />
+      <BorderBox />
 
       
 
       <Content />
+      <BorderBox />
+      
 
      
 
       <Skills />
-
       <BorderBox />
+     
 
       <Contact />
       </Mainbgc>

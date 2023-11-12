@@ -2,8 +2,7 @@ import { faBars, faBurger } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import About from "../contents/About";
-import { Link, Element, Events } from "react-scroll";
+import { Link,Events } from "react-scroll";
 
 // Nav 애니메이션
 
@@ -18,13 +17,9 @@ const Navbar = keyframes`
 `;
 // Nav Wrap 네비 랩 시작
 
-const Container = styled.div`
-  position: relative;
-  padding: 10px 12px 0px 12px;
-`;
 const Header = styled.header`
   z-index: 50;
-  background-color: #1B1B1E;
+  background-color: #1b1b1e;
   width: 100%;
   padding: 10px 12px 0px 12px;
   display: flex;
@@ -126,7 +121,6 @@ function Nav() {
 
   return (
     <>
-      <Container />
       <Header>
         <div className="Nav_logo">
           <Link to="mainTop" spy={true} smooth={true} offset={0} duration={500}>
@@ -171,7 +165,7 @@ function Nav() {
               to="skillSection"
               spy={true}
               smooth={true}
-              offset={-70}
+              offset={-100}
               duration={200}
               className="Nav-Menu-list"
               activeClass="active"
@@ -180,13 +174,15 @@ function Nav() {
             </Link>
           </li>
           <li>
-            <Link to="contactSection "className="Nav-Menu-list"
+            <Link
+              to="contactSection"
               spy={true}
               smooth={true}
-              offset={-70}
+              offset={-100}
               duration={200}
+              className="Nav-Menu-list"
               activeClass="active"
-                                 >
+            >
               <p>CONTACT</p>
             </Link>
           </li>

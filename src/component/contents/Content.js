@@ -5,6 +5,13 @@ import { Element } from "react-scroll";
 import styled, { keyframes } from "styled-components";
 
 // content 시작
+const Contentsbody = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: #1b1b1e;
+  padding-top: 100px;
+`;
+
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -17,14 +24,15 @@ const fadeIn = keyframes`
 `;
 
 const Content_Wrap = styled.div`
-  margin: 100px 0 100px 0;
   width: 100%;
-  font-size: 1.5rem;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   animation: ${fadeIn} 0.5s ease-in-out 
   forwards;
+  padding-left: 5%;
   color: #FFFCEB;
+  padding-bottom: 100px;
+  
 `;
 const Content_type_wrap = styled.div`
   margin: 0 auto;
@@ -35,7 +43,7 @@ const Content_type_wrap = styled.div`
   display: flex;
   justify-content: space-around;
   cursor: pointer;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   li {
     font-size: 1.25rem;
     cursor: pointer;
@@ -96,7 +104,7 @@ const ContentContainer = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    line-height: 1.5rem;
+    line-height: 2rem;
     text-align: center;
 
     @media screen and (max-width: 1210px) {
@@ -249,9 +257,13 @@ function Content() {
   };
   return (
     <>
+
       <Element style={{backgroundColor:"#1B1B1E"}} className="ContentSection">
+      
+      <Contentsbody>
+      
       <Content_Wrap>
-        <h1 className="">Contents</h1>
+        <h1 className="">CONTENTS</h1>
       </Content_Wrap>
 
       <Content_type_wrap>
@@ -298,12 +310,15 @@ function Content() {
                   <br />
                   {e.skills}
                   <br />
+                  <FontAwesomeIcon icon={faGithub}>{e.git}</FontAwesomeIcon>
                 </div>
               </ContentContainer>
             );
           }
         )}
       </ContentSkills>
+      
+      </Contentsbody>
       </Element>
     </>
   );
