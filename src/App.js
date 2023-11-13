@@ -29,7 +29,7 @@ function App() {
       <Globalstyle />
       <Nav />
 
-      <BgColor></BgColor>
+    
 
       <Footer />
 

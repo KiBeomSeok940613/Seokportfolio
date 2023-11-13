@@ -27,46 +27,53 @@ const Content_Wrap = styled.div`
   width: 100%;
   display: flex;
   justify-content: start;
-  animation: ${fadeIn} 0.5s ease-in-out 
-  forwards;
+  animation: ${fadeIn} 0.5s ease-in-out forwards;
   padding-left: 5%;
-  color: #FFFCEB;
+  color: #fffceb;
   padding-bottom: 100px;
-  
 `;
 const Content_type_wrap = styled.div`
   margin: 0 auto;
-  width: 100%;
+  width: 80%;
   height: 50px;
   align-items: center;
-  background-color: #1B1B1E;
+  background-color: #1b1b1e;
   display: flex;
   justify-content: space-around;
   cursor: pointer;
   margin-bottom: 50px;
+  @media screen and (max-width: 550px) {
+    width: 100%;
+    display: flex;
+   
+  }
+
   li {
     font-size: 1.25rem;
     cursor: pointer;
     padding: 10px;
     transition: 0.5s;
-    background-color: #1B1B1E;
-    border-radius: 10px;
-    color: #FFFCEB;
-    &:hover{
-      background-color: #FFFCEB;
-      color: #1B1B1E;
+    background-color: #1b1b1e;
+    color: #fffceb;
+    border-right: 2px solid white;
+    margin-right: 5px;
+   
+
+    &:hover {
+      background-color: #fffceb;
+      color: #1b1b1e;
+      border-radius: 10px;
     }
   }
 `;
 
 const ContentSkills = styled.div`
   max-width: 1600px;
-  height: 1200px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin: 0 auto;
-  
+
   flex-wrap: wrap;
 
   border-radius: 5% 5% 5% 5%;
@@ -75,7 +82,7 @@ const ContentSkills = styled.div`
     width: 100%;
   }
   @media screen and (max-width: 500px) {
-    width: 80%;
+    width: 85%;
     flex-direction: column;
     align-items: center;
   }
@@ -88,7 +95,6 @@ const ContentContainer = styled.div`
   border: 1px solid black;
   margin-bottom: 200px;
   position: relative;
-  
 
   .description {
     width: 100%;
@@ -136,22 +142,18 @@ const ContentContainer = styled.div`
 const ImgWrap = styled.div`
   width: 100%;
   max-height: 700px;
- 
-
 
   img {
     width: 100%;
     max-height: 100%;
     object-fit: contain;
     cursor: pointer;
-    
   }
   @media screen and (max-width: 1210px) {
     width: 100%;
   }
   @media screen and (max-width: 500px) {
     width: 100%;
-
   }
 `;
 function Content() {
@@ -160,11 +162,6 @@ function Content() {
   const menuList = ["전체", "클론코딩", "팀프로젝트", "미니 프로젝트"];
   const menuType = ["전체", "clone", "Team project", "mini project"];
 
-
-
-
-
-  
   const [clickImg, setClickimg] = useState(null);
 
   const Contents = [
@@ -257,68 +254,67 @@ function Content() {
   };
   return (
     <>
+      <Element
+        style={{ backgroundColor: "#1B1B1E" }}
+        className="ContentSection"
+      >
+        <Contentsbody>
+          <Content_Wrap>
+            <h1 className="">CONTENTS</h1>
+          </Content_Wrap>
 
-      <Element style={{backgroundColor:"#1B1B1E"}} className="ContentSection">
-      
-      <Contentsbody>
-      
-      <Content_Wrap>
-        <h1 className="">CONTENTS</h1>
-      </Content_Wrap>
-
-      <Content_type_wrap>
-        {menuList.map((el, ind) => {
-          return (
-            <li
-              onClick={() => {
-                setCateGory(menuType[ind]);
-              }}
-              key={ind}
-            >
-              {el}
-            </li>
-          );
-        })}
-      </Content_type_wrap>
-
-      <ContentSkills>
-        {Contents.filter((e) => category === "전체" || category === e.type).map(
-          (e, i) => {
-            return (
-              <ContentContainer
-                key={i}
-                onClick={() => {
-                  ActiveClick(i);
-                }}
-              >
-                <ImgWrap>
-                  <img src={e.imgsrc} alt={e.title} />
-                </ImgWrap>
-                <div
-                  className={`description ${
-                    clickImg === i ? "description-visible" : ""
-                  }`}
+          <Content_type_wrap>
+            {menuList.map((el, ind) => {
+              return (
+                <li
+                  onClick={() => {
+                    setCateGory(menuType[ind]);
+                  }}
+                  key={ind}
                 >
-                  {e.title} <br />
-                  {e.desc}
-                  <br />
-                  {e.desc2}
-                  <br />
-                  {e.desc3}
-                  <br />
-                  {e.part}
-                  <br />
-                  {e.skills}
-                  <br />
-                  <FontAwesomeIcon icon={faGithub}>{e.git}</FontAwesomeIcon>
-                </div>
-              </ContentContainer>
-            );
-          }
-        )}
-      </ContentSkills>
-      
-      </Contentsbody>
+                  {el}
+                </li>
+              );
+            })}
+          </Content_type_wrap>
+
+          <ContentSkills>
+            {Contents.filter(
+              (e) => category === "전체" || category === e.type
+            ).map((e, i) => {
+              return (
+                <ContentContainer
+                  key={i}
+                  onClick={() => {
+                    ActiveClick(i);
+                  }}
+                >
+                  <ImgWrap>
+                    <img src={e.imgsrc} alt={e.title} />
+                  </ImgWrap>
+                  <div
+                    className={`description ${
+                      clickImg === i ? "description-visible" : ""
+                    }`}
+                  >
+                    {e.title} <br />
+                    {e.desc}
+                    <br />
+                    {e.desc2}
+                    <br />
+                    {e.desc3}
+                    <br />
+                    {e.part}
+                    <br />
+                    {e.skills}
+                    <br />
+                    <FontAwesomeIcon icon={faGithub}>{e.git}</FontAwesomeIcon>
+                  </div>
+                </ContentContainer>
+              );
+            })}
+          </ContentSkills>
+        </Contentsbody>
       </Element>
     </>
   );

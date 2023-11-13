@@ -10,7 +10,7 @@ const Globalstyle = createGlobalStyle`
   font-weight: normal;
   font-style: normal;
 }
-*{margin: 0; padding: 0%; 
+*{margin: 0; padding: 0; 
   font-family: 'NEXON Lv1 Gothic OTF';
   
 

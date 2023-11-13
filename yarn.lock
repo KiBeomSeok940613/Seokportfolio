@@ -12022,7 +12022,7 @@ react-scroll@^1.9.0:
 
 react@^18.2.0:
   version "18.2.0"
-  resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
+  resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
   dependencies:
     loose-envify "^1.1.0"
@@ -13104,6 +13104,11 @@ split-string@^3.0.1, split-string@^3.0.2:
   integrity sha512-NzNVhJDYpwceVVii8/Hu6DKfD2G+NrQHlS/V/qgv763EYudVwEcMQNxd2lh+0VrUByXN/oJkl5grOhYWvQUYiw==
   dependencies:
     extend-shallow "^3.0.0"
+
+spring@^0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/spring/-/spring-0.0.0.tgz#27a9f571d49f3f29e90c6b9625364073a8353815"
+  integrity sha512-hQKa8vrkjMLCR5HUMQNRS5oUA0FKSgSvpLSyu6dcNUBc1uCfZ+TssIQXcKQtV4JP8QYGwKtz+6d630ovL4lzeg==
 
 sprintf-js@~1.0.2:
   version "1.0.3"

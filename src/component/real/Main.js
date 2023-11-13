@@ -70,7 +70,7 @@ const MainWrap = styled.div`
   }
 `;
 const MainWrapText = styled.div`
-  width: 80%;
+  width: 100%;
   height: 100%;
   margin: 0 auto;
   justify-content: center;
@@ -84,8 +84,7 @@ width: 100%;height: 100vh;
 background-color: #1B1B1E;
 
 `
-const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
-`
+
 function Main() {
 
 

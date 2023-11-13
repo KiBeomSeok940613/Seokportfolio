@@ -13,11 +13,12 @@ z-index: 50 ;
 const TextWrap = styled.div`
         height: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: start;
+        padding-left: 5%;
         align-items: center;
         p{
-            color: black;
-            font-size: 30px;
+            color: #f5ddb0;
+            font-size: 20px;
         }
 `
 
@@ -25,7 +26,7 @@ function Footer() {
   return (
     <FooterWrap>
         <TextWrap>
-         <p></p>
+         <p>마지막 업데이트 : 2023.11.13</p>
         </TextWrap>
     </FooterWrap>
   )

@@ -85,6 +85,7 @@ const NavContainer = styled.ul`
       color: #083459;
       background: #f5ddb0;
       border-radius: 5px;
+      font-weight: bold;
     }
   }
 
