@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 const FooterWrap = styled.div`
@@ -23,10 +23,24 @@ const TextWrap = styled.div`
 `
 
 function Footer() {
+  const [commit, setCommit] =useState('');
+  const repo = 'KiBeomSeok940613/react-portpolio';
+
+  useEffect(()=>{
+    const fetchData = async()=>{
+      const res = await fetch(`https://api.github.com/repos/${repo}/commits`)
+      const data = await res.json();
+      const lastCommit = data[0];
+      console.log(lastCommit.commit.committer.date)
+      setCommit(lastCommit.commit.committer.date)
+    }
+    fetchData();
+  },[])
+
   return (
     <FooterWrap>
         <TextWrap>
-         <p>마지막 업데이트 : 2023.11.13</p>
+         <p>{commit}</p>
         </TextWrap>
     </FooterWrap>
   )

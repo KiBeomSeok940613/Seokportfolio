@@ -126,7 +126,7 @@ function Main() {
       <BorderBox />
      
 
-      <Contact />
+      
       </Mainbgc>
       </Element> 
   

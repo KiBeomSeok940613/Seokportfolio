@@ -59,8 +59,8 @@ const SkillsWrap = styled.div`
   align-items: start;
   margin: 0 auto;
   background-color: #1b1b1e;
-
   flex-wrap: wrap;
+  
   p {
     font-size: 2rem;
   }
@@ -72,7 +72,7 @@ const SkillsWrap = styled.div`
   }
 `;
 const DescriptionWrap = styled.div`
-  width: 100%;
+  max-width: 1600px;
   
   margin: 0 auto;
   display: flex;
@@ -81,11 +81,11 @@ const DescriptionWrap = styled.div`
     position: absolute;
     display: flex;
     top: 50%;
-    left: 20%;
+    left: 0;
     display: block;
     background-color: #1b1b1e;
     color: #fffceb;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     transition: all 0.5s ease-in-out;
     border-radius: 10px;
