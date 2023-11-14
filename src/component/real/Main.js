@@ -42,7 +42,6 @@ const MainWrap = styled.div`
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  display: inline-block;
   svg
   {
     font-size: 40px;
@@ -82,6 +81,7 @@ const MainWrapText = styled.div`
 const Mainbgc = styled.div`
 width: 100%;height: 100vh;
 background-color: #1B1B1E;
+box-sizing: border-box;
 
 `
 

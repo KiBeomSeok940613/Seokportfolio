@@ -22,6 +22,7 @@ const TextWrap = styled.div`
   justify-content: start;
   padding-left: 5%;
   color: #FFFCEB;
+  box-sizing: border-box;
 `;
 
 const ImgWrap = styled.div`

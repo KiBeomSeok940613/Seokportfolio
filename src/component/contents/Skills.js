@@ -8,11 +8,13 @@ import styled from "styled-components";
 
 const Skillsbody = styled.div`
   width: 100%;
-  height: 100%;
+  height: 1200px;
   background-color: #1b1b1e;
   padding-top: 100px;
+  
 `;
 const SkillS_Text = styled.div`
+  box-sizing: border-box;
   width: 100%;
   display: flex;
   justify-content: flex start;
@@ -34,12 +36,12 @@ const Skills_type_wrap = styled.div`
     font-size: 1.25rem;
     cursor: pointer;
     padding: 10px;
-    
+
     background-color: #1b1b1e;
     color: #fffceb;
     border-right: 2px solid white;
     margin-right: 5px;
-    transition:0.5s ;
+    transition: 0.5s;
     border-radius: 0;
 
     &:hover {
@@ -52,13 +54,12 @@ const Skills_type_wrap = styled.div`
 
 const SkillsWrap = styled.div`
   max-width: 1600px;
-  height: 600px;
   display: flex;
   justify-content: center;
   align-items: start;
   margin: 0 auto;
   background-color: #1b1b1e;
-  position: relative;
+
   flex-wrap: wrap;
   p {
     font-size: 2rem;
@@ -70,52 +71,27 @@ const SkillsWrap = styled.div`
     width: 100%;
   }
 `;
-
-const SkillContainer = styled.div`
-  width: 200px;
-  height: 40px;
-  display: flex;
-  justify-content: start;
-  align-items: start;
-  border: 1px solid black;
-  margin-bottom: 30px;
-  cursor: pointer;
+const DescriptionWrap = styled.div`
+  width: 100%;
   
-
-  border-radius: 10px;
-  background-color: #f5ddb0;
-  margin: 2% 0 2% 2%;
-  .title_text {
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  }
-
-  .skill-img {
-    padding: 2px 2px 2px 2px;
-    width: 30%;
-    height: 70%;
-    cursor: pointer;
-    margin-bottom: 40px;
-  }
+  margin: 0 auto;
+  display: flex;
+  position: relative;
   .description {
+    position: absolute;
     display: flex;
-    top: 0;
-    left: 0;
-    width: 1200px;
-    display: none;
+    top: 50%;
+    left: 20%;
+    display: block;
     background-color: #1b1b1e;
     color: #fffceb;
     justify-content: start;
     align-items: center;
-    transition: display 0.5s;
-    position: absolute;
+    transition: all 0.5s ease-in-out;
     border-radius: 10px;
     padding: 10px;
     line-height: 50px;
-
+    
     @media screen and (max-width: 1200px) {
       width: 60%;
       left: 30%;
@@ -123,7 +99,7 @@ const SkillContainer = styled.div`
     @media screen and (max-width: 620px) {
       width: 50%;
     }
-  }
+  
   .desc2 {
     color: whitesmoke;
     margin-bottom: 20px;
@@ -141,6 +117,46 @@ const SkillContainer = styled.div`
     display: block;
     transition: 2s;
   }
+  }
+ 
+`;
+
+const SkillContainer = styled.div`
+  width: 200px;
+  height: 40px;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  border: 1px solid black;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+  background-color: #f5ddb0;
+  margin: 2% 0 2% 2%;
+  @media screen and (max-width: 1200px) {
+    width: 25%;
+    left: 35%;
+  }
+  @media screen and (max-width: 620px) {
+    width: 25%;
+  }
+  .title_text {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .skill-img {
+    padding: 2px 2px 2px 2px;
+    width: 50%;
+    height: 80%;
+    cursor: pointer;
+    margin-bottom: 40px;
+  }
+  
+
 `;
 const ClickWrap = styled.div`
   width: 10%;
@@ -167,12 +183,15 @@ function Skills() {
   const menuType = ["전체", "front", "back", "with"];
 
   const [clickImg, setClickimg] = useState(null);
+  const [selectDesc, setSelectDesc] = useState(null);
 
   const ActiveClick = (i) => {
     if (clickImg === i) {
       setClickimg(null);
+      setSelectDesc(null)
     } else {
       setClickimg(i);
+      setSelectDesc(imgData[i]);
     }
   };
 
@@ -241,24 +260,24 @@ function Skills() {
       type: "with",
     },
     {
-      title: "Mysql",
+      title: "Vercel",
       desc: " ● 팀 프로젝트 를 할때 회원가입 과 로그인 정보수정 그리고 소셜 로그인 기능을 Firebase의 실시간 데이터베이스를 활용하여 사용자 정보를 안전하게 저장하고, 필요한 경우 데이터를 동기화하는 경험을 했습니다.",
       desc2: "",
-      imgsrc: "images/img/skills/mysql.svg",
-      type: "back",
+      imgsrc: "images/img/skills/vercel.svg",
+      type: "with",
     },
     {
-      title: "Mysql",
+      title: "Next.Js",
       desc: " ● 팀 프로젝트 를 할때 회원가입 과 로그인 정보수정 그리고 소셜 로그인 기능을 Firebase의 실시간 데이터베이스를 활용하여 사용자 정보를 안전하게 저장하고, 필요한 경우 데이터를 동기화하는 경험을 했습니다.",
       desc2: "",
-      imgsrc: "images/img/skills/mysql.svg",
-      type: "back",
+      imgsrc: "images/img/skills/nextjs-original-wordmark.svg",
+      type: "front",
     },
     {
-      title: "Mysql",
+      title: "Tailwind.css",
       desc: " ● 팀 프로젝트 를 할때 회원가입 과 로그인 정보수정 그리고 소셜 로그인 기능을 Firebase의 실시간 데이터베이스를 활용하여 사용자 정보를 안전하게 저장하고, 필요한 경우 데이터를 동기화하는 경험을 했습니다.",
       desc2: "",
-      imgsrc: "images/img/skills/mysql.svg",
+      imgsrc: "images/img/skills/tailwindcss.svg",
       type: "back",
     },
     {
@@ -302,6 +321,7 @@ function Skills() {
         <Skillsbody>
           <SkillS_Text>
             <h1 className="SkillsWrap">SkillS</h1>
+            
           </SkillS_Text>
 
           <Skills_type_wrap>
@@ -338,18 +358,25 @@ function Skills() {
                     <img className="skill-img" src={e.imgsrc} alt={e.title} />
                     {""}
                     <div className="title_text">{e.title}</div>
-                    <div
-                      className={`description ${
-                        clickImg === i ? "description-visible" : ""
-                      }`}
-                    >
-                      {e.desc}
-                      {e.desc2}
-                    </div>
+                    
                   </SkillContainer>
                 );
               })}
+               
           </SkillsWrap>
+          <DescriptionWrap>
+          {
+            selectDesc && (
+              <div className="description">
+              {selectDesc.desc}
+              {selectDesc.desc2}
+            </div>
+             
+            )
+            
+          }
+          </DescriptionWrap>
+         
         </Skillsbody>
       </Element>
     </>

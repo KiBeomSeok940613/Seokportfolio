@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 
 const Aboutbody = styled.div`
+ box-sizing: border-box;
   width: 100%;
   height: 100%;
   background-color: #1b1b1e;
@@ -15,6 +16,7 @@ const Aboutbody = styled.div`
   
 `;
 const TextWrap = styled.div`
+
   padding-top: 100px;
   width: 100%;
   height: 100px;
@@ -22,6 +24,8 @@ const TextWrap = styled.div`
   justify-content: start;
   padding-left: 5%;
   color: #fffceb;
+  box-sizing: border-box;
+ 
 `;
 
 const AboutWrap = styled.div`

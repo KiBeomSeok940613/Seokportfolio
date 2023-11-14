@@ -16,18 +16,21 @@ const Navbar = keyframes`
 
 `;
 // Nav Wrap 네비 랩 시작
-
+const HeaderWrap = styled.div`
+  width: 100%;
+`
 const Header = styled.header`
   z-index: 50;
   background-color: #1b1b1e;
   width: 100%;
-  padding: 10px 12px 0px 12px;
+  /* padding: 10px 12px 0px 12px; */
   display: flex;
   align-items: center;
   justify-content: space-around;
   position: fixed;
   transition: 1s;
   top: 0;
+  box-sizing: border-box;
 
   .Nav_logo {
     padding: 0 3%;
@@ -122,6 +125,7 @@ function Nav() {
 
   return (
     <>
+    <HeaderWrap>
       <Header>
         <div className="Nav_logo">
           <Link to="mainTop" spy={true} smooth={true} offset={0} duration={500}>
@@ -195,6 +199,7 @@ function Nav() {
           icon={isClick ? faBars : faBurger}
         ></FontAwesomeIcon>
       </Header>
+      </HeaderWrap>
     </>
   );
 }

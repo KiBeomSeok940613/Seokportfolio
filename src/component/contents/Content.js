@@ -31,6 +31,7 @@ const Content_Wrap = styled.div`
   padding-left: 5%;
   color: #fffceb;
   padding-bottom: 100px;
+  box-sizing: border-box;
 `;
 const Content_type_wrap = styled.div`
   margin: 0 auto;
