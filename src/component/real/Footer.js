@@ -40,7 +40,7 @@ function Footer() {
   return (
     <FooterWrap>
         <TextWrap>
-         <p>{commit}</p>
+         <p>마지막 깃 커밋{commit}</p>
         </TextWrap>
     </FooterWrap>
   )
