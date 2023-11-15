@@ -7,6 +7,8 @@ import Contact from "../contents/Contact";
 import { Element } from "react-scroll";
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
+import { useEffect } from "react";
 
 
 
@@ -28,7 +30,7 @@ const Container = styled.div`
   text-align: center;
   color: #FFFCEB;
   background-color: #1B1B1E;
-  /* animation: ${fadeIn} 1s ease-in-out forwards; */
+ animation: ${fadeIn} 1s ease-in-out forwards; 
 `;
 const BorderBox = styled.div`
  
@@ -45,17 +47,18 @@ const MainWrap = styled.div`
   svg
   {
     font-size: 40px;
-    padding-bottom: 300px;
+    margin-bottom: 200px;
   }
  
   h1 {
-    color: #fff;
+    color: #fffceb;
     font-weight: bold;
     font-size: 4vw;
+    margin-left: 10px;
     /* animation: ${fadeIn} 3s ease-in-out forwards;  */
   }
   h2 {
-    color: #102c57;
+    color: #fffceb;
     font-size: 4rem;
     /* animation: ${fadeIn} 2s ease-in-out forwards 0.5s; */
   }
@@ -65,8 +68,7 @@ const MainWrap = styled.div`
     /* animation: ${fadeIn} 2.5s ease-in-out forwards 0.5s; */
   }
   /* 모바일 버전 먼저. */
-  @media screen and (max-width: 767px) {
-  }
+
 `;
 const MainWrapText = styled.div`
   width: 100%;
@@ -77,6 +79,12 @@ const MainWrapText = styled.div`
   display: flex;
   
   animation: ${fadeIn} 2s ease-in-out forwards;
+  @media screen and (max-width: 767px) {
+    line-height: 50px;
+    flex-direction: column;
+    width: 80%;
+
+  }
 `;
 const Mainbgc = styled.div`
 width: 100%;height: 100vh;
@@ -86,6 +94,24 @@ box-sizing: border-box;
 `
 
 function Main() {
+  const autotitle =
+  "FrontEnd_Developer";
+const [landingTitle, setLandingTitle] = useState("");
+const [count, setCount] = useState(0);
+
+useEffect(() => {
+  const Txttyping = setInterval(() => {
+    if (count < autotitle.length) {
+      setLandingTitle((Txt) => Txt + autotitle.charAt(count));
+      setCount((count) => count + 1);
+    } else {
+      clearInterval(Txttyping);
+    }
+  }, 150);
+
+  return () => clearInterval(Txttyping);
+}, [count, autotitle]);
+
 
 
   return (
@@ -96,13 +122,14 @@ function Main() {
         <MainWrap >
         
           <MainWrapText>
-          <h2>BeomSeok</h2>
-            <h1>FrontEnd_Developer</h1>
+          <h2>BeomSeok </h2>
+           
+            <h1>{landingTitle}</h1>
             
             
-            <FontAwesomeIcon icon={faAnglesDown} />
+           
           </MainWrapText>
-          
+          <FontAwesomeIcon icon={faAnglesDown} />
         </MainWrap>
        
       </Container>

@@ -18,6 +18,7 @@ const Navbar = keyframes`
 // Nav Wrap 네비 랩 시작
 const HeaderWrap = styled.div`
   width: 100%;
+
 `
 const Header = styled.header`
   z-index: 50;
@@ -31,6 +32,7 @@ const Header = styled.header`
   transition: 1s;
   top: 0;
   box-sizing: border-box;
+  border-bottom: 3px solid white;
 
   .Nav_logo {
     padding: 0 3%;
@@ -46,8 +48,8 @@ const Header = styled.header`
     color: white;
     font-size: 2rem;
     position: absolute;
-    right: 50px;
-    top: 30px;
+    right: 30px;
+    top: 21px;
     cursor: pointer;
     /* animation: ${Navbar} 1s; */
   }
@@ -63,7 +65,7 @@ const Header = styled.header`
 `;
 
 const NavContainer = styled.ul`
-  width: 40%;
+  width: 30%;
   display: flex;
   justify-content: space-between;
   transition: 1s;
@@ -97,8 +99,9 @@ const NavContainer = styled.ul`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    margin-top: 5px;
+    
     transition: 1s;
+    border-top: 3px solid white;
 
     /* animation: ${Navbar} 1s; */
   }
@@ -178,7 +181,7 @@ function Nav() {
               <p>SKILLS</p>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link
               to="contactSection"
               spy={true}
@@ -190,7 +193,7 @@ function Nav() {
             >
               <p>CONTACT</p>
             </Link>
-          </li>
+          </li> */}
         </NavContainer>
 
         <FontAwesomeIcon

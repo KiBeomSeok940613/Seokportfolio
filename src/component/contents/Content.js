@@ -43,7 +43,7 @@ const Content_type_wrap = styled.div`
   justify-content: space-around;
   cursor: pointer;
   margin-bottom: 50px;
-  @media screen and (max-width: 550px) {
+  @media screen and (max-width: 560px) {
     width: 100%;
     display: flex;
    
@@ -82,10 +82,11 @@ const ContentSkills = styled.div`
   @media screen and (max-width: 1210px) {
     width: 100%;
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 550px) {
     width: 85%;
     flex-direction: column;
     align-items: center;
+   
   }
 `;
 
@@ -94,8 +95,13 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-  margin-bottom: 200px;
+  margin-bottom: 100px;
   position: relative;
+
+  svg{
+    font-size: 40px;
+    cursor: pointer;
+  }
 
   .description {
     width: 100%;
@@ -111,14 +117,17 @@ const ContentContainer = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    line-height: 2rem;
     text-align: center;
+    line-height: 1.5;
 
-    @media screen and (max-width: 1210px) {
+    @media screen and (max-width: 730px) {
       width: 100%;
+      line-height: 1.2;
     }
     @media screen and (max-width: 500px) {
       width: 100%;
+      line-height: 1.5;
+      
     }
   }
   .description-visible {
@@ -135,7 +144,7 @@ const ContentContainer = styled.div`
   @media screen and (max-width: 1210px) {
     width: 45%;
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 550px) {
     width: 100%;
   }
 `;
@@ -153,8 +162,9 @@ const ImgWrap = styled.div`
   @media screen and (max-width: 1210px) {
     width: 100%;
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 550px) {
     width: 100%;
+    
   }
 `;
 function Content() {
@@ -309,7 +319,9 @@ function Content() {
                     <br />
                     {e.skills}
                     <br />
+                    <a href={e.git} target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faGithub}>{e.git}</FontAwesomeIcon>
+                    </a>
                   </div>
                 </ContentContainer>
               );

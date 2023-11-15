@@ -7,11 +7,23 @@ import { Element } from "react-scroll";
 import { Link } from "react-router-dom";
 
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const Aboutbody = styled.div`
  box-sizing: border-box;
   width: 100%;
   height: 100%;
   background-color: #1b1b1e;
+  animation: ${fadeIn} 1s ease-in-out forwards; 
   
   
 `;
@@ -19,12 +31,13 @@ const TextWrap = styled.div`
 
   padding-top: 100px;
   width: 100%;
-  height: 100px;
+  height: 200px;
   display: flex;
   justify-content: start;
   padding-left: 5%;
   color: #fffceb;
   box-sizing: border-box;
+  
  
 `;
 
@@ -80,7 +93,7 @@ const AboutWrap = styled.div`
 `;
 const About_me_Wrap = styled.div`
   width: 600px;
-  height: 60%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -143,24 +156,7 @@ const Iconwrap = styled.div`
 // img 태그를 사용하는경우는 사진을 통해 홈페이지 이동을 할때!
 
 function About() {
-  const autotitle =
-    "안녕하세요 기범석, 입니다.저는 코딩을 하면서 새로운 기술을 접목해서 사용 해볼때 그리고, 오류가 발생 하였을때 그것을 해결해냈을 때,이러한 순간들에서 큰 기쁨을 느끼고 있습니다.";
-  const [landingTitle, setLandingTitle] = useState("");
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const Txttyping = setInterval(() => {
-      if (count < autotitle.length) {
-        setLandingTitle((Txt) => Txt + autotitle.charAt(count));
-        setCount((count) => count + 1);
-      } else {
-        clearInterval(Txttyping);
-      }
-    }, 50);
-
-    return () => clearInterval(Txttyping);
-  }, [count, autotitle]);
-
+ 
   return (
     <>
       <Element name="aboutSection">
@@ -178,7 +174,8 @@ function About() {
           </ImgWrap> */}
 
             <About_me_Wrap>
-              <h2>{landingTitle}</h2>
+              <h2>Simple is the Best !  </h2>
+              <h2>안녕하세요 기범석 입니다!<br/> 저는 제가 개발을 할때 어떻게 하면 이용자 가 조금이라도 더 편하게 이용 할 수 있을까? 라는 <br/> 생각을 조금이라도 더 해보려고 노력하는 개발자 입니다. <br/> 또한 어떠한 오류가 발생 했을때 그것을 해결 하였을때  큰 기쁨을 <br/> 느끼는  개발자가 될 수 있도록 노력 하고 있습니다!</h2>
               {/* <h3>{landingTitle[1]}</h3> */}
               {/* <span>{landingTitle[2]}</span> */}
 
