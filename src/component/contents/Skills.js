@@ -7,16 +7,7 @@ import { Fade } from "react-reveal";
 
 // skills 시작
 
-const motion = keyframes`
-  0% {
-    margin-top: 5px;
-  }
 
-  100% {
-    margin-top: 10px;
-    
-  }
-`;
 const Skillsbody = styled.div`
   width: 100%;
   height: 900px;
@@ -59,7 +50,7 @@ const Skills_type_wrap = styled.div`
       background-color: #fffceb;
       color: #1b1b1e;
       border-radius: 10px;
-      animation: ${motion} 0.3s ease-in-out infinite;
+      
       
     }
   }

@@ -13,8 +13,8 @@ z-index: 50 ;
 const TextWrap = styled.div`
         height: 100%;
         display: flex;
-        justify-content: start;
-        padding-left: 5%;
+        justify-content: end;
+        padding-right: 10%;
         align-items: center;
         p{
             color: #f5ddb0;
