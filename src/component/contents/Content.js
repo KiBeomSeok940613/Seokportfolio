@@ -333,7 +333,7 @@ function Content() {
                     <br />
                     <a href={e.git} target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon style={{color:"white"}} icon={faGithub}>{e.git}</FontAwesomeIcon>
-                    <img style={{color:"whitesmoke"}} src="images/img/contents/vercel.png" alt='x' target='_blank' src='https://dgb-theta.vercel.app/' />
+                    <img style={{color:"whitesmoke"}} src="images/img/contents/vercel.png" alt='x' />
                     </a>
                      
                   </div>
