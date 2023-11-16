@@ -1,8 +1,10 @@
 import { faBars, faBurger } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { Link,Events } from "react-scroll";
+
+
 
 // Nav 애니메이션
 
@@ -32,7 +34,7 @@ const Header = styled.header`
   transition: 1s;
   top: 0;
   box-sizing: border-box;
-  border-bottom: 3px solid white;
+  
 
   .Nav_logo {
     padding: 0 3%;
@@ -65,10 +67,11 @@ const Header = styled.header`
 `;
 
 const NavContainer = styled.ul`
-  width: 30%;
+  width: 20%;
   display: flex;
   justify-content: space-between;
   transition: 1s;
+ 
 
   li {
     &:hover {
@@ -77,6 +80,7 @@ const NavContainer = styled.ul`
       transition: 1s;
       border-radius: 4px;
       font-size: 2rem;
+      
     }
   }
   .Nav-Menu-list {
@@ -110,6 +114,8 @@ const NavContainer = styled.ul`
 function Nav() {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [isClick, setIsClick] = useState(true);
+  const aboutSectionRef = useRef(null);
+
 
   const handleToggleOpen = () => {
     setIsToggleOpen(!isToggleOpen);
@@ -119,6 +125,17 @@ function Nav() {
   useEffect(() => {
     Events.scrollEvent.register("end", function (to, element) {
       if (to === "aboutSection") {
+        const aboutSection = aboutSectionRef.current
+        if (aboutSection) {
+          const rect = aboutSection.getBoundingClientRect();
+          const isvisible = rect.top <= window.innerHeight && rect.bottom >= 0 ;
+          if(isvisible) {
+            aboutSection.classList.add('fade-in');
+            
+          }else{
+            aboutSection.classList.remove('fade-in');
+          }
+        }
       }
     });
     return () => {
@@ -143,6 +160,7 @@ function Nav() {
         <NavContainer isToggleOpen={isToggleOpen}>
           {" "}
           <li>
+            <div ref={aboutSectionRef}>
             <Link
               to="aboutSection"
               spy={true}
@@ -154,6 +172,7 @@ function Nav() {
             >
               ABOUT
             </Link>
+            </div>
           </li>
           <li>
             <Link

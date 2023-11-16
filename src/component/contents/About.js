@@ -1,10 +1,12 @@
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Element } from "react-scroll";
 import { Link } from "react-router-dom";
+import { Fade } from "react-reveal";
+
 
 
 const fadeIn = keyframes`
@@ -23,7 +25,7 @@ const Aboutbody = styled.div`
   width: 100%;
   height: 100%;
   background-color: #1b1b1e;
-  animation: ${fadeIn} 1s ease-in-out forwards; 
+  animation: ${fadeIn} 2s ease-in-out forwards; 
   
   
 `;
@@ -43,7 +45,7 @@ const TextWrap = styled.div`
 
 const AboutWrap = styled.div`
   max-width: 1600px;
-  height: 600px;
+  height: 800px;
   display: flex;
   justify-content: space-around;
 
@@ -157,9 +159,12 @@ const Iconwrap = styled.div`
 
 function About() {
  
+ 
   return (
     <>
-      <Element name="aboutSection">
+    
+      <Element  name="aboutSection">
+      <Fade duration={2000}  bottom>
         <Aboutbody>
           <TextWrap>
             <h1>ABOUT ME</h1>
@@ -201,6 +206,7 @@ function About() {
             </About_me_Wrap>
           </AboutWrap>
         </Aboutbody>
+        </Fade>
       </Element>
     </>
   );

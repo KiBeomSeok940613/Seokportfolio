@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Element } from "react-scroll";
 import styled, { keyframes } from "styled-components";
+import { Fade } from "react-reveal";
 
 // content 시작
 const Contentsbody = styled.div`
@@ -56,10 +57,9 @@ const Content_type_wrap = styled.div`
     transition: 0.5s;
     background-color: #1b1b1e;
     color: #fffceb;
-    border-right: 2px solid white;
-    margin-right: 5px;
-   
-
+    border-bottom: 2px solid white;
+    margin-top: 5px;
+  
     &:hover {
       background-color: #fffceb;
       color: #1b1b1e;
@@ -101,6 +101,7 @@ const ContentContainer = styled.div`
   svg{
     font-size: 40px;
     cursor: pointer;
+  
   }
 
   .description {
@@ -185,8 +186,8 @@ function Content() {
       part: "회원가입 정보수정 로그인 ",
       skills: "React, javascript, Redux, firebase",
       type: "Team project",
-      git: "",
-      orginal: "",
+      git: "https://github.com/the02196/hello_vanilla",
+      vercel: "",
     },
     {
       title: "portpolio",
@@ -195,10 +196,10 @@ function Content() {
       desc2: "개발 기간 15일, ",
       desc3: "기여도 100%",
       part: "회원가입 정보수정 로그인 ",
-      skills: "React, javascript, Redux",
+      skills: "React, javascript, styeld-componunt",
       type: "mini project",
-      git: "",
-      orginal: "",
+      git: "https://github.com/KiBeomSeok940613/react-portpolio",
+      vercel: "",
     },
     {
       title: "서브웨이 클론코딩",
@@ -209,8 +210,8 @@ function Content() {
       part: "회원가입 정보수정 로그인 ",
       skills: "html, css",
       type: "clone",
-      git: "",
-      orginal: "",
+      git: "https://github.com/KiBeomSeok940613/subway",
+      vercel: "",
     },
     {
       title: "html,css,JS 퀴즈.",
@@ -221,8 +222,8 @@ function Content() {
       part: "회원가입 정보수정 로그인 ",
       skills: "html, css, swiper",
       type: "mini project",
-      git: "",
-      orginal: "",
+      git: "https://github.com/KiBeomSeok940613/quiz",
+      vercel: "",
     },
     {
       title: "대구은행 메인",
@@ -233,20 +234,20 @@ function Content() {
       part: "회원가입 정보수정 로그인 ",
       skills: "html, css, swiper",
       type: "clone",
-      git: "",
-      orginal: "",
+      git: "https://github.com/KiBeomSeok940613/dgb",
+      vercel: "",
     },
     {
-      title: "대구은행 메인",
-      imgsrc: "images/img/contents/DGB.png",
-      desc: "클론 코딩",
+      title: "게시판",
+      imgsrc: "images/img/contents/board.png",
+      desc: "프로젝트",
       desc2: "개발 기간 15일, ",
-      desc3: "기여도 100%",
+      desc3: "기여도 30%",
       part: "회원가입 정보수정 로그인 ",
-      skills: "html, css, swiper",
-      type: "clone",
-      git: "",
-      orginal: "",
+      skills: "Next.js, Mysql",
+      type: "mini project",
+      git: "https://github.com/KiBeomSeok940613/mySQL",
+      vercel: "",
     },
   ];
 
@@ -269,6 +270,7 @@ function Content() {
         style={{ backgroundColor: "#1B1B1E" }}
         className="ContentSection"
       >
+        <Fade duration={2000} left>
         <Contentsbody>
           <Content_Wrap>
             <h1 className="">CONTENTS</h1>
@@ -328,6 +330,7 @@ function Content() {
             })}
           </ContentSkills>
         </Contentsbody>
+        </Fade>
       </Element>
     </>
   );

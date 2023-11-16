@@ -3,12 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Element } from "react-scroll";
 import styled from "styled-components";
+import { Fade } from "react-reveal";
 
 // skills 시작
 
 const Skillsbody = styled.div`
   width: 100%;
-  height: 1200px;
+  height: 900px;
   background-color: #1b1b1e;
   padding-top: 100px;
   
@@ -36,11 +37,11 @@ const Skills_type_wrap = styled.div`
     font-size: 1.25rem;
     cursor: pointer;
     padding: 10px;
-
+    margin-top: 20px;
     background-color: #1b1b1e;
     color: #fffceb;
-    border-right: 2px solid white;
-    margin-right: 5px;
+    border-bottom: 2px solid white;
+  
     transition: 0.5s;
     border-radius: 0;
 
@@ -134,7 +135,7 @@ const SkillContainer = styled.div`
   cursor: pointer;
   border-radius: 10px;
   background-color: #f5ddb0;
-  margin: 2% 0 2% 2%;
+  margin: 10px 0 2% 2%;
   @media screen and (max-width: 1200px) {
     width: 25%;
     left: 35%;
@@ -181,7 +182,7 @@ const ClickWrap = styled.div`
 function Skills() {
   const [category, setCateGory] = useState("전체");
 
-  const menuList = ["전체", "프론트 엔드", "백엔드", "협업"];
+  const menuList = ["전체", "프론트 엔드", "백엔드", "ETC.."];
   const menuType = ["전체", "front", "back", "with"];
 
   const [clickImg, setClickimg] = useState(null);
@@ -238,7 +239,7 @@ function Skills() {
       desc: "● 라우팅을 통해 다양한 엔드포인트를 생성하고, 미들웨어를 통해 요청과 응답을 조작하는 방법을 익혔습니다.",
       desc2: "nodejs",
       imgsrc: "images/img/skills/nodejs-original-wordmark.svg",
-      type: "front",
+      type: "back",
     },
     {
       title: "mongodb",
@@ -280,7 +281,7 @@ function Skills() {
       desc: " ● 가독성 좋은 css 스타일 기능을 사용 해 보았습니다..",
       desc2: "Tailwind.css",
       imgsrc: "images/img/skills/tailwindcss.svg",
-      type: "back",
+      type: "front",
     },
     {
       title: "Mysql",
@@ -307,6 +308,7 @@ function Skills() {
   return (
     <>
       <Element style={{ backgroundColor: "#1B1B1E" }} className="skillSection">
+        <Fade duration={2000} right>
         <Skillsbody>
           <SkillS_Text>
             <h1 className="SkillsWrap">SkillS</h1>
@@ -367,6 +369,7 @@ function Skills() {
           </DescriptionWrap>
          
         </Skillsbody>
+        </Fade>
       </Element>
     </>
   );

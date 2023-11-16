@@ -9,7 +9,7 @@ import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { useEffect } from "react";
-
+import { Fade } from "react-reveal";
 
 
 const fadeIn = keyframes`
@@ -25,7 +25,7 @@ const fadeIn = keyframes`
 
 const Container = styled.div`
   width: 100%;
-  height: 800px;
+  height: 900px;
   padding-bottom: 48px;
   text-align: center;
   color: #FFFCEB;
@@ -118,6 +118,7 @@ useEffect(() => {
     <>
     
       <Element className="mainTop">
+        <Fade cascade damping = {0.2}>
       <Container>
         <MainWrap >
         
@@ -131,8 +132,10 @@ useEffect(() => {
           </MainWrapText>
           <FontAwesomeIcon icon={faAnglesDown} />
         </MainWrap>
+        
        
       </Container>
+      </Fade>
       <BorderBox />
      
       <Mainbgc>
