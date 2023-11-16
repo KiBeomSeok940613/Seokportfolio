@@ -151,6 +151,11 @@ const Iconwrap = styled.div`
   @media screen and (max-width: 500px) {
   }
 `;
+const ContactWrap = styled.div`
+  width: 100%;
+  border: 2px solid #fffceb ;
+  border-radius: 10px;
+`
 // px 찌그러지기 시작하는지점 때부터 columm 찌그러질때 바깥div 가 고정값 안에 콘텐츠 div들이
 // 100% 로 알아서 맞춰지게 만들어야 반응형이 편하다.
 // 이미지는 div로 주고 bgimg 로 주고 그다음 이미지 cover bgposition center.
@@ -164,7 +169,7 @@ function About() {
     <>
     
       <Element  name="aboutSection">
-      <Fade duration={2000}  bottom>
+      <Fade duration={3000} bottom>
         <Aboutbody>
           <TextWrap>
             <h1>ABOUT ME</h1>
@@ -181,26 +186,10 @@ function About() {
             <About_me_Wrap>
               <h2>Simple is the Best !  </h2>
               <h2>안녕하세요 기범석 입니다!<br/> 저는 제가 개발을 할때 어떻게 하면 이용자 가 조금이라도 더 편하게 이용 할 수 있을까? 라는 <br/> 생각을 조금이라도 더 해보려고 노력하는 개발자 입니다. <br/> 또한 어떠한 오류가 발생 했을때 그것을 해결 하였을때  큰 기쁨을 <br/> 느끼는  개발자가 될 수 있도록 노력 하고 있습니다!</h2>
-              {/* <h3>{landingTitle[1]}</h3> */}
-              {/* <span>{landingTitle[2]}</span> */}
-
-              {/* <Iconwrap>
-                <Link href="https://github.com/KiBeomSeok940613/react-portpolio">
-                  {" "}
-                  <FontAwesomeIcon
-                    className="BoxIcon"
-                    icon={faGithub}
-                  ></FontAwesomeIcon>
-                </Link>
-                <FontAwesomeIcon
-                  className="BoxIcon"
-                  icon={faGithub}
-                ></FontAwesomeIcon>
-                <FontAwesomeIcon
-                  className="BoxIcon"
-                  icon={faGithub}
-                ></FontAwesomeIcon>
-              </Iconwrap> */}
+              <ContactWrap>
+                <h2>이메일: kbs9406 @ naver.com</h2>
+                <h2>연락처 : 010 2633 2224</h2>
+              </ContactWrap>
             
             <FontAwesomeIcon icon={faAnglesDown} />
             </About_me_Wrap>

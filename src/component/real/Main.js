@@ -25,8 +25,8 @@ const fadeIn = keyframes`
 
 const Container = styled.div`
   width: 100%;
-  height: 900px;
-  padding-bottom: 48px;
+  height: 1100px;
+
   text-align: center;
   color: #FFFCEB;
   background-color: #1B1B1E;
@@ -55,11 +55,13 @@ const MainWrap = styled.div`
     font-weight: bold;
     font-size: 4vw;
     margin-left: 10px;
+    margin-bottom: 50px;
     /* animation: ${fadeIn} 3s ease-in-out forwards;  */
   }
   h2 {
     color: #fffceb;
     font-size: 4rem;
+    margin-bottom: 20px;
     /* animation: ${fadeIn} 2s ease-in-out forwards 0.5s; */
   }
   h3 {
@@ -74,9 +76,11 @@ const MainWrapText = styled.div`
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   display: flex;
+  
   
   animation: ${fadeIn} 2s ease-in-out forwards;
   @media screen and (max-width: 767px) {
@@ -127,10 +131,11 @@ useEffect(() => {
            
             <h1>{landingTitle}</h1>
             
+            <FontAwesomeIcon icon={faAnglesDown} />
             
            
           </MainWrapText>
-          <FontAwesomeIcon icon={faAnglesDown} />
+         
         </MainWrap>
         
        

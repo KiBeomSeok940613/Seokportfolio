@@ -120,6 +120,13 @@ const ContentContainer = styled.div`
     left: 0;
     text-align: center;
     line-height: 1.5;
+    a{
+      img{
+        width: 40px;height: 35px; margin-left: 30px;
+        cursor: pointer;
+        
+      }
+    }
 
     @media screen and (max-width: 730px) {
       width: 100%;
@@ -195,11 +202,11 @@ function Content() {
       desc: "포트폴리오",
       desc2: "개발 기간 15일, ",
       desc3: "기여도 100%",
-      part: "회원가입 정보수정 로그인 ",
+      part: "",
       skills: "React, javascript, styeld-componunt",
       type: "mini project",
       git: "https://github.com/KiBeomSeok940613/react-portpolio",
-      vercel: "",
+      vercel: "https://vercel.com/kibeomseok940613/portpolio",
     },
     {
       title: "서브웨이 클론코딩",
@@ -207,8 +214,8 @@ function Content() {
       desc: "클론 코딩",
       desc2: "개발 기간 10일, ",
       desc3: "기여도 100%",
-      part: "회원가입 정보수정 로그인 ",
-      skills: "html, css",
+      part:  "",
+      skills: "html, css Swiper",
       type: "clone",
       git: "https://github.com/KiBeomSeok940613/subway",
       vercel: "",
@@ -219,8 +226,8 @@ function Content() {
       desc: "프로젝트",
       desc2: "개발 기간 6일, ",
       desc3: "기여도 100%",
-      part: "회원가입 정보수정 로그인 ",
-      skills: "html, css, swiper",
+      part: " ",
+      skills: "html, css, javascript",
       type: "mini project",
       git: "https://github.com/KiBeomSeok940613/quiz",
       vercel: "",
@@ -231,8 +238,8 @@ function Content() {
       desc: "클론 코딩",
       desc2: "개발 기간 15일, ",
       desc3: "기여도 100%",
-      part: "회원가입 정보수정 로그인 ",
-      skills: "html, css, swiper",
+      part: "",
+      skills: "html, css, Swiper",
       type: "clone",
       git: "https://github.com/KiBeomSeok940613/dgb",
       vercel: "",
@@ -247,7 +254,7 @@ function Content() {
       skills: "Next.js, Mysql",
       type: "mini project",
       git: "https://github.com/KiBeomSeok940613/mySQL",
-      vercel: "",
+      vercel: "images/img/contents/vercel.png",
     },
   ];
 
@@ -322,8 +329,10 @@ function Content() {
                     {e.skills}
                     <br />
                     <a href={e.git} target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faGithub}>{e.git}</FontAwesomeIcon>
+                    <FontAwesomeIcon style={{color:"white"}} icon={faGithub}>{e.git}</FontAwesomeIcon>
+                    <img style={{color:"whitesmoke"}} src="images/img/contents/vercel.png" alt='x' />
                     </a>
+                     
                   </div>
                 </ContentContainer>
               );
