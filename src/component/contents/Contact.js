@@ -25,28 +25,15 @@ const TextWrap = styled.div`
   box-sizing: border-box;
 `;
 
-const ImgWrap = styled.div`
-  width: 100%; // 이미지가 가득 차도록
-  border-radius: 50%;
-  background: url("images/img/KakaoTalk_20231029_155123087.jpg");
-  background-position: center;
-  width: 350px;
-  height: 350px;
-  margin-top: 50px;
-  @media screen and (max-width: 1199px) {
-    margin-bottom: 20px;
-  }
-`;
 const Contactswrap = styled.div`
   max-width: 1600px;
-  height: 800px;
   display: flex;
   justify-content: space-around;
-
   margin: 0 auto;
   background-color: #1b1b1e;
   color: #fffceb;
   text-align: center;
+  
 
   h1 {
     font-size: 3rem;
@@ -129,12 +116,7 @@ const Contact_wrap = styled.div`
     font-size: 0.85rem;
   }
 `;
-const Contactinput = styled.input`
-      width: 300px;
-      height: 300px;
 
-
-`
 const Iconwrap = styled.div`
   width: 50%;
   display: flex;
@@ -166,21 +148,17 @@ function Contact() {
         <Contactswrap>
           
           <Contact_wrap>
-            <Contactinput />
+            
             
 
             <Iconwrap>
              <a href="https://github.com/KiBeomSeok940613" target="_blank" rel="noopener noreferrer" >
-              <FontAwesomeIcon
+              <FontAwesomeIcon style={{color: "f5ddb0"}}
                 className="BoxIcon"
                 icon={faGithub}
               ></FontAwesomeIcon>
              </a>
-              
-              <FontAwesomeIcon
-                className="BoxIcon"
-                icon={faGithub}
-              ></FontAwesomeIcon>
+                        
             </Iconwrap>
           </Contact_wrap>
         </Contactswrap>

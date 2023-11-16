@@ -13,11 +13,6 @@ import Skills from "./component/contents/Skills";
 import Content from "./component/contents/Content";
 import Contact from "./component/contents/Contact";
 
-const BgColor = styled.body`
-  width: 100%;
-  height: 100%;
-  background-color: #1b1b1e;
-`;
 
 function App() {
   return (
@@ -34,7 +29,7 @@ function App() {
       <Footer />
 
       <Routes>
-        {/* <Route path="/" element = {<Loading />} /> */}
+        
         <Route path="/" element={<Main />} />
         <Route path="/about" element={<About />} />
         <Route path="/skills" element={<Skills />} />

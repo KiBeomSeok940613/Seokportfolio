@@ -7,13 +7,11 @@ import { Fade } from "react-reveal";
 
 // skills 시작
 
-
 const Skillsbody = styled.div`
   width: 100%;
   height: 900px;
   background-color: #1b1b1e;
   padding-top: 100px;
-  
 `;
 const SkillS_Text = styled.div`
   box-sizing: border-box;
@@ -35,7 +33,7 @@ const Skills_type_wrap = styled.div`
   margin-bottom: 50px;
   @media screen and (max-width: 600px) {
     width: 90%;
-  } 
+  }
 
   li {
     font-size: 1.25rem;
@@ -45,20 +43,21 @@ const Skills_type_wrap = styled.div`
     background-color: #1b1b1e;
     color: #fffceb;
     border-bottom: 2px solid white;
-  
     transition: 0.5s;
     border-radius: 0;
+    
+    &.active {
+      background-color: #f5ddb0;
+        color: #1b1b1e;
+        border-radius: 10px;
+        border-bottom: 2px solid #f5ddb0;
+    }
 
     &:hover {
       background-color: #fffceb;
       color: #1b1b1e;
       border-radius: 10px;
-      
-      
     }
-  
-      
-    
   }
 `;
 
@@ -70,7 +69,7 @@ const SkillsWrap = styled.div`
   margin: 0 auto;
   background-color: #1b1b1e;
   flex-wrap: wrap;
-  
+
   p {
     font-size: 2rem;
   }
@@ -83,7 +82,7 @@ const SkillsWrap = styled.div`
 `;
 const DescriptionWrap = styled.div`
   max-width: 1600px;
-  
+
   margin: 0 auto;
   display: flex;
   position: relative;
@@ -101,36 +100,34 @@ const DescriptionWrap = styled.div`
     border-radius: 10px;
     padding: 10px;
     line-height: 40px;
-    
+
     @media screen and (max-width: 1200px) {
       width: 80%;
       left: 30%;
     }
     @media screen and (max-width: 620px) {
       width: 70%;
-    
     }
-  
-  .desc2 {
-    color: whitesmoke;
-    margin-bottom: 20px;
-  }
 
-  @media screen and (max-width: 1200px) {
-    width: 55%;
-    left: 20%;
-  }
-  @media screen and (max-width: 620px) {
-    width: 70%;
-    left: 10%;
-  }
+    .desc2 {
+      color: whitesmoke;
+      margin-bottom: 20px;
+    }
 
-  .description-visible {
-    display: block;
-    transition: 2s;
+    @media screen and (max-width: 1200px) {
+      width: 55%;
+      left: 20%;
+    }
+    @media screen and (max-width: 620px) {
+      width: 70%;
+      left: 10%;
+    }
+
+    .description-visible {
+      display: block;
+      transition: 2s;
+    }
   }
-  }
- 
 `;
 
 const SkillContainer = styled.div`
@@ -144,7 +141,7 @@ const SkillContainer = styled.div`
   cursor: pointer;
   border-radius: 10px;
   background-color: #f5ddb0;
-  
+
   margin: 10px 0 2% 2%;
   @media screen and (max-width: 1200px) {
     width: 25%;
@@ -152,7 +149,6 @@ const SkillContainer = styled.div`
   }
   @media screen and (max-width: 620px) {
     width: 30%;
-    
   }
   .title_text {
     width: 100%;
@@ -160,7 +156,6 @@ const SkillContainer = styled.div`
     display: flex;
     align-items: center;
     text-align: justify;
-    
   }
 
   .skill-img {
@@ -170,8 +165,6 @@ const SkillContainer = styled.div`
     cursor: pointer;
     margin-bottom: 40px;
   }
-  
-
 `;
 const ClickWrap = styled.div`
   width: 10%;
@@ -199,11 +192,12 @@ function Skills() {
 
   const [clickImg, setClickimg] = useState(null);
   const [selectDesc, setSelectDesc] = useState(null);
+  const [isactive, setIsActive] = useState(0);
 
   const ActiveClick = (i) => {
     if (clickImg === i) {
       setClickimg(null);
-      setSelectDesc(null)
+      setSelectDesc(null);
     } else {
       setClickimg(i);
       setSelectDesc(imgData[i]);
@@ -302,7 +296,6 @@ function Skills() {
       imgsrc: "images/img/skills/mysql.svg",
       type: "back",
     },
-    
   ];
   const FliterData =
     imgData &&
@@ -321,66 +314,65 @@ function Skills() {
     <>
       <Element style={{ backgroundColor: "#1B1B1E" }} className="skillSection">
         <Fade duration={2000} right>
-        <Skillsbody>
-          <SkillS_Text>
-            <h1 className="SkillsWrap">SkillS</h1>
-            
-          </SkillS_Text>
+          <Skillsbody>
+            <SkillS_Text>
+              <h1 className="SkillsWrap">SkillS</h1>
+            </SkillS_Text>
 
-          <Skills_type_wrap>
-            {menuList.map((el, ind) => {
-              return (
-                <li
-                  onClick={() => {
-                    setCateGory(menuType[ind]);
-                  }}
-                  key={ind}
-                >
-                  {el}
-                </li>
-              );
-            })}
-          </Skills_type_wrap>
+            <Skills_type_wrap>
+              {menuList.map((el, ind) => {
+                return (
+                  <li
+                    className={isactive === ind ? "active" : ""}
+                    onClick={() => {
+                      setCateGory(menuType[ind]);
+                      setIsActive(ind);
+                    }}
+                    key={ind}
+                  >
+                    {el}
+                  </li>
+                );
+              })}
+            </Skills_type_wrap>
 
-          {/* <ClickWrap>
+            {/* <ClickWrap>
             <p>Click!</p>
             <FontAwesomeIcon icon={faAngleDoubleDown}></FontAwesomeIcon>
           </ClickWrap> */}
 
-          <SkillsWrap>
-            {imgData
-              .filter((e) => category === "전체" || category === e.type)
-              .map((e, i) => {
-                return (
-                  <SkillContainer
-                    key={i}
-                    onClick={() => {
-                      ActiveClick(i);
-                    }}
-                  >
-                    <img className="skill-img" src={e.imgsrc} alt={e.title} />
-                    {""}
-                    <div className="title_text">{e.title}</div>
-                    
-                  </SkillContainer>
-                );
-              })}
-               
-          </SkillsWrap>
-          <DescriptionWrap>
-          {
-            selectDesc && (
-              <div className="description">
-              <span style={{fontWeight:"bold", fontSize:"20px"}}>{selectDesc.desc2}</span><br/>
-              {selectDesc.desc}
-            </div>
-             
-            )
-            
-          }
-          </DescriptionWrap>
-         
-        </Skillsbody>
+            <SkillsWrap>
+              {imgData
+                .filter((e) => category === "전체" || category === e.type)
+                .map((e, i) => {
+                  return (
+                    <SkillContainer
+                      key={i}
+                      onClick={() => {
+                        ActiveClick(i);
+                      }}
+                    >
+                      <img className="skill-img" src={e.imgsrc} alt={e.title} />
+                      {""}
+                      <div className="title_text">{e.title}</div>
+                    </SkillContainer>
+                  );
+                })}
+            </SkillsWrap>
+            <DescriptionWrap>
+              {selectDesc && (
+                <div className="description">
+                  <span style={{ fontWeight: "bold", fontSize: "40px", color: "#f5ddb0" }}>
+                    {selectDesc.desc2}
+                  </span>
+                  <br />
+                  <div style={{fontWeight:"bold", fontSize:"25px", paddingTop:"20px"}}>
+                  {selectDesc.desc}
+                  </div>
+                </div>
+              )}
+            </DescriptionWrap>
+          </Skillsbody>
         </Fade>
       </Element>
     </>

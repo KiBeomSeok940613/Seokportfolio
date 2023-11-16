@@ -200,7 +200,7 @@ function Nav() {
               <p>SKILLS</p>
             </Link>
           </li>
-          {/* <li>
+          <li>
             <Link
               to="contactSection"
               spy={true}
@@ -212,7 +212,7 @@ function Nav() {
             >
               <p>CONTACT</p>
             </Link>
-          </li> */}
+          </li> 
         </NavContainer>
 
         <FontAwesomeIcon

@@ -166,8 +166,11 @@ const Iconwrap = styled.div`
 const ContactWrap = styled.div`
   width: 100%;
   border: 2px solid #fffceb ;
+  
+  text-align: center;
   border-radius: 10px;
   margin-top: 20px;
+  
 `
 // px 찌그러지기 시작하는지점 때부터 columm 찌그러질때 바깥div 가 고정값 안에 콘텐츠 div들이
 // 100% 로 알아서 맞춰지게 만들어야 반응형이 편하다.

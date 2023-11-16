@@ -54,14 +54,18 @@ const Content_type_wrap = styled.div`
   li {
     font-size: 1.25rem;
     cursor: pointer;
-    padding: 10px;grid-column-gap
+    padding: 10px;
     transition: 0.5s;
-    ${({ active, ind }) =>
-      active === ind ? "#1b1b1e" : "#fffceb"};
-    color: ${({ active, ind }) => (active === ind ? "#1b1b1e" : "#fffceb")};
+    background-color: #1b1b1e;
+    color: #fffceb;
     border-bottom: 2px solid white;
     margin-top: 5px;
-  
+      &.active{
+        background-color: #f5ddb0;
+        color: #1b1b1e;
+        border-radius: 10px;
+        border-bottom: 2px solid #f5ddb0;
+     }
     &:hover {
       background-color: #fffceb;
       color: #1b1b1e;
@@ -184,7 +188,8 @@ function Content() {
 
   const menuList = ["ALL", "CLONE", "TEAM", "SOLO.."];
   const menuType = ["전체", "clone", "Team project", "mini project"];
-  const [active, setActive] = useState(false);
+  const [isactive, setIsActive] = useState(0);
+  
 
     
 
@@ -293,14 +298,14 @@ function Content() {
           <Content_type_wrap>
             {menuList.map((el, ind) => {
               return (
-                <li
+                <li className = {  isactive === ind ? "active" : "" } 
                   onClick={() => {
-                    setCateGory(menuType[ind]);
-                    setActive(ind)
-                  }}
-                  key={ind}
-                  active={active}
-                  ind={ind}
+                    setCateGory(menuType[ind])
+                    setIsActive(ind)
+                    
+                                      
+                  }}    
+                  key={ind}      
                 >
                   {el}
                 </li>

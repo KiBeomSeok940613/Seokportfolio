@@ -174,7 +174,9 @@ useEffect(() => {
 
       <Skills />
       <BorderBox />
-     
+
+      <Contact />
+      <BorderBox />
 
       
       </Mainbgc>
