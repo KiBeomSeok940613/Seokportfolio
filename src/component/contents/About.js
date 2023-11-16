@@ -104,7 +104,7 @@ const AboutWrap = styled.div`
   }
 `;
 const About_me_Wrap = styled.div`
-  width: 600px;
+  width: 700px;
   height: 80%;
   display: flex;
   flex-direction: column;
@@ -112,6 +112,7 @@ const About_me_Wrap = styled.div`
   justify-content: center;
   line-height: 3vw;
   padding-top: 10px;
+  text-align: justify;
   svg{
     padding-top: 100px;
     font-size: 30px;
@@ -197,10 +198,11 @@ function About() {
 
             <About_me_Wrap>
               <h2>Simple is the Best !  </h2>
-              <h2>안녕하세요 기범석 입니다!<br/> 저는 제가 개발을 할때 어떻게 하면 이용자 가 조금이라도 더 편하게 이용 할 수 있을까? 라는 <br/> 생각을 조금이라도 더 해보려고 노력하는 개발자 입니다. <br/> 또한 어떠한 오류가 발생 했을때 그것을 해결 하였을때  큰 기쁨을 <br/> 느끼는  개발자가 될 수 있도록 노력 하고 있습니다!</h2>
+              <h2>안녕하세요 기범석 입니다!<br/> 저는 제가 개발을 할때 어떻게 하면 이용자 가 조금이라도 더 편하게 이용 할 수 있을까?<br/> 라는 생각을 조금이라도 더 해보려고 <br/> 노력하는 개발자 입니다.  또한 어떠한 오류가 발생 했을때 그것을 해결 하였을때  큰 기쁨을 <br/> 느끼는  개발자가 될 수 있도록 <br/> 노력 하고 있습니다!</h2>
               <ContactWrap>
                 <h2>이메일: kbs9406 @ naver.com</h2>
                 <h2>연락처 : 010 2633 2224</h2>
+                <h2>그린 컴퓨터 학원 수강중.. </h2>
               </ContactWrap>
             
             <FontAwesomeIcon icon={faAnglesDown} />

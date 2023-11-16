@@ -181,7 +181,7 @@ const ImgWrap = styled.div`
 function Content() {
   const [category, setCateGory] = useState("전체");
 
-  const menuList = ["전체", "클론코딩", "팀프로젝트", "미니 프로젝트"];
+  const menuList = ["ALL", "CLONE", "TEAM", "SOLO.."];
   const menuType = ["전체", "clone", "Team project", "mini project"];
 
   const [clickImg, setClickimg] = useState(null);

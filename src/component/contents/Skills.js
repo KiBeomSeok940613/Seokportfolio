@@ -25,7 +25,7 @@ const SkillS_Text = styled.div`
 `;
 const Skills_type_wrap = styled.div`
   margin: 0 auto;
-  width: 80%;
+  width: 70%;
   height: 50px;
   align-items: center;
   background-color: #1b1b1e;
@@ -33,6 +33,9 @@ const Skills_type_wrap = styled.div`
   justify-content: space-around;
   cursor: pointer;
   margin-bottom: 50px;
+  @media screen and (max-width: 600px) {
+    width: 90%;
+  } 
 
   li {
     font-size: 1.25rem;
@@ -53,6 +56,9 @@ const Skills_type_wrap = styled.div`
       
       
     }
+  
+      
+    
   }
 `;
 
@@ -138,20 +144,23 @@ const SkillContainer = styled.div`
   cursor: pointer;
   border-radius: 10px;
   background-color: #f5ddb0;
+  
   margin: 10px 0 2% 2%;
   @media screen and (max-width: 1200px) {
     width: 25%;
     left: 35%;
   }
   @media screen and (max-width: 620px) {
-    width: 25%;
+    width: 30%;
+    
   }
   .title_text {
     width: 100%;
     height: 100%;
-    justify-content: center;
-    align-items: center;
     display: flex;
+    align-items: center;
+    text-align: justify;
+    
   }
 
   .skill-img {
@@ -185,7 +194,7 @@ const ClickWrap = styled.div`
 function Skills() {
   const [category, setCateGory] = useState("전체");
 
-  const menuList = ["전체", "프론트 엔드", "백엔드", "ETC.."];
+  const menuList = ["ALL", "FRONT-END", "BACK_END", "ETC.."];
   const menuType = ["전체", "front", "back", "with"];
 
   const [clickImg, setClickimg] = useState(null);
