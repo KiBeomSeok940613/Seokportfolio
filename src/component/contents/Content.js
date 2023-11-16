@@ -37,7 +37,7 @@ const Content_Wrap = styled.div`
 `;
 const Content_type_wrap = styled.div`
   margin: 0 auto;
-  width: 80%;
+  width: 70%;
   height: 50px;
   align-items: center;
   background-color: #1b1b1e;
@@ -54,10 +54,11 @@ const Content_type_wrap = styled.div`
   li {
     font-size: 1.25rem;
     cursor: pointer;
-    padding: 10px;
+    padding: 10px;grid-column-gap
     transition: 0.5s;
-    background-color: #1b1b1e;
-    color: #fffceb;
+    ${({ active, ind }) =>
+      active === ind ? "#1b1b1e" : "#fffceb"};
+    color: ${({ active, ind }) => (active === ind ? "#1b1b1e" : "#fffceb")};
     border-bottom: 2px solid white;
     margin-top: 5px;
   
@@ -183,6 +184,9 @@ function Content() {
 
   const menuList = ["ALL", "CLONE", "TEAM", "SOLO.."];
   const menuType = ["전체", "clone", "Team project", "mini project"];
+  const [active, setActive] = useState(false);
+
+    
 
   const [clickImg, setClickimg] = useState(null);
 
@@ -292,8 +296,11 @@ function Content() {
                 <li
                   onClick={() => {
                     setCateGory(menuType[ind]);
+                    setActive(ind)
                   }}
                   key={ind}
+                  active={active}
+                  ind={ind}
                 >
                   {el}
                 </li>
@@ -320,6 +327,7 @@ function Content() {
                       clickImg === i ? "description-visible" : ""
                     }`}
                   >
+                    
                     {e.title} <br />
                     {e.desc}
                     <br />

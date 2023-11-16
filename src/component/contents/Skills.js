@@ -194,7 +194,7 @@ const ClickWrap = styled.div`
 function Skills() {
   const [category, setCateGory] = useState("전체");
 
-  const menuList = ["ALL", "FRONT-END", "BACK_END", "ETC.."];
+  const menuList = ["ALL", "FRONT-END", "BACK-END", "ETC.."];
   const menuType = ["전체", "front", "back", "with"];
 
   const [clickImg, setClickimg] = useState(null);
