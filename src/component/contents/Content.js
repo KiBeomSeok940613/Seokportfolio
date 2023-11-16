@@ -13,6 +13,16 @@ const Contentsbody = styled.div`
   padding-top: 100px;
 `;
 
+const motion = keyframes`
+  0% {
+    margin-top: 5px;
+  }
+
+  100% {
+    margin-top: 10px;
+    
+  }
+`;
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -28,7 +38,7 @@ const Content_Wrap = styled.div`
   width: 100%;
   display: flex;
   justify-content: start;
-  animation: ${fadeIn} 0.5s ease-in-out forwards;
+  animation: ${fadeIn} 2s ease-in-out forwards;
   padding-left: 5%;
   color: #fffceb;
   padding-bottom: 100px;
@@ -64,7 +74,9 @@ const Content_type_wrap = styled.div`
       background-color: #fffceb;
       color: #1b1b1e;
       border-radius: 10px;
+      animation: ${motion} 0.3s ease-in-out infinite;
     }
+    
   }
 `;
 

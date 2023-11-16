@@ -23,6 +23,19 @@ const fadeIn = keyframes`
   }
 `;
 
+const blinkEffect  = keyframes`
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+`
+
+
 const Container = styled.div`
   width: 100%;
   height: 1100px;
@@ -44,8 +57,10 @@ const MainWrap = styled.div`
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  
   svg
   {
+    animation: ${blinkEffect} 2s infinite;
     font-size: 40px;
     margin-bottom: 200px;
   }

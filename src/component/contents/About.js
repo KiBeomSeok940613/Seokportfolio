@@ -8,7 +8,17 @@ import { Link } from "react-router-dom";
 import { Fade } from "react-reveal";
 
 
-
+const blinkEffect  = keyframes`
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+`
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -105,6 +115,7 @@ const About_me_Wrap = styled.div`
   svg{
     padding-top: 100px;
     font-size: 30px;
+    animation: ${blinkEffect} 2s infinite;
   }
 
   @media screen and (max-width: 768px) {
@@ -155,6 +166,7 @@ const ContactWrap = styled.div`
   width: 100%;
   border: 2px solid #fffceb ;
   border-radius: 10px;
+  margin-top: 20px;
 `
 // px 찌그러지기 시작하는지점 때부터 columm 찌그러질때 바깥div 가 고정값 안에 콘텐츠 div들이
 // 100% 로 알아서 맞춰지게 만들어야 반응형이 편하다.
