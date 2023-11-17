@@ -53,6 +53,8 @@ const Skills_type_wrap = styled.div`
         color: #1b1b1e;
         border-radius: 10px;
         border-bottom: 2px solid #f5ddb0;
+        font-weight: bold;
+        
     }
 
     &:hover {
