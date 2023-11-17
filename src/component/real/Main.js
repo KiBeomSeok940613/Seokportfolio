@@ -173,10 +173,12 @@ useEffect(() => {
      
 
       <Skills />
-      <BorderBox />
+      {/* <BorderBox /> */}
 
-      <Contact />
-      <BorderBox />
+      
+      
+      {/* <Contact />
+      <BorderBox /> */}
 
       
       </Mainbgc>

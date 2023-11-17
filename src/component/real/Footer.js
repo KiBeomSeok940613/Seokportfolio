@@ -5,8 +5,7 @@ const FooterWrap = styled.div`
 z-index: 50 ;
     width: 100%;
     bottom: 0;
-    position: fixed;
-    height: 30px;
+    position: fixed;  
     border-top: 1px solid black;
     /* 하단 고정 해야함. */
 `
@@ -15,7 +14,8 @@ const TextWrap = styled.div`
         display: flex;
         justify-content: end;
         padding-right: 10%;
-        align-items: center;
+        align-items: end;
+        flex-direction: column;
         p{
             color: #f5ddb0;
             font-size: 20px;
@@ -53,6 +53,8 @@ function Footer() {
     <FooterWrap>
         <TextWrap>
          <p>LAST : commit {formatDate}</p>
+        
+         <p>Copyright 2023. 기범석 all rights reserved.</p>
         </TextWrap>
     </FooterWrap>
   )

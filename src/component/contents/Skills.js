@@ -11,15 +11,17 @@ const Skillsbody = styled.div`
   width: 100%;
   height: 900px;
   background-color: #1b1b1e;
-  padding-top: 100px;
+  padding-top: 200px;
 `;
 const SkillS_Text = styled.div`
   box-sizing: border-box;
   width: 100%;
   display: flex;
-  justify-content: flex start;
+  justify-content: start;
   padding-left: 5%;
+  padding-bottom: 100px;
   color: #fffceb;
+  text-decoration: underline;
 `;
 const Skills_type_wrap = styled.div`
   margin: 0 auto;
@@ -187,7 +189,7 @@ const ClickWrap = styled.div`
 function Skills() {
   const [category, setCateGory] = useState("전체");
 
-  const menuList = ["ALL", "FRONT-END", "BACK-END", "ETC.."];
+  const menuList = ["ALL", "FRONT-END", "BACK-END", "ETC"];
   const menuType = ["전체", "front", "back", "with"];
 
   const [clickImg, setClickimg] = useState(null);
@@ -241,9 +243,9 @@ function Skills() {
       type: "front",
     },
     {
-      title: "nodejs",
+      title: "node.js",
       desc: "● 라우팅을 통해 다양한 엔드포인트를 생성하고, 미들웨어를 통해 요청과 응답을 조작하는 방법을 익혔습니다.",
-      desc2: "nodejs",
+      desc2: "node.js",
       imgsrc: "images/img/skills/nodejs-original-wordmark.svg",
       type: "back",
     },
@@ -303,13 +305,7 @@ function Skills() {
       return category === "전체" || category === e.type;
     });
 
-  const ActiveClick2 = (i) => {
-    if (clickImg === i) {
-      setClickimg(null);
-    } else {
-      setClickimg(i);
-    }
-  };
+  
   return (
     <>
       <Element style={{ backgroundColor: "#1B1B1E" }} className="skillSection">
@@ -335,12 +331,7 @@ function Skills() {
                 );
               })}
             </Skills_type_wrap>
-
-            {/* <ClickWrap>
-            <p>Click!</p>
-            <FontAwesomeIcon icon={faAngleDoubleDown}></FontAwesomeIcon>
-          </ClickWrap> */}
-
+            
             <SkillsWrap>
               {imgData
                 .filter((e) => category === "전체" || category === e.type)

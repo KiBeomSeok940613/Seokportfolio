@@ -34,6 +34,7 @@ const Content_Wrap = styled.div`
   color: #fffceb;
   padding-bottom: 100px;
   box-sizing: border-box;
+  text-decoration: underline;
 `;
 const Content_type_wrap = styled.div`
   margin: 0 auto;
@@ -127,7 +128,7 @@ const ContentContainer = styled.div`
     top: 0;
     left: 0;
     text-align: center;
-    line-height: 1.5;
+    line-height: 2;
     a{
       img{
         width: 40px;height: 35px; margin-left: 30px;
@@ -136,7 +137,7 @@ const ContentContainer = styled.div`
       }
     }
 
-    @media screen and (max-width: 730px) {
+    @media screen and (min-width: 560px) and (max-width: 780px) {
       width: 100%;
       line-height: 1.2;
     }
@@ -186,7 +187,7 @@ const ImgWrap = styled.div`
 function Content() {
   const [category, setCateGory] = useState("전체");
 
-  const menuList = ["ALL", "CLONE", "TEAM", "SOLO.."];
+  const menuList = ["ALL", "CLONE", "TEAM", "SOLO"];
   const menuType = ["전체", "clone", "Team project", "mini project"];
   const [isactive, setIsActive] = useState(0);
   
