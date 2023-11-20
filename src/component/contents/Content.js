@@ -13,7 +13,6 @@ const Contentsbody = styled.div`
   padding-top: 100px;
 `;
 
-
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -38,7 +37,7 @@ const Content_Wrap = styled.div`
 `;
 const Content_type_wrap = styled.div`
   margin: 0 auto;
-  width: 70%;
+  width: 50%;
   height: 50px;
   align-items: center;
   background-color: #1b1b1e;
@@ -49,7 +48,6 @@ const Content_type_wrap = styled.div`
   @media screen and (max-width: 560px) {
     width: 100%;
     display: flex;
-   
   }
 
   li {
@@ -61,20 +59,19 @@ const Content_type_wrap = styled.div`
     color: #fffceb;
     border-bottom: 2px solid white;
     margin-top: 5px;
-      &.active{
-        background-color: #f5ddb0;
-        color: #1b1b1e;
-        border-radius: 10px;
-        border-bottom: 2px solid #f5ddb0;
-        font-weight: bold;
-     }
+    &.active {
+      background-color: #f5ddb0;
+      color: #1b1b1e;
+      border-radius: 10px;
+      border-bottom: 2px solid #f5ddb0;
+      font-weight: bold;
+    }
     &:hover {
+      
       background-color: #fffceb;
       color: #1b1b1e;
       border-radius: 10px;
- 
     }
-    
   }
 `;
 
@@ -96,7 +93,6 @@ const ContentSkills = styled.div`
     width: 85%;
     flex-direction: column;
     align-items: center;
-   
   }
 `;
 
@@ -107,11 +103,13 @@ const ContentContainer = styled.div`
   border: 1px solid black;
   margin-bottom: 100px;
   position: relative;
+  &:hover .description {
+    opacity: 1;
+  }
 
-  svg{
+  svg {
     font-size: 40px;
     cursor: pointer;
-  
   }
 
   .description {
@@ -130,11 +128,12 @@ const ContentContainer = styled.div`
     left: 0;
     text-align: center;
     line-height: 2;
-    a{
-      img{
-        width: 40px;height: 35px; margin-left: 30px;
+    a {
+      img {
+        width: 40px;
+        height: 35px;
+        margin-left: 30px;
         cursor: pointer;
-        
       }
     }
 
@@ -145,12 +144,11 @@ const ContentContainer = styled.div`
     @media screen and (max-width: 500px) {
       width: 100%;
       line-height: 1.5;
-      
     }
   }
-  .description-visible {
+  /* .description-visible {
     opacity: 1;
-  }
+  } */
   .desc2 {
     color: whitesmoke;
     margin-bottom: 20px;
@@ -182,7 +180,6 @@ const ImgWrap = styled.div`
   }
   @media screen and (max-width: 550px) {
     width: 100%;
-    
   }
 `;
 function Content() {
@@ -191,9 +188,6 @@ function Content() {
   const menuList = ["ALL", "CLONE", "TEAM", "SOLO"];
   const menuType = ["전체", "clone", "Team project", "mini project"];
   const [isactive, setIsActive] = useState(0);
-  
-
-    
 
   const [clickImg, setClickimg] = useState(null);
 
@@ -228,7 +222,7 @@ function Content() {
       desc: "클론 코딩",
       desc2: "개발 기간 10일, ",
       desc3: "기여도 100%",
-      part:  "",
+      part: "",
       skills: "html, css Swiper",
       type: "clone",
       git: "https://github.com/KiBeomSeok940613/subway",
@@ -292,71 +286,80 @@ function Content() {
         className="ContentSection"
       >
         <Fade duration={2000} left>
-        <Contentsbody>
-          <Content_Wrap>
-            <h1 className="">CONTENTS</h1>
-          </Content_Wrap>
+          <Contentsbody>
+            <Content_Wrap>
+              <h1 className="">CONTENTS</h1>
+            </Content_Wrap>
 
-          <Content_type_wrap>
-            {menuList.map((el, ind) => {
-              return (
-                <li className = {  isactive === ind ? "active" : "" } 
-                  onClick={() => {
-                    setCateGory(menuType[ind])
-                    setIsActive(ind)
-                    
-                                      
-                  }}    
-                  key={ind}      
-                >
-                  {el}
-                </li>
-              );
-            })}
-          </Content_type_wrap>
-
-          <ContentSkills>
-            {Contents.filter(
-              (e) => category === "전체" || category === e.type
-            ).map((e, i) => {
-              return (
-                <ContentContainer
-                  key={i}
-                  onClick={() => {
-                    ActiveClick(i);
-                  }}
-                >
-                  <ImgWrap>
-                    <img src={e.imgsrc} alt={e.title} />
-                  </ImgWrap>
-                  <div
-                    className={`description ${
-                      clickImg === i ? "description-visible" : ""
-                    }`}
+            <Content_type_wrap>
+              {menuList.map((el, ind) => {
+                return (
+                  <li
+                    className={isactive === ind ? "active" : ""}
+                    onClick={() => {
+                      setCateGory(menuType[ind]);
+                      setIsActive(ind);
+                    }}
+                    key={ind}
                   >
-                    
-                    {e.title} <br />
-                    {e.desc}
-                    <br />
-                    {e.desc2}
-                    <br />
-                    {e.desc3}
-                    <br />
-                    {e.part}
-                    <br />
-                    {e.skills}
-                    <br />
-                    <a href={e.git} target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon style={{color:"white"}} icon={faGithub}>{e.git}</FontAwesomeIcon>
-                    <img style={{color:"whitesmoke"}} src="images/img/contents/vercel.png" alt='x' />
-                    </a>
-                     
-                  </div>
-                </ContentContainer>
-              );
-            })}
-          </ContentSkills>
-        </Contentsbody>
+                    {el}
+                  </li>
+                );
+              })}
+            </Content_type_wrap>
+
+            <ContentSkills>
+              {Contents.filter(
+                (e) => category === "전체" || category === e.type
+              ).map((e, i) => {
+                return (
+                  <ContentContainer
+                    key={i}
+                    onClick={() => {
+                      ActiveClick(i);
+                    }}
+                  >
+                    <ImgWrap>
+                      <img src={e.imgsrc} alt={e.title} />
+                    </ImgWrap>
+                    <div
+                      className={`description ${
+                        clickImg === i ? "description-visible" : ""
+                      }`}
+                    >
+                      {e.title} <br />
+                      {e.desc}
+                      <br />
+                      {e.desc2}
+                      <br />
+                      {e.desc3}
+                      <br />
+                      {e.part}
+                      <br />
+                      {e.skills}
+                      <br />
+                      <a href={e.git} target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon
+                          style={{ color: "white" }}
+                          icon={faGithub}
+                        >
+                          {e.git}
+                        </FontAwesomeIcon>
+                        <img
+                          style={{
+                            color: "whitesmoke",
+                            filter: "hue-rotate(180deg",
+                          }}
+                          src="images/img/contents/vercel.png"
+                          alt="vercel"
+                        />
+                      </a>
+                    </div>
+                  </ContentContainer>
+                );
+              })}
+            </ContentSkills>
+          </Contentsbody>
         </Fade>
       </Element>
     </>

@@ -219,7 +219,7 @@ function About() {
                   노력 하고 있습니다!
                 </h2>
                 <ContactWrap>
-                  <h2>Contact</h2>
+                  
                   <SvgWrap>                   
                     <FontAwesomeIcon icon={faEnvelope} />
                     <FontAwesomeIcon icon={faPhone} />
