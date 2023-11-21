@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Element } from "react-scroll";
 import styled, { keyframes } from "styled-components";
 import { Fade } from "react-reveal";
+import { click } from "@testing-library/user-event/dist/click";
 
 // skills 시작
 
@@ -145,8 +146,10 @@ const SkillContainer = styled.div`
   cursor: pointer;
   border-radius: 10px;
   background-color: #f5ddb0;
-
   margin: 10px 0 2% 2%;
+  &.active2{
+    background-color: #fff;
+  }
   @media screen and (max-width: 1200px) {
     width: 25%;
     left: 35%;
@@ -197,6 +200,10 @@ function Skills() {
   const [clickImg, setClickimg] = useState(null);
   const [selectDesc, setSelectDesc] = useState(null);
   const [isactive, setIsActive] = useState(0);
+  const [clicktitle, setClickTitle] = useState(0);
+
+  
+
 
   const ActiveClick = (i) => {
     if (clickImg === i) {
@@ -339,11 +346,13 @@ function Skills() {
                 .filter((e) => category === "전체" || category === e.type)
                 .map((e, i) => {
                   return (
-                    <SkillContainer
-                      key={i}
+                    <SkillContainer className={clicktitle === i ? "active2" : ""}
+                      
                       onClick={() => {
                         ActiveClick(i);
+                        setClickTitle(i);                      
                       }}
+                      key={i}
                     >
                       <img className="skill-img" src={e.imgsrc} alt={e.title} />
                       {""}
