@@ -52,6 +52,10 @@ function Footer() {
   return (
     <FooterWrap>
         <TextWrap>
+        {/* <a id="chat-channel-button" href="javascript:chatChannel()">
+  <img src="/tool/resource/static/img/button/channel/consult/consult_small_yellow_pc.png"
+    alt="카카오톡 채널 채팅하기 버튼" />
+</a> */}
          <p>LAST : commit {formatDate}</p>
         
          <p>Copyright 2023. 기범석 all rights reserved.</p>

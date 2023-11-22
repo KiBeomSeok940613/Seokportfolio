@@ -1,9 +1,8 @@
-import { faBars, faBurger } from "@fortawesome/free-solid-svg-icons";
+import { faBurger, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { Link,Events } from "react-scroll";
-
 
 
 // Nav 애니메이션
@@ -53,6 +52,7 @@ const Header = styled.header`
     right: 30px;
     top: 21px;
     cursor: pointer;
+    transition: 1s;
     /* animation: ${Navbar} 1s; */
   }
 
@@ -61,6 +61,7 @@ const Header = styled.header`
     align-items: flex-start;
     .MenutoggleBtn {
       display: block;
+      transition: 1s;
       /* animation: ${Navbar} 3s; */
     }
   }
@@ -220,7 +221,7 @@ function Nav() {
         <FontAwesomeIcon
           className="MenutoggleBtn"
           onClick={handleToggleOpen}
-          icon={isClick ? faBars : faBurger}
+          icon={isClick ? faBurger : faX }
         ></FontAwesomeIcon>
       </Header>
       </HeaderWrap>

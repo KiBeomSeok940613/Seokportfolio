@@ -1,15 +1,17 @@
 import {
   faAnglesDown,
+  faComment,
   faEnvelope,
-  faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Element } from "react-scroll";
 import { Link } from "react-router-dom";
 import { Fade } from "react-reveal";
+import Mailto from "react-mailto-link";
+
 
 const blinkEffect = keyframes`
   0% {
@@ -83,7 +85,7 @@ const AboutWrap = styled.div`
   }
   @media screen and (max-width: 1199px) {
     flex-direction: column;
-    
+
     width: 80%;
     height: 90%;
     margin: 0 auto;
@@ -117,12 +119,12 @@ const About_me_Wrap = styled.div`
   svg {
     font-size: 40px;
     cursor: pointer;
+    color: #fffceb;
   }
-    svg:hover{
-      animation: ${blinkEffect} 2s infinite;
-      text-decoration: underline;
-    }
-  
+  svg:hover {
+    animation: ${blinkEffect} 2s infinite;
+    text-decoration: underline;
+  }
 
   @media screen and (max-width: 768px) {
     width: 100%;
@@ -166,7 +168,7 @@ const ContactWrap = styled.div`
   border-radius: 10px;
   margin-top: 20px;
   flex-direction: column;
-  
+
   h2 {
     display: flex;
     justify-content: start;
@@ -175,12 +177,11 @@ const ContactWrap = styled.div`
 `;
 
 const SvgWrap = styled.div`
-    padding: 20px 0 20px 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-
-`
+  padding: 20px 0 20px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+`;
 // px 찌그러지기 시작하는지점 때부터 columm 찌그러질때 바깥div 가 고정값 안에 콘텐츠 div들이
 // 100% 로 알아서 맞춰지게 만들어야 반응형이 편하다.
 // 이미지는 div로 주고 bgimg 로 주고 그다음 이미지 cover bgposition center.
@@ -190,8 +191,6 @@ const SvgWrap = styled.div`
 function About() {
   return (
     <>
-
-
       <Element name="aboutSection">
         <Fade duration={3000} bottom>
           <Aboutbody>
@@ -208,7 +207,9 @@ function About() {
           </ImgWrap> */}
 
               <About_me_Wrap>
-                <h2 style={{fontSize:"30px",paddingBottom:"40px"}}>Simple is the Best ! </h2>
+                <h2 style={{ fontSize: "30px", paddingBottom: "40px" }}>
+                  Simple is the Best !{" "}
+                </h2>
                 <h2>
                   안녕하세요 기범석 입니다!
                   <br /> 저는 제가 개발을 할때 어떻게 하면 이용자 가 조금이라도
@@ -219,12 +220,23 @@ function About() {
                   노력 하고 있습니다!
                 </h2>
                 <ContactWrap>
-                  
-                  <SvgWrap>                   
-                    <FontAwesomeIcon icon={faEnvelope} />
-                    <FontAwesomeIcon icon={faPhone} />
-                    <FontAwesomeIcon icon={faGithub} />
-                  </SvgWrap>  
+                  <SvgWrap>
+                    <a href='mailto:kbs9406@gmail.com'>
+                      <FontAwesomeIcon icon={faEnvelope} />
+                    </a>
+                    <a href="https://open.kakao.com/o/scu2DKTf">
+                      {" "}
+                      <FontAwesomeIcon icon={faComment} />
+                    </a>
+
+                    <a
+                      href="https://github.com/KiBeomSeok940613"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FontAwesomeIcon icon={faGithub} />
+                    </a>
+                  </SvgWrap>
 
                   {/* <a href="mailto:kbs9406@naver.com"><h2 style={{color:"white"}}>메일보내기</h2></a>
                 

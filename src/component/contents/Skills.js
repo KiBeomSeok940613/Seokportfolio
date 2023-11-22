@@ -148,7 +148,7 @@ const SkillContainer = styled.div`
   background-color: #f5ddb0;
   margin: 10px 0 2% 2%;
   &.active2{
-    background-color: #fff;
+    background-color: ${({clicktitle})=> clicktitle ? "yellow" : ""};
   }
   @media screen and (max-width: 1200px) {
     width: 25%;
@@ -321,7 +321,7 @@ function Skills() {
         <Fade duration={2000} right>
           <Skillsbody>
             <SkillS_Text>
-              <h1 className="SkillsWrap">SkillS</h1>
+              <h1 className="SkillsWrap">SKILLS</h1>
             </SkillS_Text>
 
             <Skills_type_wrap>
