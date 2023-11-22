@@ -67,7 +67,6 @@ const Content_type_wrap = styled.div`
       font-weight: bold;
     }
     &:hover {
-      
       background-color: #fffceb;
       color: #1b1b1e;
       border-radius: 10px;

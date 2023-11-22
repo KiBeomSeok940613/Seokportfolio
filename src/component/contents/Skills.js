@@ -200,8 +200,9 @@ function Skills() {
   const [clickImg, setClickimg] = useState(null);
   const [selectDesc, setSelectDesc] = useState(null);
   const [isactive, setIsActive] = useState(0);
-  const [clicktitle, setClickTitle] = useState(0);
+  const [clicktitle, setClickTitle] = useState(null);
 
+ 
   
 
 
@@ -209,9 +210,11 @@ function Skills() {
     if (clickImg === i) {
       setClickimg(null);
       setSelectDesc(null);
+      setClickTitle(null);
     } else {
       setClickimg(i);
       setSelectDesc(imgData[i]);
+      setClickTitle(i)
     }
   };
 
@@ -222,6 +225,7 @@ function Skills() {
       desc2: "HTML ",
       imgsrc: "images/img/skills/html5-original-wordmark.svg",
       type: "front",
+      id: 1 ,
     },
     {
       title: "CSS",
@@ -229,6 +233,7 @@ function Skills() {
       desc2: "CSS",
       imgsrc: "images/img/skills/css3-original-wordmark.svg",
       type: "front",
+      id: 2 ,
     },
     {
       title: "JavaScript",
@@ -236,6 +241,7 @@ function Skills() {
       desc2: "JavaScript",
       imgsrc: "images/img/skills/javascript-original.svg",
       type: "front",
+      id: 3 ,
     },
     {
       title: "React",
@@ -243,6 +249,7 @@ function Skills() {
       desc2: "React",
       imgsrc: "images/img/skills/react-original-wordmark.svg",
       type: "front",
+      id: 4 ,
     },
     {
       title: "Redux",
@@ -250,6 +257,7 @@ function Skills() {
       desc2: "Redux",
       imgsrc: "images/img/skills/redux-original.svg",
       type: "front",
+      id: 5 ,
     },
     {
       title: "Node.js",
@@ -257,6 +265,7 @@ function Skills() {
       desc2: "Node.js",
       imgsrc: "images/img/skills/nodejs-original-wordmark.svg",
       type: "back",
+      id: 6 ,
     },
     {
       title: "MongoDB",
@@ -264,6 +273,7 @@ function Skills() {
       desc2: "MongoDB",
       imgsrc: "images/img/skills/mongodb-original-wordmark.svg",
       type: "back",
+      id: 7 ,
     },
     {
       title: "Firebase",
@@ -271,6 +281,7 @@ function Skills() {
       desc2: "Firebase",
       imgsrc: "images/img/skills/firebase-plain-wordmark.svg",
       type: "back",
+      id: 8 ,
     },
     {
       title: "GitHub",
@@ -278,6 +289,7 @@ function Skills() {
       desc2: "GitHub",
       imgsrc: "images/img/skills/github.svg",
       type: "with",
+      id: 9 ,
     },
     {
       title:  "Vercel",
@@ -285,6 +297,7 @@ function Skills() {
       desc2: "Vercel",
       imgsrc: "images/img/skills/vercel.svg",
       type: "with",
+      id: 10 ,
     },
     {
       title: "Next.Js",
@@ -292,6 +305,7 @@ function Skills() {
       desc2: "Next.Js",
       imgsrc: "images/img/skills/nextjs-original-wordmark.svg",
       type: "front",
+      id: 11,
     },
     {
       title: "Tailwind.CSS",
@@ -299,6 +313,7 @@ function Skills() {
       desc2: "Tailwind.CSS",
       imgsrc: "images/img/skills/tailwindcss.svg",
       type: "front",
+      id: 12 ,
     },
     {
       title: "MySQL",
@@ -306,13 +321,33 @@ function Skills() {
       desc2: "MySQL",
       imgsrc: "images/img/skills/mysql.svg",
       type: "back",
+      id: 13 ,
     },
   ];
+
+  const changeCategory = (ind) =>{
+    setCateGory(menuType[ind]);
+    setIsActive(ind);
+
+    const filterData2 = imgData.filter(
+      (el) => menuType[ind] === "전체" || menuType[ind] === el.type
+    );
+    if(filterData2.length > 0) {
+      setClickimg(filterData2[0]);
+      setSelectDesc(filterData2[0]);
+    }else{
+      setClickimg(null);
+      setSelectDesc(null);
+      
+    }
+  };
   const FliterData =
     imgData &&
     imgData.filter((e) => {
       return category === "전체" || category === e.type;
     });
+   
+
 
   
   return (
@@ -330,8 +365,10 @@ function Skills() {
                   <li
                     className={isactive === ind ? "active" : ""}
                     onClick={() => {
-                      setCateGory(menuType[ind]);
-                      setIsActive(ind);
+                      // setCateGory(menuType[ind]);
+                      // setIsActive(ind);
+                      changeCategory(ind);
+                      
                     }}
                     key={ind}
                   >
@@ -350,7 +387,8 @@ function Skills() {
                       
                       onClick={() => {
                         ActiveClick(i);
-                        setClickTitle(i);                      
+                        setClickTitle(i); 
+                        setClickTitle(e.id)                              
                       }}
                       key={i}
                     >
@@ -362,14 +400,14 @@ function Skills() {
                 })}
             </SkillsWrap>
             <DescriptionWrap>
-              {selectDesc && (
+              {imgData.find((data)=> data.id === clicktitle) && (
                 <div className="description">
-                  <span style={{ fontWeight: "bold", fontSize: "40px", color: "#f5ddb0" }}>
-                    {selectDesc.desc2}
+                  <span style={{ fontWeight: "bold", fontSize: "40px", color: "#f5ddb0" }}>                  
+                    {imgData.find((data)=> data.id ===clicktitle ).desc2}
                   </span>
                   <br />
                   <div style={{fontWeight:"bold", fontSize:"25px", paddingTop:"20px"}}>
-                  {selectDesc.desc}
+                   {imgData.find((data) => data.id === clicktitle).desc}
                   </div>
                 </div>
               )}
