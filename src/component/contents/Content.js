@@ -184,7 +184,7 @@ const ImgWrap = styled.div`
 function Content() {
   const [category, setCateGory] = useState("전체");
 
-  const menuList = ["ALL", "CLONE", "TEAM", "SOLO"];
+  const menuList = ["ALL", "CLONE", "TEAM", "SIDE"];
   const menuType = ["전체", "clone", "Team project", "mini project"];
   const [isactive, setIsActive] = useState(0);
 
@@ -294,7 +294,7 @@ function Content() {
               {menuList.map((el, ind) => {
                 return (
                   <li
-                    className={isactive === ind ? "active" : ""}
+                    className={isactive === ind ?  "active" : ""}
                     onClick={() => {
                       setCateGory(menuType[ind]);
                       setIsActive(ind);

@@ -9,6 +9,7 @@ import { Link,Events } from "react-scroll";
 
 const Navbar = keyframes`
   0%{
+    
     opacity: 0;
   }
   100%{

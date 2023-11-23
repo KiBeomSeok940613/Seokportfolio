@@ -1,14 +1,12 @@
 import {
-  faAnglesDown,
+  
   faComment,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Element } from "react-scroll";
-import { Link } from "react-router-dom";
 import { Fade } from "react-reveal";
 import Mailto from "react-mailto-link";
 
@@ -31,7 +29,7 @@ const fadeIn = keyframes`
   }
   to {
     opacity: 1;
-    transform: translateY(0)q;
+    transform: translateY(0);
   }
 `;
 

@@ -3,7 +3,6 @@ import styled, { keyframes } from "styled-components";
 import Skills from "../contents/Skills";
 import Content from "../contents/Content";
 import About from "../contents/About";
-import Contact from "../contents/Contact";
 import { Element } from "react-scroll";
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -194,7 +194,7 @@ const ClickWrap = styled.div`
 function Skills() {
   const [category, setCateGory] = useState("전체");
 
-  const menuList = ["ALL", "FRONT-END", "BACK-END", "ETC"];
+  const menuList = ["ALL", "FRONT-END", "BACK-END", "WITH"];
   const menuType = ["전체", "front", "back", "with"];
 
   const [clickImg, setClickimg] = useState(null);
@@ -403,7 +403,7 @@ function Skills() {
               {imgData.find((data)=> data.id === clicktitle) && (
                 <div className="description">
                   <span style={{ fontWeight: "bold", fontSize: "40px", color: "#f5ddb0" }}>                  
-                    {imgData.find((data)=> data.id ===clicktitle ).desc2}
+                    {imgData.find((data)=> data.id === clicktitle ).desc2}
                   </span>
                   <br />
                   <div style={{fontWeight:"bold", fontSize:"25px", paddingTop:"20px"}}>
