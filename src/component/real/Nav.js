@@ -2,14 +2,15 @@ import { faBurger, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import { Link,Events } from "react-scroll";
+import { Link,Events, animateScroll as scroll } from "react-scroll";
+
 
 
 // Nav 애니메이션
 
 const Navbar = keyframes`
   0%{
-    
+
     opacity: 0;
   }
   100%{
@@ -117,12 +118,14 @@ function Nav() {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [isClick, setIsClick] = useState(true);
   const aboutSectionRef = useRef(null);
+  const [isNav, setIsNav] = useState(true)
 
 
-  const handleToggleOpen = () => {
+  const ToggleOpen = () => {
     setIsToggleOpen(!isToggleOpen);
     setIsClick(!isClick);
   };
+  
 
   useEffect(() => {
     Events.scrollEvent.register("end", function (to, element) {
@@ -221,7 +224,7 @@ function Nav() {
 
         <FontAwesomeIcon
           className="MenutoggleBtn"
-          onClick={handleToggleOpen}
+          onClick={ToggleOpen}
           icon={isClick ? faBurger : faX }
         ></FontAwesomeIcon>
       </Header>

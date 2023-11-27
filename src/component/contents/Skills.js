@@ -166,9 +166,9 @@ const SkillContainer = styled.div`
   }
 
   .skill-img {
-    padding: 2px 2px 2px 2px;
-    width: 40%;
-    height: 80%;
+    padding: 4px 2px 2px 2px;
+    width: 50px;
+    height: 25px;
     cursor: pointer;
     margin-bottom: 40px;
   }

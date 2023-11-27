@@ -344,14 +344,7 @@ function Content() {
                         >
                           {e.git}
                         </FontAwesomeIcon>
-                        <img
-                          style={{
-                            color: "whitesmoke",
-                            filter: "hue-rotate(180deg",
-                          }}
-                          src="images/img/contents/vercel.png"
-                          alt="vercel"
-                        />
+                    
                       </a>
                     </div>
                   </ContentContainer>
