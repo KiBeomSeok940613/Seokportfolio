@@ -265,11 +265,11 @@ function Content() {
     },
   ];
 
-  const FliterData =
-    Contents &&
-    Contents.filter((e) => {
-      return category === "전체" || category === e.type;
-    });
+  // const FliterData =
+  //   Contents &&
+  //   Contents.filter((e) => {
+  //     return category === "전체" || category === e.type;
+  //   });
 
   const ActiveClick = (i) => {
     if (clickImg === i) {
@@ -294,7 +294,7 @@ function Content() {
               {menuList.map((el, ind) => {
                 return (
                   <li
-                    className={isactive === ind ?  "active" : ""}
+                    className={isactive === ind ? "active" : ""}
                     onClick={() => {
                       setCateGory(menuType[ind]);
                       setIsActive(ind);
@@ -344,7 +344,6 @@ function Content() {
                         >
                           {e.git}
                         </FontAwesomeIcon>
-                    
                       </a>
                     </div>
                   </ContentContainer>

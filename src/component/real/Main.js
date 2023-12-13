@@ -1,4 +1,4 @@
-import React, {} from "react";
+import React from "react";
 import styled, { keyframes } from "styled-components";
 import Skills from "../contents/Skills";
 import Content from "../contents/Content";
@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Fade } from "react-reveal";
-
 
 const fadeIn = keyframes`
   from {
@@ -22,7 +21,7 @@ const fadeIn = keyframes`
   }
 `;
 
-const blinkEffect  = keyframes`
+const blinkEffect = keyframes`
   0% {
     opacity: 0;
   }
@@ -32,38 +31,34 @@ const blinkEffect  = keyframes`
   100% {
     opacity: 0;
   }
-`
-
+`;
 
 const Container = styled.div`
   width: 100%;
   height: 1100px;
 
   text-align: center;
-  color: #FFFCEB;
-  background-color: #1B1B1E;
- animation: ${fadeIn} 1s ease-in-out forwards; 
+  color: #fffceb;
+  background-color: #1b1b1e;
+  animation: ${fadeIn} 1s ease-in-out forwards;
 `;
 const BorderBox = styled.div`
- 
   width: 100%;
   height: 5px;
- background-color: #f5ddb0;
-
-`
+  background-color: #f5ddb0;
+`;
 
 const MainWrap = styled.div`
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  
-  svg
-  {
+
+  svg {
     animation: ${blinkEffect} 2s infinite;
     font-size: 40px;
     margin-bottom: 200px;
   }
- 
+
   h1 {
     color: #fffceb;
     font-weight: bold;
@@ -84,7 +79,6 @@ const MainWrap = styled.div`
     /* animation: ${fadeIn} 2.5s ease-in-out forwards 0.5s; */
   }
   /* 모바일 버전 먼저. */
-
 `;
 const MainWrapText = styled.div`
   width: 100%;
@@ -94,95 +88,71 @@ const MainWrapText = styled.div`
   justify-content: center;
   align-items: center;
   display: flex;
-  
-  
+
   animation: ${fadeIn} 2s ease-in-out forwards;
   @media screen and (max-width: 767px) {
     line-height: 50px;
     flex-direction: column;
     width: 80%;
-
   }
 `;
 const Mainbgc = styled.div`
-width: 100%;height: 100vh;
-background-color: #1B1B1E;
-box-sizing: border-box;
-
-`
+  width: 100%;
+  height: 100vh;
+  background-color: #1b1b1e;
+  box-sizing: border-box;
+`;
 
 function Main() {
-  const autotitle =
-  "FrontEnd_Developer";
-const [landingTitle, setLandingTitle] = useState("");
-const [count, setCount] = useState(0);
+  const autotitle = "FrontEnd_Developer";
+  const [landingTitle, setLandingTitle] = useState("");
+  const [count, setCount] = useState(0);
 
-useEffect(() => {
-  const Txttyping = setInterval(() => {
-    if (count < autotitle.length) {
-      setLandingTitle((Txt) => Txt + autotitle.charAt(count));
-      setCount((count) => count + 1);
-    } else {
-      clearInterval(Txttyping);
-    }
-  }, 150);
+  useEffect(() => {
+    const Txttyping = setInterval(() => {
+      if (count < autotitle.length) {
+        setLandingTitle((Txt) => Txt + autotitle.charAt(count));
+        setCount((count) => count + 1);
+      } else {
+        clearInterval(Txttyping);
+      }
+    }, 150);
 
-  return () => clearInterval(Txttyping);
-}, [count, autotitle]);
-
-
+    return () => clearInterval(Txttyping);
+  }, [count, autotitle]);
 
   return (
     <>
-    
       <Element className="mainTop">
-        <Fade cascade damping = {0.2}>
-      <Container>
-        <MainWrap >
-        
-          <MainWrapText>
-          <h2>BeomSeok </h2>
-           
-            <h1>{landingTitle}</h1>
-            
-            <FontAwesomeIcon icon={faAnglesDown} />
-            
-           
-          </MainWrapText>
-         
-        </MainWrap>
-        
-       
-      </Container>
-      </Fade>
-      <BorderBox />
-     
-      <Mainbgc>
-      
+        <Fade cascade damping={0.2}>
+          <Container>
+            <MainWrap>
+              <MainWrapText>
+                <h2>BeomSeok </h2>
 
-      <About />
-      <BorderBox />
+                <h1>{landingTitle}</h1>
 
-      
+                <FontAwesomeIcon icon={faAnglesDown} />
+              </MainWrapText>
+            </MainWrap>
+          </Container>
+        </Fade>
+        <BorderBox />
 
-      <Content />
-      <BorderBox />
-      
+        <Mainbgc>
+          <About />
+          <BorderBox />
 
-     
+          <Content />
+          <BorderBox />
 
-      <Skills />
-      {/* <BorderBox /> */}
+          <Skills />
+          {/* <BorderBox /> */}
 
-      
-      
-      {/* <Contact />
+          {/* <Contact />
       <BorderBox /> */}
-
-      
-      </Mainbgc>
-      </Element> 
-  
+        </Mainbgc>
+      </Element>
     </>
   );
 }

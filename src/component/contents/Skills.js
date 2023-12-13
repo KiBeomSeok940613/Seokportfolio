@@ -1,10 +1,7 @@
-import { faAngleDoubleDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Element } from "react-scroll";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { Fade } from "react-reveal";
-import { click } from "@testing-library/user-event/dist/click";
 
 // skills 시작
 
@@ -48,14 +45,13 @@ const Skills_type_wrap = styled.div`
     border-bottom: 2px solid white;
     transition: 0.5s;
     border-radius: 0;
-    
+
     &.active {
       background-color: #f5ddb0;
-        color: #1b1b1e;
-        border-radius: 10px;
-        border-bottom: 2px solid #f5ddb0;
-        font-weight: bold;
-        
+      color: #1b1b1e;
+      border-radius: 10px;
+      border-bottom: 2px solid #f5ddb0;
+      font-weight: bold;
     }
 
     &:hover {
@@ -147,8 +143,8 @@ const SkillContainer = styled.div`
   border-radius: 10px;
   background-color: #f5ddb0;
   margin: 10px 0 2% 2%;
-  &.active2{
-    background-color: ${({clicktitle})=> clicktitle ? "yellow" : ""};
+  &.active2 {
+    background-color: ${({ clicktitle }) => (clicktitle ? "yellow" : "")};
   }
   @media screen and (max-width: 1200px) {
     width: 25%;
@@ -173,23 +169,7 @@ const SkillContainer = styled.div`
     margin-bottom: 40px;
   }
 `;
-const ClickWrap = styled.div`
-  width: 10%;
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
 
-  p {
-    color: #fffceb;
-    margin-bottom: 10px;
-  }
-  svg {
-    font-size: 50px;
-    color: #fffceb;
-  }
-`;
 
 function Skills() {
   const [category, setCateGory] = useState("전체");
@@ -202,10 +182,6 @@ function Skills() {
   const [isactive, setIsActive] = useState(0);
   const [clicktitle, setClickTitle] = useState(null);
 
- 
-  
-
-
   const ActiveClick = (i) => {
     if (clickImg === i) {
       setClickimg(null);
@@ -214,7 +190,7 @@ function Skills() {
     } else {
       setClickimg(i);
       setSelectDesc(imgData[i]);
-      setClickTitle(i)
+      setClickTitle(i);
     }
   };
 
@@ -225,7 +201,7 @@ function Skills() {
       desc2: "HTML ",
       imgsrc: "images/img/skills/html5-original-wordmark.svg",
       type: "front",
-      id: 1 ,
+      id: 1,
     },
     {
       title: "CSS",
@@ -233,7 +209,7 @@ function Skills() {
       desc2: "CSS",
       imgsrc: "images/img/skills/css3-original-wordmark.svg",
       type: "front",
-      id: 2 ,
+      id: 2,
     },
     {
       title: "JavaScript",
@@ -241,7 +217,7 @@ function Skills() {
       desc2: "JavaScript",
       imgsrc: "images/img/skills/javascript-original.svg",
       type: "front",
-      id: 3 ,
+      id: 3,
     },
     {
       title: "React",
@@ -249,7 +225,7 @@ function Skills() {
       desc2: "React",
       imgsrc: "images/img/skills/react-original-wordmark.svg",
       type: "front",
-      id: 4 ,
+      id: 4,
     },
     {
       title: "Redux",
@@ -257,7 +233,7 @@ function Skills() {
       desc2: "Redux",
       imgsrc: "images/img/skills/redux-original.svg",
       type: "front",
-      id: 5 ,
+      id: 5,
     },
     {
       title: "Node.js",
@@ -265,7 +241,7 @@ function Skills() {
       desc2: "Node.js",
       imgsrc: "images/img/skills/nodejs-original-wordmark.svg",
       type: "back",
-      id: 6 ,
+      id: 6,
     },
     {
       title: "MongoDB",
@@ -273,7 +249,7 @@ function Skills() {
       desc2: "MongoDB",
       imgsrc: "images/img/skills/mongodb-original-wordmark.svg",
       type: "back",
-      id: 7 ,
+      id: 7,
     },
     {
       title: "Firebase",
@@ -281,7 +257,7 @@ function Skills() {
       desc2: "Firebase",
       imgsrc: "images/img/skills/firebase-plain-wordmark.svg",
       type: "back",
-      id: 8 ,
+      id: 8,
     },
     {
       title: "GitHub",
@@ -289,15 +265,15 @@ function Skills() {
       desc2: "GitHub",
       imgsrc: "images/img/skills/github.svg",
       type: "with",
-      id: 9 ,
+      id: 9,
     },
     {
-      title:  "Vercel",
+      title: "Vercel",
       desc: " ● GitHub 와 연동되는 홈페이지 를 연결해 보았습니다.",
       desc2: "Vercel",
       imgsrc: "images/img/skills/vercel.svg",
       type: "with",
-      id: 10 ,
+      id: 10,
     },
     {
       title: "Next.Js",
@@ -313,7 +289,7 @@ function Skills() {
       desc2: "Tailwind.CSS",
       imgsrc: "images/img/skills/tailwindcss.svg",
       type: "front",
-      id: 12 ,
+      id: 12,
     },
     {
       title: "MySQL",
@@ -321,24 +297,23 @@ function Skills() {
       desc2: "MySQL",
       imgsrc: "images/img/skills/mysql.svg",
       type: "back",
-      id: 13 ,
+      id: 13,
     },
   ];
 
-  const changeCategory = (ind) =>{
+  const changeCategory = (ind) => {
     setCateGory(menuType[ind]);
     setIsActive(ind);
 
     const filterData2 = imgData.filter(
       (el) => menuType[ind] === "전체" || menuType[ind] === el.type
     );
-    if(filterData2.length > 0) {
+    if (filterData2.length > 0) {
       setClickimg(filterData2[0]);
       setSelectDesc(filterData2[0]);
-    }else{
+    } else {
       setClickimg(null);
       setSelectDesc(null);
-      
     }
   };
   const FliterData =
@@ -346,10 +321,7 @@ function Skills() {
     imgData.filter((e) => {
       return category === "전체" || category === e.type;
     });
-   
 
-
-  
   return (
     <>
       <Element style={{ backgroundColor: "#1B1B1E" }} className="skillSection">
@@ -368,7 +340,6 @@ function Skills() {
                       // setCateGory(menuType[ind]);
                       // setIsActive(ind);
                       changeCategory(ind);
-                      
                     }}
                     key={ind}
                   >
@@ -377,18 +348,18 @@ function Skills() {
                 );
               })}
             </Skills_type_wrap>
-            
+
             <SkillsWrap>
               {imgData
                 .filter((e) => category === "전체" || category === e.type)
                 .map((e, i) => {
                   return (
-                    <SkillContainer className={clicktitle === i ? "active2" : ""}
-                      
+                    <SkillContainer
+                      className={clicktitle === i ? "active2" : ""}
                       onClick={() => {
                         ActiveClick(i);
-                        setClickTitle(i); 
-                        setClickTitle(e.id)                              
+                        setClickTitle(i);
+                        setClickTitle(e.id);
                       }}
                       key={i}
                     >
@@ -400,14 +371,26 @@ function Skills() {
                 })}
             </SkillsWrap>
             <DescriptionWrap>
-              {imgData.find((data)=> data.id === clicktitle) && (
+              {imgData.find((data) => data.id === clicktitle) && (
                 <div className="description">
-                  <span style={{ fontWeight: "bold", fontSize: "40px", color: "#f5ddb0" }}>                  
-                    {imgData.find((data)=> data.id === clicktitle ).desc2}
+                  <span
+                    style={{
+                      fontWeight: "bold",
+                      fontSize: "40px",
+                      color: "#f5ddb0",
+                    }}
+                  >
+                    {imgData.find((data) => data.id === clicktitle).desc2}
                   </span>
                   <br />
-                  <div style={{fontWeight:"bold", fontSize:"25px", paddingTop:"20px"}}>
-                   {imgData.find((data) => data.id === clicktitle).desc}
+                  <div
+                    style={{
+                      fontWeight: "bold",
+                      fontSize: "25px",
+                      paddingTop: "20px",
+                    }}
+                  >
+                    {imgData.find((data) => data.id === clicktitle).desc}
                   </div>
                 </div>
               )}

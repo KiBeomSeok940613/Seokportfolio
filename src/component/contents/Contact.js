@@ -1,19 +1,14 @@
 import {} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Element } from "react-scroll";
-import { Link } from "react-router-dom";
-
 
 const Contactbody = styled.div`
-
   width: 100%;
   height: 100%;
   background-color: #1b1b1e;
   padding-top: 100px;
- 
-  
 `;
 
 const TextWrap = styled.div`
@@ -21,7 +16,7 @@ const TextWrap = styled.div`
   display: flex;
   justify-content: start;
   padding-left: 5%;
-  color: #FFFCEB;
+  color: #fffceb;
   box-sizing: border-box;
 `;
 
@@ -33,7 +28,6 @@ const Contactswrap = styled.div`
   background-color: #1b1b1e;
   color: #fffceb;
   text-align: center;
-  
 
   h1 {
     font-size: 3rem;
@@ -56,7 +50,7 @@ const Contactswrap = styled.div`
   @media screen and (max-width: 1199px) {
     flex-direction: column;
     width: 80%;
- 
+
     margin: 0 auto;
 
     h1 {
@@ -138,32 +132,33 @@ const Iconwrap = styled.div`
 function Contact() {
   return (
     <>
-      <Element style={{ backgroundColor: "#1B1B1E" }} className="contactSection">
-       
-       <Contactbody>
-        <TextWrap>
-          <h1>Contact Me!</h1>
-        </TextWrap>
+      <Element
+        style={{ backgroundColor: "#1B1B1E" }}
+        className="contactSection"
+      >
+        <Contactbody>
+          <TextWrap>
+            <h1>Contact Me!</h1>
+          </TextWrap>
 
-        <Contactswrap>
-          
-          <Contact_wrap>
-            
-            
-
-            <Iconwrap>
-             <a href="https://github.com/KiBeomSeok940613" target="_blank" rel="noopener noreferrer" >
-              <FontAwesomeIcon style={{color: "f5ddb0"}}
-                className="BoxIcon"
-                icon={faGithub}
-              ></FontAwesomeIcon>
-             </a>
-                        
-            </Iconwrap>
-          </Contact_wrap>
-        </Contactswrap>
+          <Contactswrap>
+            <Contact_wrap>
+              <Iconwrap>
+                <a
+                  href="https://github.com/KiBeomSeok940613"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FontAwesomeIcon
+                    style={{ color: "f5ddb0" }}
+                    className="BoxIcon"
+                    icon={faGithub}
+                  ></FontAwesomeIcon>
+                </a>
+              </Iconwrap>
+            </Contact_wrap>
+          </Contactswrap>
         </Contactbody>
-      
       </Element>
     </>
   );

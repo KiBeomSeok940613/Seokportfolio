@@ -1,15 +1,9 @@
-import {
-  
-  faComment,
-  faEnvelope,
-} from "@fortawesome/free-solid-svg-icons";
+import { faComment, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled, { keyframes } from "styled-components";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Element } from "react-scroll";
 import { Fade } from "react-reveal";
-import Mailto from "react-mailto-link";
-
 
 const blinkEffect = keyframes`
   0% {
@@ -219,7 +213,7 @@ function About() {
                 </h2>
                 <ContactWrap>
                   <SvgWrap>
-                    <a href='mailto:kbs9406@gmail.com'>
+                    <a href="mailto:kbs9406@gmail.com">
                       <FontAwesomeIcon icon={faEnvelope} />
                     </a>
                     <a href="https://open.kakao.com/o/scu2DKTf">

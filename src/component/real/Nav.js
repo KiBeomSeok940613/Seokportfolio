@@ -2,9 +2,7 @@ import { faBurger, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import { Link,Events, animateScroll as scroll } from "react-scroll";
-
-
+import { Link, Events } from "react-scroll";
 
 // Nav 애니메이션
 
@@ -21,8 +19,7 @@ const Navbar = keyframes`
 // Nav Wrap 네비 랩 시작
 const HeaderWrap = styled.div`
   width: 100%;
-
-`
+`;
 const Header = styled.header`
   z-index: 50;
   background-color: #1b1b1e;
@@ -35,7 +32,6 @@ const Header = styled.header`
   transition: 1s;
   top: 0;
   box-sizing: border-box;
-  
 
   .Nav_logo {
     padding: 0 3%;
@@ -74,7 +70,6 @@ const NavContainer = styled.ul`
   display: flex;
   justify-content: space-between;
   transition: 1s;
- 
 
   li {
     &:hover {
@@ -83,7 +78,6 @@ const NavContainer = styled.ul`
       transition: 1s;
       border-radius: 4px;
       font-size: 2rem;
-      
     }
   }
   .Nav-Menu-list {
@@ -106,7 +100,7 @@ const NavContainer = styled.ul`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    
+
     transition: 1s;
     border-top: 3px solid white;
 
@@ -118,27 +112,24 @@ function Nav() {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [isClick, setIsClick] = useState(true);
   const aboutSectionRef = useRef(null);
-  const [isNav, setIsNav] = useState(true)
-
+  const [isNav, setIsNav] = useState(true);
 
   const ToggleOpen = () => {
     setIsToggleOpen(!isToggleOpen);
     setIsClick(!isClick);
   };
-  
 
   useEffect(() => {
     Events.scrollEvent.register("end", function (to, element) {
       if (to === "aboutSection") {
-        const aboutSection = aboutSectionRef.current
+        const aboutSection = aboutSectionRef.current;
         if (aboutSection) {
           const rect = aboutSection.getBoundingClientRect();
-          const isvisible = rect.top <= window.innerHeight && rect.bottom >= 0 ;
-          if(isvisible) {
-            aboutSection.classList.add('fade-in');
-            
-          }else{
-            aboutSection.classList.remove('fade-in');
+          const isvisible = rect.top <= window.innerHeight && rect.bottom >= 0;
+          if (isvisible) {
+            aboutSection.classList.add("fade-in");
+          } else {
+            aboutSection.classList.remove("fade-in");
           }
         }
       }
@@ -150,62 +141,68 @@ function Nav() {
 
   return (
     <>
-    <HeaderWrap>
-      <Header>
-        <div className="Nav_logo">
-          <Link to="mainTop" spy={true} smooth={true} offset={0} duration={500}>
-            <img
-              className="Img_"
-              src="images/img/logo/logo.png"
-              alt="BEOM SEOK"
-            />
-          </Link>
-        </div>
+      <HeaderWrap>
+        <Header>
+          <div className="Nav_logo">
+            <Link
+              to="mainTop"
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={500}
+            >
+              <img
+                className="Img_"
+                src="images/img/logo/logo.png"
+                alt="BEOM SEOK"
+              />
+            </Link>
+          </div>
 
-        <NavContainer isToggleOpen={isToggleOpen}>
-          {" "}
-          <li>
-            <div ref={aboutSectionRef}>
-            <Link
-              to="aboutSection"
-              spy={true}
-              smooth={true}
-              offset={-100}
-              duration={200}
-              className="Nav-Menu-list"
-              activeClass="active"
-            >
-              ABOUT
-            </Link>
-            </div>
-          </li>
-          <li>
-            <Link
-              to="ContentSection"
-              spy={true}
-              smooth={true}
-              offset={-100}
-              duration={200}
-              className="Nav-Menu-list"
-              activeClass="active"
-            >
-              CONTENTS
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="skillSection"
-              spy={true}
-              smooth={true}
-              offset={-100}
-              duration={200}
-              className="Nav-Menu-list"
-              activeClass="active"
-            >
-              <p>SKILLS</p>
-            </Link>
-          </li>
-          {/* <li>
+          <NavContainer isToggleOpen={isToggleOpen}>
+            {" "}
+            <li>
+              <div ref={aboutSectionRef}>
+                <Link
+                  to="aboutSection"
+                  spy={true}
+                  smooth={true}
+                  offset={-100}
+                  duration={200}
+                  className="Nav-Menu-list"
+                  activeClass="active"
+                >
+                  ABOUT
+                </Link>
+              </div>
+            </li>
+            <li>
+              <Link
+                to="ContentSection"
+                spy={true}
+                smooth={true}
+                offset={-100}
+                duration={200}
+                className="Nav-Menu-list"
+                activeClass="active"
+              >
+                CONTENTS
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="skillSection"
+                spy={true}
+                smooth={true}
+                offset={-100}
+                duration={200}
+                className="Nav-Menu-list"
+                activeClass="active"
+              >
+                <p>SKILLS</p>
+              </Link>
+            </li>
+            {/* <li>
             <Link
               to="contactSection"
               spy={true}
@@ -220,14 +217,14 @@ function Nav() {
               <p>CONTACT</p>
             </Link>
           </li>  */}
-        </NavContainer>
+          </NavContainer>
 
-        <FontAwesomeIcon
-          className="MenutoggleBtn"
-          onClick={ToggleOpen}
-          icon={isClick ? faBurger : faX }
-        ></FontAwesomeIcon>
-      </Header>
+          <FontAwesomeIcon
+            className="MenutoggleBtn"
+            onClick={ToggleOpen}
+            icon={isClick ? faBurger : faX}
+          ></FontAwesomeIcon>
+        </Header>
       </HeaderWrap>
     </>
   );
