@@ -1,8 +1,12 @@
-import { faBurger, faX } from "@fortawesome/free-solid-svg-icons";
+import { faBurger, faMoon, faSun, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { Link, Events } from "react-scroll";
+import { connect } from "react-redux";
+import { toggleDarkMode } from "../../actions/darkModeActions";
+
+
 
 // Nav 애니메이션
 
@@ -94,6 +98,10 @@ const NavContainer = styled.ul`
       font-weight: bold;
     }
   }
+  svg{
+    padding: 10px 10px;
+    color: #ffffff;
+  }
 
   @media screen and (max-width: 768px) {
     display: ${(props) => (props.isToggleOpen ? "block" : "none")};
@@ -108,16 +116,19 @@ const NavContainer = styled.ul`
   }
 `;
 
-function Nav() {
+function Nav({ darkMode, dispatchToggleDarkMode}) {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [isClick, setIsClick] = useState(true);
   const aboutSectionRef = useRef(null);
-  const [isNav, setIsNav] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   const ToggleOpen = () => {
     setIsToggleOpen(!isToggleOpen);
     setIsClick(!isClick);
   };
+  const darkOpen = () => {
+    setIsDark(!isDark)
+  }
 
   useEffect(() => {
     Events.scrollEvent.register("end", function (to, element) {
@@ -142,7 +153,7 @@ function Nav() {
   return (
     <>
       <HeaderWrap>
-        <Header>
+        <Header darkMode={darkMode}>
           <div className="Nav_logo">
             <Link
               to="mainTop"
@@ -202,21 +213,10 @@ function Nav() {
                 <p>SKILLS</p>
               </Link>
             </li>
-            {/* <li>
-            <Link
-              to="contactSection"
-              spy={true}
-              smooth={true}
-              offset={-100}
-              duration={200}
-              className="Nav-Menu-list"
-              activeClass="active"
-            >
-
-            \
-              <p>CONTACT</p>
-            </Link>
-          </li>  */}
+            <li onClick={darkOpen}>
+            <FontAwesomeIcon icon={isDark ? faMoon : faSun}>   
+            </FontAwesomeIcon> 
+            </li>
           </NavContainer>
 
           <FontAwesomeIcon
