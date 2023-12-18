@@ -79,9 +79,9 @@ const NavContainer = styled.ul`
     &:hover {
       cursor: pointer;
       background: #93c6d3;
-      transition: 1s;
+      
       border-radius: 4px;
-      font-size: 2rem;
+      
     }
   }
   .Nav-Menu-list {
@@ -100,7 +100,8 @@ const NavContainer = styled.ul`
   }
   svg{
     padding: 10px 10px;
-    color: #ffffff;
+    color: whitesmoke;
+    font-size: 1.25rem;
   }
 
   @media screen and (max-width: 768px) {
@@ -127,6 +128,7 @@ function Nav({ darkMode, dispatchToggleDarkMode}) {
     setIsClick(!isClick);
   };
   const darkOpen = () => {
+    dispatchToggleDarkMode();
     setIsDark(!isDark)
   }
 
@@ -170,7 +172,7 @@ function Nav({ darkMode, dispatchToggleDarkMode}) {
             </Link>
           </div>
 
-          <NavContainer isToggleOpen={isToggleOpen}>
+          <NavContainer isToggleOpen={isToggleOpen} darkMode={darkMode}>
             {" "}
             <li>
               <div ref={aboutSectionRef}>
@@ -214,7 +216,7 @@ function Nav({ darkMode, dispatchToggleDarkMode}) {
               </Link>
             </li>
             <li onClick={darkOpen}>
-            <FontAwesomeIcon icon={isDark ? faMoon : faSun}>   
+            <FontAwesomeIcon icon={isDark ? faSun : faMoon}>   
             </FontAwesomeIcon> 
             </li>
           </NavContainer>
@@ -229,5 +231,8 @@ function Nav({ darkMode, dispatchToggleDarkMode}) {
     </>
   );
 }
-
-export default Nav;
+const mapDispatchToProps = (dispatch) =>({
+  dispatchToggleDarkMode: () => dispatch(toggleDarkMode()),
+}); 
+export default connect(null, mapDispatchToProps)
+(Nav);
