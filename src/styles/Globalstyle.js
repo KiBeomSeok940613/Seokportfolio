@@ -35,4 +35,5 @@ a{text-decoration: none; color: #000}
  }
 `
 
+
 export default Globalstyle

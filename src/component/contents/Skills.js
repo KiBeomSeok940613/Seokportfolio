@@ -159,7 +159,7 @@ const SkillContainer = styled.div`
     display: flex;
     align-items: center;
     text-align: justify;
-    color: #1b1b1e ;
+    color: #1b1b1e;
   }
 
   .skill-img {
@@ -170,7 +170,6 @@ const SkillContainer = styled.div`
     margin-bottom: 40px;
   }
 `;
-
 
 function Skills() {
   const [category, setCateGory] = useState("전체");
