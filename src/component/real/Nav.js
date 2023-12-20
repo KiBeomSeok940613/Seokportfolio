@@ -1,10 +1,9 @@
 import { faBurger, faMoon, faSun, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useRef, useState } from "react";
-import styled, { keyframes } from "styled-components";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import styled, { ThemeContext, keyframes } from "styled-components";
 import { Link, Events } from "react-scroll";
-import { connect } from "react-redux";
-import { toggleDarkMode } from "../../actions/darkModeActions";
+
 
 
 
@@ -117,7 +116,7 @@ const NavContainer = styled.ul`
   }
 `;
 
-function Nav({ darkMode, dispatchToggleDarkMode}) {
+function Nav() {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [isClick, setIsClick] = useState(true);
   const aboutSectionRef = useRef(null);
@@ -128,7 +127,6 @@ function Nav({ darkMode, dispatchToggleDarkMode}) {
     setIsClick(!isClick);
   };
   const darkOpen = () => {
-    dispatchToggleDarkMode();
     setIsDark(!isDark)
   }
 
@@ -155,7 +153,7 @@ function Nav({ darkMode, dispatchToggleDarkMode}) {
   return (
     <>
       <HeaderWrap>
-        <Header darkMode={darkMode}>
+        <Header>
           <div className="Nav_logo">
             <Link
               to="mainTop"
@@ -172,7 +170,7 @@ function Nav({ darkMode, dispatchToggleDarkMode}) {
             </Link>
           </div>
 
-          <NavContainer isToggleOpen={isToggleOpen} darkMode={darkMode}>
+          <NavContainer isToggleOpen={isToggleOpen} >
             {" "}
             <li>
               <div ref={aboutSectionRef}>
@@ -231,8 +229,6 @@ function Nav({ darkMode, dispatchToggleDarkMode}) {
     </>
   );
 }
-const mapDispatchToProps = (dispatch) =>({
-  dispatchToggleDarkMode: () => dispatch(toggleDarkMode()),
-}); 
-export default connect(null, mapDispatchToProps)
-(Nav);
+
+export default Nav;
+

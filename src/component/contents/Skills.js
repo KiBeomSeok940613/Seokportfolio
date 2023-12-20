@@ -159,6 +159,7 @@ const SkillContainer = styled.div`
     display: flex;
     align-items: center;
     text-align: justify;
+    color: #1b1b1e ;
   }
 
   .skill-img {
