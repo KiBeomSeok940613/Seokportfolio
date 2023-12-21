@@ -5,6 +5,9 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Element } from "react-scroll";
 import { Fade } from "react-reveal";
 
+import { useDispatch, useSelector } from "react-redux";
+
+
 const blinkEffect = keyframes`
   0% {
     opacity: 0;
@@ -31,7 +34,8 @@ const Aboutbody = styled.div`
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  background-color: #1b1b1e;
+  background-color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
+  color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
   animation: ${fadeIn} 2s ease-in-out forwards;
 `;
 const TextWrap = styled.div`
@@ -41,7 +45,6 @@ const TextWrap = styled.div`
   display: flex;
   justify-content: start;
   padding-left: 5%;
-  color: #fffceb;
   box-sizing: border-box;
   text-decoration: underline;
 `;
@@ -51,10 +54,8 @@ const AboutWrap = styled.div`
   height: 800px;
   display: flex;
   justify-content: space-around;
-
   margin: 0 auto;
-
-  color: #fffceb;
+  color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
   text-align: center;
 
   h1 {
@@ -181,16 +182,18 @@ const SvgWrap = styled.div`
 // img 태그를 사용하는경우는 사진을 통해 홈페이지 이동을 할때!
 
 function About() {
+  const theme = useSelector(state => state.dark)
+  const dispatch = useDispatch()
   return (
     <>
-      <Element name="aboutSection">
+      <Element name="aboutSection" >
         <Fade duration={3000} bottom>
-          <Aboutbody>
+          <Aboutbody $isdark={theme}>
             <TextWrap>
               <h1>ABOUT ME</h1>
             </TextWrap>
 
-            <AboutWrap>
+            <AboutWrap $isdark={theme}>
               {/* <ImgWrap>
             <div
               className="Img_"

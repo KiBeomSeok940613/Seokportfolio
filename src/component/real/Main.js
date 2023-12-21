@@ -9,6 +9,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Fade } from "react-reveal";
+import { useSelector, useDispatch } from "react-redux";
+
+
 
 const fadeIn = keyframes`
   from {
@@ -38,20 +41,21 @@ const Container = styled.div`
   height: 1100px;
 
   text-align: center;
-  color: #fffceb;
-  background-color: #1b1b1e;
+  
+  background-color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
   animation: ${fadeIn} 1s ease-in-out forwards;
 `;
 const BorderBox = styled.div`
   width: 100%;
-  height: 5px;
-  background-color: #f5ddb0;
+ 
+  background-color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
 `;
 
 const MainWrap = styled.div`
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
 
   svg {
     animation: ${blinkEffect} 2s infinite;
@@ -60,24 +64,19 @@ const MainWrap = styled.div`
   }
 
   h1 {
-    color: #fffceb;
+    
     font-weight: bold;
     font-size: 4vw;
     margin-left: 10px;
     margin-bottom: 50px;
-    /* animation: ${fadeIn} 3s ease-in-out forwards;  */
+  
   }
   h2 {
-    color: #fffceb;
     font-size: 4rem;
     margin-bottom: 20px;
-    /* animation: ${fadeIn} 2s ease-in-out forwards 0.5s; */
+    
   }
-  h3 {
-    font-size: 3rem;
-    color: #102c57;
-    /* animation: ${fadeIn} 2.5s ease-in-out forwards 0.5s; */
-  }
+  
   /* 모바일 버전 먼저. */
 `;
 const MainWrapText = styled.div`
@@ -107,6 +106,8 @@ function Main() {
   const autotitle = "FrontEnd_Developer";
   const [landingTitle, setLandingTitle] = useState("");
   const [count, setCount] = useState(0);
+  const theme = useSelector(state => state.dark)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const Txttyping = setInterval(() => {
@@ -125,9 +126,9 @@ function Main() {
     <>
       <Element className="mainTop">
         <Fade cascade damping={0.2}>
-          <Container>
-            <MainWrap>
-              <MainWrapText>
+          <Container $isdark={theme}>
+            <MainWrap $isdark={theme}>
+              <MainWrapText >
                 <h2>BeomSeok </h2>
 
                 <h1>{landingTitle}</h1>
@@ -137,14 +138,14 @@ function Main() {
             </MainWrap>
           </Container>
         </Fade>
-        <BorderBox />
+        <BorderBox $isdark={theme} />
 
         <Mainbgc>
           <About />
-          <BorderBox />
+          <BorderBox  $isdark={theme} />
 
           <Content />
-          <BorderBox />
+          <BorderBox $isdark={theme} />
 
           <Skills />
           {/* <BorderBox /> */}

@@ -4,12 +4,15 @@ import React, { useState } from "react";
 import { Element } from "react-scroll";
 import styled, { keyframes } from "styled-components";
 import { Fade } from "react-reveal";
+import { useDispatch, useSelector } from "react-redux";
+
 
 // content 시작
 const Contentsbody = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #1b1b1e;
+  background-color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
+  color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
   padding-top: 100px;
 `;
 
@@ -30,7 +33,6 @@ const Content_Wrap = styled.div`
   justify-content: start;
   animation: ${fadeIn} 2s ease-in-out forwards;
   padding-left: 5%;
-  color: #fffceb;
   padding-bottom: 100px;
   box-sizing: border-box;
   text-decoration: underline;
@@ -40,7 +42,6 @@ const Content_type_wrap = styled.div`
   width: 50%;
   height: 50px;
   align-items: center;
-  background-color: #1b1b1e;
   display: flex;
   justify-content: space-around;
   cursor: pointer;
@@ -54,21 +55,19 @@ const Content_type_wrap = styled.div`
     font-size: 1.25rem;
     cursor: pointer;
     padding: 10px;
-    transition: 0.5s;
-    background-color: #1b1b1e;
-    color: #fffceb;
-    border-bottom: 2px solid white;
+    transition: 0.5s; 
+    border-bottom: 2px solid ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
     margin-top: 5px;
-    &.active {
-      background-color: #f5ddb0;
-      color: #1b1b1e;
+    &.active { 
+      background-color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
+    color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
       border-radius: 10px;
-      border-bottom: 2px solid #f5ddb0;
+      border-bottom: 2px solid  ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
       font-weight: bold;
     }
-    &:hover {
-      background-color: #fffceb;
-      color: #1b1b1e;
+    &:hover {    
+      background-color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
+    color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
       border-radius: 10px;
     }
   }
@@ -80,7 +79,6 @@ const ContentSkills = styled.div`
   justify-content: space-around;
   align-items: center;
   margin: 0 auto;
-
   flex-wrap: wrap;
 
   border-radius: 5% 5% 5% 5%;
@@ -278,19 +276,21 @@ function Content() {
       setClickimg(i);
     }
   };
+  const theme = useSelector(state => state.dark)
+  const dispatch = useDispatch()
   return (
     <>
       <Element
-        style={{ backgroundColor: "#1B1B1E" }}
+       
         className="ContentSection"
       >
         <Fade duration={2000} left>
-          <Contentsbody>
+          <Contentsbody  $isdark={theme}>
             <Content_Wrap>
               <h1 className="">CONTENTS</h1>
             </Content_Wrap>
 
-            <Content_type_wrap>
+            <Content_type_wrap >
               {menuList.map((el, ind) => {
                 return (
                   <li

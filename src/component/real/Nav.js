@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import styled, { ThemeContext, keyframes } from "styled-components";
 import { Link, Events } from "react-scroll";
+import { toggleTheme } from "../../store";
+import { useDispatch, useSelector } from "react-redux";
 
 
 
@@ -25,7 +27,7 @@ const HeaderWrap = styled.div`
 `;
 const Header = styled.header`
   z-index: 50;
-  background-color: #1b1b1e;
+  background-color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
   width: 100%;
   /* padding: 10px 12px 0px 12px; */
   display: flex;
@@ -35,11 +37,12 @@ const Header = styled.header`
   transition: 1s;
   top: 0;
   box-sizing: border-box;
+  border-bottom: 2px solid ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};;
 
   .Nav_logo {
     padding: 0 3%;
     transition: 1s;
-    /* animation: ${Navbar} 3s; */
+   
     cursor: pointer;
     .Img_ {
       height: 80px;
@@ -47,14 +50,14 @@ const Header = styled.header`
   }
   .MenutoggleBtn {
     display: none;
-    color: white;
+    color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
     font-size: 2rem;
     position: absolute;
     right: 30px;
     top: 21px;
     cursor: pointer;
     transition: 1s;
-    /* animation: ${Navbar} 1s; */
+    
   }
 
   @media screen and (max-width: 768px) {
@@ -67,51 +70,60 @@ const Header = styled.header`
     }
   }
 `;
+const DarkBtn = styled.div`
 
+ svg{
+    padding: 10px 10px; 
+    color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
+    font-size: 1.25rem;
+  }
+`
 const NavContainer = styled.ul`
   width: 20%;
   display: flex;
   justify-content: space-between;
   transition: 1s;
 
-  li {
+  li{
     &:hover {
       cursor: pointer;
-      background: #93c6d3;
-      
-      border-radius: 4px;
-      
+      background: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")}; 
+      border-radius: 4px; 
+      p{
+      color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
+      }
     }
+    p{
+      color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
+      }
+     
+   
   }
   .Nav-Menu-list {
     display: block;
     padding: 10px 10px;
-    color: #ffffff;
+    color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
     font-size: 1.25rem;
     transition: 1s;
     font-weight: bold;
-    &.active {
-      color: #083459;
-      background: #f5ddb0;
+    &.active {  
+      background: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")}; 
       border-radius: 5px;
       font-weight: bold;
+      p{
+        color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
+      }
     }
   }
-  svg{
-    padding: 10px 10px;
-    color: whitesmoke;
-    font-size: 1.25rem;
-  }
+ 
 
   @media screen and (max-width: 768px) {
     display: ${(props) => (props.isToggleOpen ? "block" : "none")};
     flex-direction: column;
     align-items: center;
     width: 100%;
-
     transition: 1s;
     border-top: 3px solid white;
-
     /* animation: ${Navbar} 1s; */
   }
 `;
@@ -120,16 +132,15 @@ function Nav() {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
   const [isClick, setIsClick] = useState(true);
   const aboutSectionRef = useRef(null);
-  const [isDark, setIsDark] = useState(false);
+
+  const theme = useSelector(state => state.dark)
+  const dispatch = useDispatch()
 
   const ToggleOpen = () => {
     setIsToggleOpen(!isToggleOpen);
     setIsClick(!isClick);
   };
-  const darkOpen = () => {
-    setIsDark(!isDark)
-  }
-
+  
   useEffect(() => {
     Events.scrollEvent.register("end", function (to, element) {
       if (to === "aboutSection") {
@@ -152,8 +163,8 @@ function Nav() {
 
   return (
     <>
-      <HeaderWrap>
-        <Header>
+      <HeaderWrap $isdark={theme}>
+        <Header $isdark={theme}>
           <div className="Nav_logo">
             <Link
               to="mainTop"
@@ -169,10 +180,9 @@ function Nav() {
               />
             </Link>
           </div>
-
-          <NavContainer isToggleOpen={isToggleOpen} >
+          <NavContainer isToggleOpen={isToggleOpen }  $isdark={theme}>
             {" "}
-            <li>
+            <li $isdark={theme}>
               <div ref={aboutSectionRef}>
                 <Link
                   to="aboutSection"
@@ -183,7 +193,7 @@ function Nav() {
                   className="Nav-Menu-list"
                   activeClass="active"
                 >
-                  ABOUT
+                  <p>ABOUT</p>
                 </Link>
               </div>
             </li>
@@ -197,7 +207,7 @@ function Nav() {
                 className="Nav-Menu-list"
                 activeClass="active"
               >
-                CONTENTS
+                <p>CONTENTS</p>
               </Link>
             </li>
             <li>
@@ -213,13 +223,15 @@ function Nav() {
                 <p>SKILLS</p>
               </Link>
             </li>
-            <li onClick={darkOpen}>
-            <FontAwesomeIcon icon={isDark ? faSun : faMoon}>   
+            <li >
+              <DarkBtn $isdark={theme} onClick={()=>{dispatch(toggleTheme())}}>
+            <FontAwesomeIcon icon={theme === 'light' ? faMoon : faSun}>   
             </FontAwesomeIcon> 
-            </li>
+            </DarkBtn></li>
           </NavContainer>
 
           <FontAwesomeIcon
+            $isdark={theme}
             className="MenutoggleBtn"
             onClick={ToggleOpen}
             icon={isClick ? faBurger : faX}
