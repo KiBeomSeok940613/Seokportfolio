@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
 
 const FooterWrap = styled.div`
   z-index: 50;
@@ -17,7 +18,7 @@ const TextWrap = styled.div`
   align-items: end;
   flex-direction: column;
   p {
-    color: #f5ddb0;
+    color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
     font-size: 20px;
   }
 `;
@@ -25,6 +26,9 @@ const TextWrap = styled.div`
 function Footer() {
   const [commit, setCommit] = useState("");
   const repo = "KiBeomSeok940613/react-portpolio";
+
+  const theme = useSelector(state => state.dark)
+  const dispatch = useDispatch()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,7 +52,8 @@ function Footer() {
 
   return (
     <FooterWrap>
-      <TextWrap>
+      <TextWrap  $isdark={theme} 
+>
         {/* <a id="chat-channel-button" href="javascript:chatChannel()">
   <img src="/tool/resource/static/img/button/channel/consult/consult_small_yellow_pc.png"
     alt="카카오톡 채널 채팅하기 버튼" />

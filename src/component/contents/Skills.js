@@ -115,6 +115,7 @@ const DescriptionWrap = styled.div`
       color: whitesmoke;
       margin-bottom: 20px;
     }
+    
 
     @media screen and (max-width: 1200px) {
       width: 55%;

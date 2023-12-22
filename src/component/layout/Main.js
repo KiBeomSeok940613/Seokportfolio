@@ -11,8 +11,6 @@ import { useEffect } from "react";
 import { Fade } from "react-reveal";
 import { useSelector, useDispatch } from "react-redux";
 
-
-
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -41,21 +39,23 @@ const Container = styled.div`
   height: 1100px;
 
   text-align: center;
-  
-  background-color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
+
+  background-color: ${({ $isdark }) =>
+    $isdark === "light" ? "#fffceb" : "#333"};
   animation: ${fadeIn} 1s ease-in-out forwards;
 `;
 const BorderBox = styled.div`
   width: 100%;
- 
-  background-color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
+
+  background-color: ${({ $isdark }) =>
+    $isdark === "light" ? "#333" : "#fffceb"};
 `;
 
 const MainWrap = styled.div`
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
+  color: ${({ $isdark }) => ($isdark === "light" ? "#333" : "#fffceb")};
 
   svg {
     animation: ${blinkEffect} 2s infinite;
@@ -64,19 +64,16 @@ const MainWrap = styled.div`
   }
 
   h1 {
-    
     font-weight: bold;
     font-size: 4vw;
     margin-left: 10px;
     margin-bottom: 50px;
-  
   }
   h2 {
     font-size: 4rem;
     margin-bottom: 20px;
-    
   }
-  
+
   /* 모바일 버전 먼저. */
 `;
 const MainWrapText = styled.div`
@@ -99,8 +96,8 @@ const Mainbgc = styled.div`
   width: 100%;
   height: 100vh;
 
-  
-  background-color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
+  background-color: ${({ $isdark }) =>
+    $isdark === "light" ? "#fffceb" : "#333"};
   box-sizing: border-box;
 `;
 
@@ -108,8 +105,8 @@ function Main() {
   const autotitle = "FrontEnd_Developer";
   const [landingTitle, setLandingTitle] = useState("");
   const [count, setCount] = useState(0);
-  const theme = useSelector(state => state.dark)
-  const dispatch = useDispatch()
+  const theme = useSelector((state) => state.dark);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const Txttyping = setInterval(() => {
@@ -130,7 +127,7 @@ function Main() {
         <Fade cascade damping={0.2}>
           <Container $isdark={theme}>
             <MainWrap $isdark={theme}>
-              <MainWrapText >
+              <MainWrapText>
                 <h2>BeomSeok </h2>
 
                 <h1>{landingTitle}</h1>
@@ -144,7 +141,7 @@ function Main() {
 
         <Mainbgc>
           <About />
-          <BorderBox  $isdark={theme} />
+          <BorderBox $isdark={theme} />
 
           <Content />
           <BorderBox $isdark={theme} />
