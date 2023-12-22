@@ -92,7 +92,7 @@ const DescriptionWrap = styled.div`
     position: absolute;
     display: flex;
     top: 50%;
-    left: 10%;
+    left: 5%;
     display: block;
     background-color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
     color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
