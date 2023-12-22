@@ -88,6 +88,7 @@ const DescriptionWrap = styled.div`
   display: flex;
   position: relative;
   .description {
+    border: 2px solid ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
     position: absolute;
     display: flex;
     top: 50%;

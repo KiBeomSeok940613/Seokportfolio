@@ -92,10 +92,14 @@ const NavContainer = styled.ul`
       p{
       color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
       }
+      svg{
+        color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
+      }
     }
     p{
       color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
       }
+      
      
    
   }
