@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Element } from "react-scroll";
 import styled from "styled-components";
 import { Fade } from "react-reveal";
-
+import { useDispatch, useSelector } from "react-redux";
 // skills 시작
 
 const Skillsbody = styled.div`
   width: 100%;
-  height: 900px;
-  background-color: #1b1b1e;
+  height: 900px; 
+  background-color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
   padding-top: 200px;
 `;
 const SkillS_Text = styled.div`
@@ -18,7 +18,7 @@ const SkillS_Text = styled.div`
   justify-content: start;
   padding-left: 5%;
   padding-bottom: 100px;
-  color: #fffceb;
+  color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
   text-decoration: underline;
 `;
 const Skills_type_wrap = styled.div`
@@ -26,7 +26,7 @@ const Skills_type_wrap = styled.div`
   width: 50%;
   height: 50px;
   align-items: center;
-  background-color: #1b1b1e;
+  background-color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
   display: flex;
   justify-content: space-around;
   cursor: pointer;
@@ -40,8 +40,8 @@ const Skills_type_wrap = styled.div`
     cursor: pointer;
     padding: 10px;
     margin-top: 20px;
-    background-color: #1b1b1e;
-    color: #fffceb;
+    background-color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
+    color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
     border-bottom: 2px solid white;
     transition: 0.5s;
     border-radius: 0;
@@ -68,7 +68,7 @@ const SkillsWrap = styled.div`
   justify-content: center;
   align-items: start;
   margin: 0 auto;
-  background-color: #1b1b1e;
+  background-color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
   flex-wrap: wrap;
 
   p {
@@ -83,7 +83,7 @@ const SkillsWrap = styled.div`
 `;
 const DescriptionWrap = styled.div`
   max-width: 1600px;
-
+  background-color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
   margin: 0 auto;
   display: flex;
   position: relative;
@@ -93,8 +93,8 @@ const DescriptionWrap = styled.div`
     top: 50%;
     left: 10%;
     display: block;
-    background-color: #1b1b1e;
-    color: #fffceb;
+    background-color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
+    color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
     justify-content: center;
     align-items: center;
     transition: all 0.5s ease-in-out;
@@ -181,6 +181,8 @@ function Skills() {
   const [selectDesc, setSelectDesc] = useState(null);
   const [isactive, setIsActive] = useState(0);
   const [clicktitle, setClickTitle] = useState(null);
+  const theme = useSelector(state => state.dark)
+  const dispatch = useDispatch()
 
   const ActiveClick = (i) => {
     if (clickImg === i) {
@@ -322,16 +324,17 @@ function Skills() {
       return category === "전체" || category === e.type;
     });
 
+
   return (
     <>
-      <Element style={{ backgroundColor: "#1B1B1E" }} className="skillSection">
+      <Element className="skillSection">
         <Fade duration={2000} right>
-          <Skillsbody>
-            <SkillS_Text>
+          <Skillsbody $isdark={theme}>
+            <SkillS_Text  $isdark={theme} >
               <h1 className="SkillsWrap">SKILLS</h1>
             </SkillS_Text>
 
-            <Skills_type_wrap>
+            <Skills_type_wrap $isdark={theme}>
               {menuList.map((el, ind) => {
                 return (
                   <li
@@ -349,7 +352,7 @@ function Skills() {
               })}
             </Skills_type_wrap>
 
-            <SkillsWrap>
+            <SkillsWrap $isdark={theme}>
               {imgData
                 .filter((e) => category === "전체" || category === e.type)
                 .map((e, i) => {
@@ -370,14 +373,14 @@ function Skills() {
                   );
                 })}
             </SkillsWrap>
-            <DescriptionWrap>
+            <DescriptionWrap $isdark={theme}>
               {imgData.find((data) => data.id === clicktitle) && (
                 <div className="description">
                   <span
                     style={{
                       fontWeight: "bold",
                       fontSize: "40px",
-                      color: "#f5ddb0",
+                      
                     }}
                   >
                     {imgData.find((data) => data.id === clicktitle).desc2}

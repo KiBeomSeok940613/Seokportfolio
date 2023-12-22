@@ -98,7 +98,9 @@ const MainWrapText = styled.div`
 const Mainbgc = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: #1b1b1e;
+
+  
+  background-color: ${({$isdark}) => ($isdark === "light" ? "#fffceb" : "#333")};
   box-sizing: border-box;
 `;
 
