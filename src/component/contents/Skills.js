@@ -50,7 +50,7 @@ const Skills_type_wrap = styled.div`
       background-color: #f5ddb0;
       color: #1b1b1e;
       border-radius: 10px;
-      border-bottom: 2px solid #f5ddb0;
+      border-bottom: 2px solid ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
       font-weight: bold;
     }
 

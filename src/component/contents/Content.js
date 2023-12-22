@@ -97,7 +97,7 @@ const ContentContainer = styled.div`
   width: 30%;
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border: 1px solid ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
   margin-bottom: 100px;
   position: relative;
   &:hover .description {
@@ -290,7 +290,7 @@ function Content() {
               <h1 className="">CONTENTS</h1>
             </Content_Wrap>
 
-            <Content_type_wrap >
+            <Content_type_wrap  $isdark={theme} >
               {menuList.map((el, ind) => {
                 return (
                   <li

@@ -112,7 +112,7 @@ const About_me_Wrap = styled.div`
   svg {
     font-size: 40px;
     cursor: pointer;
-    color: #fffceb;
+    color: ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
   }
   svg:hover {
     animation: ${blinkEffect} 2s infinite;
@@ -154,7 +154,7 @@ const About_me_Wrap = styled.div`
 
 const ContactWrap = styled.div`
   width: 100%;
-  border: 2px solid #fffceb;
+  border: 2px solid ${({$isdark}) => ($isdark === "light" ? "#333" : "#fffceb")};
   display: flex;
   justify-content: space-around;
   text-align: center;
@@ -201,7 +201,7 @@ function About() {
             />
           </ImgWrap> */}
 
-              <About_me_Wrap>
+              <About_me_Wrap  $isdark={theme}>
                 <h2 style={{ fontSize: "30px", paddingBottom: "40px" }}>
                   Simple is the Best !{" "}
                 </h2>
@@ -214,7 +214,7 @@ function About() {
                   하였을때 큰 기쁨을 <br /> 느끼는 개발자가 될 수 있도록 <br />{" "}
                   노력 하고 있습니다!
                 </h2>
-                <ContactWrap>
+                <ContactWrap $isdark={theme}>
                   <SvgWrap>
                     <a href="mailto:kbs9406@gmail.com">
                       <FontAwesomeIcon icon={faEnvelope} />
